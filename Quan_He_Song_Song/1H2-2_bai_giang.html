@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOÁN ANH KIÊN - 0987 473 509</title>
+    <style>
+        * { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f7fbff; color: #1c2b3a; line-height: 1.6; padding-bottom: 72px; }
+
+        .topbar { position: sticky; top: 0; z-index: 50; background: #1e88e5; color: #fff; padding: 8px 14px; box-shadow: 0 2px 6px rgba(30,136,229,.25); }
+        .topbar .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: auto; }
+        .topbar h1 { margin: 0; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 200px; min-width: 0; }
+        .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tbtn { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 5px 12px; font-weight: bold; cursor: pointer; font-size: 13px; white-space: nowrap; }
+        .tbtn:hover { background: #e3f0fb; }
+
+        main { max-width: 860px; margin: auto; padding: 14px; }
+        mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+        .lz { margin: 0 0 12px; }
+        .txt { margin: 8px 0; }
+
+        /* ---- tiêu đề ---- */
+        h2.hd1 { color: #1565c0; border-bottom: 3px solid #b3d4fc; padding-bottom: 6px; margin: 30px 0 12px; font-size: 22px; }
+        h3.hd2 { color: #1565c0; border-bottom: 2px solid #b3d4fc; padding-bottom: 4px; margin: 24px 0 10px; font-size: 18px; }
+        h4.hd3 { color: #0d47a1; margin: 20px 0 8px; font-size: 16px; }
+        .sub-banner { text-align: center; font-weight: bold; font-size: 17px; color: #0d47a1; margin: 18px 0 10px; padding: 4px 10px; }
+        .hd { scroll-margin-top: 104px; }
+
+        /* ---- khung lý thuyết ---- */
+        .box { border: 2px solid var(--bc, #b3d4fc); background: var(--bg, #eef6fc); border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .box .bh { background: var(--bc, #b3d4fc); color: var(--fg, #0d47a1); font-weight: bold; padding: 5px 12px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .box .bsub { font-weight: normal; }
+        .box .bb { padding: 8px 14px; overflow-x: auto; }
+        .box .box { margin: 8px 0; }
+        .box .bb > .tp:first-child { margin-top: 2px; }
+        .k-def  { --bc: #b3d4fc; --bg: #eef6fc; --fg: #0d47a1; }
+        .k-thm  { --bc: #c5b3f5; --bg: #f5f1fe; --fg: #3b1e8a; }
+        .k-note { --bc: #ffe08a; --bg: #fffbea; --fg: #7a5600; }
+        .k-warn { --bc: #ffb4a8; --bg: #fff3f0; --fg: #9a2410; }
+        .k-key  { --bc: #a5dfb5; --bg: #f0fbf3; --fg: #14602b; }
+        .k-sum  { --bc: #9ed8e3; --bg: #eefafc; --fg: #0b5563; }
+        .k-try  { --bc: #f5c18c; --bg: #fff6ec; --fg: #8a4a00; }
+        .k-ask  { --bc: #d5d5d5; --bg: #f7f7f7; --fg: #333; }
+
+        /* ---- dạng toán (cỡ chữ tiêu đề 18px bằng subsection) ---- */
+        .dang { border: 2px solid #1e88e5; border-radius: 8px; margin: 22px 0 12px; background: #fff; overflow: hidden; scroll-margin-top: 104px; }
+        .dang .dh { background: #1e88e5; color: #fff; padding: 7px 14px; font-weight: bold; font-size: 18px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+        .dang .dno { background: #fff; color: #1565c0; border-radius: 12px; padding: 0 10px; white-space: nowrap; }
+        .dang .db { padding: 8px 14px; overflow-x: auto; }
+
+        /* ---- ví dụ / câu hỏi ---- */
+        .q { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 12px 14px; margin: 14px 0; overflow-x: auto; }
+        .q.s-correct { border-color: #28a745; }
+        .q.s-wrong { border-color: #dc3545; }
+        .q.s-partial { border-color: #ff9800; }
+        .q .eh { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .q .el { background: #1e88e5; color: #fff; font-weight: bold; padding: 2px 12px; border-radius: 14px; }
+        .q.ex .el { background: #00897b; }
+        .q .tag { font-size: 12px; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 10px; padding: 0 8px; background: #eef6fc; }
+        .qtext { margin-bottom: 8px; word-wrap: break-word; }
+
+        .opt { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 8px 11px; margin: 6px 0; cursor: pointer; transition: .2s; }
+        .opt:hover:not(.locked):not(.static) { background: #e3f0fb; border-color: #1e88e5; }
+        .opt:focus-visible, .tfb button:focus-visible { outline: 3px solid #ff9800; outline-offset: 1px; }
+        .opt.static { cursor: default; }
+        .opt.locked { cursor: default; }
+        .opt.locked:not(.correct):not(.wrong) { opacity: .55; }
+        .opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .lab { font-weight: bold; min-width: 1.7em; }
+        .ob { flex: 1; min-width: 0; overflow-x: auto; }
+
+        .tfrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 7px 10px; margin: 6px 0; }
+        .tfrow.r-ok { border-color: #28a745; }
+        .tfrow.r-bad { border-color: #dc3545; }
+        .tfc { flex: 1 1 60%; min-width: 0; overflow-x: auto; }
+        .tfb { display: flex; gap: 8px; }
+        .tfb button { padding: 6px 16px; font-weight: bold; border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; cursor: pointer; }
+        .tfb button:hover:not(:disabled) { background: #e3f0fb; }
+        .tfb button:disabled { cursor: default; }
+        .tfb button.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .tfb button.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        .shortrow { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sans { width: 190px; max-width: 100%; padding: 8px 12px; font-size: 17px; font-weight: bold; border: 2px solid #1e88e5; border-radius: 5px; color: #1565c0; }
+        .sans.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .sans.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; }
+        .chk:disabled { background: #ccc; cursor: default; }
+        .true-ans { margin-top: 8px; color: #28a745; font-weight: bold; }
+
+        .fb { margin-top: 6px; font-weight: bold; min-height: 1.2em; }
+        .f-correct { color: #28a745; } .f-wrong { color: #dc3545; } .f-partial { color: #ef6c00; }
+        .qtools { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .sol-btn { background: #17a2b8; color: #fff; border: none; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-weight: bold; }
+        .sol-btn:hover { background: #138496; }
+        .redo-btn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .solution-box { display: none; margin-top: 10px; padding: 12px 14px; background: #e8f4fc; border-left: 5px solid #0288d1; border-radius: 4px; overflow-x: auto; }
+
+        /* ---- mục lục (ngăn kéo) ---- */
+        .drawer { position: fixed; top: 0; bottom: 0; left: 0; width: min(360px, 88vw); z-index: 80; background: #fff; box-shadow: 4px 0 18px rgba(0,0,0,.25); transform: translateX(-105%); transition: transform .25s; display: flex; flex-direction: column; }
+        .drawer.open { transform: none; }
+        .drawer .dtop { background: #1e88e5; color: #fff; padding: 10px 14px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .drawer .dtop button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        .toc { overflow-y: auto; padding: 8px 6px 20px; }
+        .toc a { display: block; padding: 5px 10px; color: #1c2b3a; text-decoration: none; border-radius: 4px; font-size: 14px; line-height: 1.4; }
+        .toc a:hover { background: #e3f0fb; }
+        .toc a.l1 { font-weight: bold; color: #1565c0; margin-top: 8px; }
+        .toc a.l2 { padding-left: 18px; }
+        .toc a.l3 { padding-left: 30px; font-size: 13px; }
+        .toc a.l4 { padding-left: 30px; font-size: 13px; color: #00695c; }
+        .veil { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 70; display: none; }
+        .veil.open { display: block; }
+
+        .foot { text-align: center; font-size: 12px; color: #5f7b94; padding: 10px; }
+        .foot:empty { display: none; }
+        @media screen { .foot { display: none; } }
+
+        /* ---- góc dưới phải ---- */
+        .fab { position: fixed; right: 14px; bottom: 14px; z-index: 40; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 28px); pointer-events: none; }
+        .fab > * { pointer-events: auto; }
+        .credit { display: flex; align-items: center; flex-wrap: wrap; gap: 0 12px; min-height: 42px; padding: 4px 14px; background: #fff; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 21px; font-size: 12px; line-height: 1.35; box-shadow: 0 2px 8px rgba(30,136,229,.18); min-width: 0; }
+        .credit:empty { display: none; }
+        .credit .cr-i { white-space: nowrap; }
+        .credit .cr-i b { font-weight: bold; }
+        #toTop { flex: 0 0 42px; background: #1e88e5; color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+
+        /* ---- tiến độ học tập ---- */
+        .prow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: 6px auto 0; font-size: 13px; }
+        .ptxt { font-weight: bold; white-space: nowrap; }
+        .ptrack { flex: 1 1 90px; min-width: 70px; height: 8px; background: rgba(255,255,255,.35); border-radius: 4px; overflow: hidden; }
+        .pfill { height: 100%; width: 0; background: #fff; transition: width .3s; }
+        .fsel { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 3px 6px; font-weight: bold; font-size: 13px; max-width: 100%; }
+        .lswarn { background: #fff3cd; color: #7a5600; border-radius: 4px; padding: 0 8px; font-size: 12px; }
+        .fltnote { margin: 4px 0 10px; padding: 6px 12px; background: #fff6ec; border: 1px solid #f5c18c; border-radius: 6px; color: #8a4a00; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+        /* ---- trạng thái từng câu ---- */
+        .stt { font-size: 12px; font-weight: bold; border: 1px solid transparent; border-radius: 10px; padding: 0 8px; }
+        .stt:empty { display: none; }
+        .s-correct .stt { color: #155724; background: #d4edda; border-color: #28a745; }
+        .s-partial .stt { color: #8a4a00; background: #fff3e0; border-color: #ff9800; }
+        .s-wrong .stt { color: #721c24; background: #f8d7da; border-color: #dc3545; }
+        .tfb button.sel { background: #e3f0fb; border-color: #1e88e5; color: #1565c0; }
+        .tf-chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; margin-top: 6px; }
+        .tf-chk:disabled { background: #ccc; cursor: default; }
+        .rv-btn { background: #fff; color: #8a4a00; border: 1px solid #f5c18c; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .rv-btn.on { background: #fff6ec; border-color: #ff9800; }
+        .rate { margin-top: 10px; padding: 8px 12px; background: #f7fbff; border: 1px dashed #b3d4fc; border-radius: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .rate .rq { font-weight: bold; color: #1565c0; margin-right: 4px; }
+        .rb { border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; padding: 5px 14px; font-weight: bold; cursor: pointer; }
+        .rb:hover { background: #e3f0fb; }
+        .rb.ok.on { background: #d4edda; border-color: #28a745; color: #155724; }
+        .rb.near.on { background: #fff3e0; border-color: #ff9800; color: #8a4a00; }
+        .rb.no.on { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        /* ---- tổng kết ---- */
+        .dsum { margin-top: 10px; padding: 6px 12px; background: #eef6fc; border: 1px solid #b3d4fc; border-radius: 6px; font-size: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .dsum:empty { display: none; }
+        .dbtn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-weight: bold; }
+        .dbtn:disabled { color: #999; border-color: #ccc; cursor: default; }
+        .sumsec { margin: 34px 0 10px; scroll-margin-top: 104px; }
+        .sumsec .sline { font-weight: bold; color: #0d47a1; }
+        .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+        .scard { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 8px 10px; text-align: center; }
+        .scard b { display: block; font-size: 22px; color: #1565c0; }
+        .scard span { font-size: 12px; color: #5f7b94; }
+        .swrap { overflow-x: auto; }
+        .stab { border-collapse: collapse; width: 100%; background: #fff; }
+        .stab th, .stab td { border: 1px solid #b3d4fc; padding: 5px 10px; text-align: center; }
+        .stab th { background: #e8f4fc; color: #0d47a1; }
+        .stab td:first-child { text-align: left; }
+        .skind { margin: 6px 0; padding-left: 20px; }
+        .sbtns { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 6px; }
+        .sbtns .dbtn { padding: 7px 14px; }
+        .snote { font-size: 12px; color: #5f7b94; margin: 4px 0; }
+
+        /* --- SVG / ẢNH + KHUNG ZOOM --- */
+        :root {
+            --zoom-accent: #1e88e5; --zoom-accent-hover: #1565c0;
+            --zoom-border: #b3d4fc; --zoom-bar-bg: #eef6fc; --zoom-max-h: none;
+        }
+        svg { max-width: 100%; height: auto; display: block; margin: 10px auto; overflow: visible; }
+        svg text { font-family: Arial, sans-serif; }
+        img { max-width: 100%; height: auto; }
+        .zoom-container { display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; }
+        .zoom-viewport {
+            flex: 1 1 auto; min-width: 0;
+            overflow: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--zoom-border); border-radius: 4px; background: #fff;
+            box-sizing: border-box; padding: 4px;
+        }
+        .zoom-viewport.can-pan { cursor: grab; max-height: var(--zoom-max-h); overscroll-behavior: contain; }
+        .zoom-viewport.dragging { cursor: grabbing; user-select: none; }
+        .zoom-toolbar { display: flex; flex-direction: column; gap: 5px; background: var(--zoom-bar-bg); padding: 5px; border-radius: 4px; border: 1px solid var(--zoom-border); flex-shrink: 0; }
+        .zoom-btn { background: var(--zoom-accent); color: #fff; border: none; padding: 6px 10px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: background .2s, opacity .2s; white-space: nowrap; }
+        .zoom-btn:hover:not(:disabled) { background: var(--zoom-accent-hover); }
+        .zoom-btn:disabled { background: #ccc; cursor: not-allowed; opacity: .6; }
+        .zoom-media { display: block; margin: 0 auto; max-width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+        .zoom-media.zoomed { width: var(--zw) !important; max-width: none !important; height: auto !important; }
+
+        /* --- BẢNG DÀI & BẢNG RỘNG --- */
+        .table-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 10px 0; }
+        .table-scroll > table { margin: 0; max-width: 100%; border-collapse: collapse; }
+        .table-scroll th, .table-scroll td { overflow-wrap: break-word; }
+        .table-responsive { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 15px 0; }
+        .tbl-box { position: relative; margin: 12px 0; max-width: 100%; min-width: 0; }
+        .tbl-box > .tbl-wrap { position: relative; }
+        .tbl-box .table-responsive, .tbl-box .table-scroll { margin: 0; }
+        .tbl-hint { display: none; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 4px; font-size: 12.5px; color: #5f7b94; }
+        .tbl-box.has-scroll > .tbl-hint { display: flex; }
+        .tbl-open { font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 14px; border: 1px solid var(--zoom-border); background: var(--zoom-bar-bg); color: var(--zoom-accent-hover); cursor: pointer; white-space: nowrap; }
+        .tbl-fade { display: none; position: absolute; top: 0; right: 0; bottom: 0; width: 30px; pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), rgba(120,140,160,.28)); }
+        .tbl-box.has-scroll:not(.at-end) .tbl-fade { display: block; }
+        .tbl-box.has-scroll table.sticky-first tr > :first-child { position: sticky; left: 0; z-index: 2; background: #fff; box-shadow: 2px 0 4px -2px rgba(0,0,0,.35); }
+        @media (max-width: 600px) {
+            .tbl-box td, .tbl-box th { font-size: 14px; padding: 4px 7px !important; }
+        }
+        #tblOverlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: none; flex-direction: column; }
+        #tblOverlay.open { display: flex; }
+        .tbl-ov-bar { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--zoom-bar-bg); border-bottom: 1px solid var(--zoom-border); }
+        .tbl-ov-bar .ttl { flex: 1; min-width: 0; font-size: 13px; font-weight: bold; color: #333; }
+        .tbl-ov-body { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding: 10px; touch-action: pan-x pan-y; }
+        .tbl-ov-body table { margin: 0; width: auto; max-width: none; border-collapse: collapse; font-size: calc(15px * var(--tbl-s, 1)); }
+        .tbl-ov-body td, .tbl-ov-body th { font-size: inherit !important; padding: 5px 9px; }
+
+        /* ===== Bổ sung định dạng TeX2HTML ===== */
+        .tp { margin: 6px 0; }
+        .center { text-align: center; }
+        .lvl { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 12px; border: 1px solid; font-size: 12px; font-weight: bold; line-height: 1.6; white-space: nowrap; vertical-align: middle; cursor: help; }
+        .lvl .dots { letter-spacing: 1px; margin-right: 4px; }
+        .lvl.lv1 { background: #e6f4ea; border-color: #34a853; color: #1b6b32; }
+        .lvl.lv2 { background: #e3f0fb; border-color: #4a90d9; color: #0d47a1; }
+        .lvl.lv3 { background: #fff3e0; border-color: #fb8c00; color: #8a4b00; }
+        .lvl.lv4 { background: #fdeaea; border-color: #e53935; color: #a31515; }
+        .figure svg, .figure img { max-width: 100%; height: auto; }
+        .fig-error { color: #b00020; border: 1px dashed #b00020; padding: 6px 10px; text-align: center; margin: 8px 0; font-size: 14px; }
+        .fbox { border: 1px solid currentColor; padding: 0 4px; }
+        blockquote { margin: 8px 20px; }
+        img { max-width: 100%; height: auto; }
+        ul, ol { margin: 6px 0; padding-left: 24px; }
+        ul.desc, li.cl { list-style: none; }
+        li.cl .lbl { font-weight: bold; margin-right: .4em; }
+        ol[class^="paren-"] { list-style: none; counter-reset: pc; padding-left: 2.2em; }
+        ol[class^="paren-"] > li { counter-increment: pc; position: relative; margin: 4px 0; }
+        ol[class^="paren-"] > li::before { position: absolute; left: -2.2em; width: 2em; text-align: right; font-weight: bold; }
+        ol.paren-a > li::before { content: counter(pc, lower-alpha) ")"; }
+        ol.paren-A > li::before { content: counter(pc, upper-alpha) ")"; }
+        ol.paren-i > li::before { content: counter(pc, lower-roman) ")"; }
+        ol.paren-I > li::before { content: counter(pc, upper-roman) ")"; }
+        ol.paren-1 > li::before { content: counter(pc, decimal) ")"; }
+        table.tex-table { border-collapse: collapse; margin: 8px auto; }
+        table.tex-table td { padding: 4px 10px; }
+        table.tex-table.bordered td { border: 1px solid #555; }
+        .tex-fa { margin: 0 .25em; font-style: normal; }
+
+        @media (max-width: 600px) {
+            main { padding: 10px; } .q { padding: 10px; } .tfc { flex-basis: 100%; }
+            .tbtn { padding: 5px 9px; }
+            .credit { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; font-size: 11px; padding: 3px 10px; border-radius: 14px; }
+        }
+        @media print {
+            .topbar, .fab, #toTop, .drawer, .veil, .qtools, .rate, .tf-chk, .dsum, .fltnote, .sumsec { display: none !important; }
+            .solution-box.show-print { display: block !important; }
+        }
+    </style>
+
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']], processEscapes: true, macros: {"wideparen": ["\\overset{\\frown}{#1}", 1], "overarc": ["\\overset{\\frown}{#1}", 1]} },
+          startup: { typeset: false },
+          options: { enableMenu: false, ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<style>
+.lz-lock { position: fixed; inset: 0; z-index: 100000; display: none; align-items: center; justify-content: center; padding: 14px; background: rgba(0,0,0,.5); }
+.lz-lock.open { display: flex; }
+.lz-lock-box { background: #fff; color: #1c2b3a; width: 100%; max-width: 360px; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-family: Arial, sans-serif; }
+.lz-lock-box h4 { margin: 0 0 6px; color: #1565c0; font-size: 18px; }
+.lz-lock-box p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.lz-lock-box input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; border: 2px solid #1e88e5; border-radius: 6px; }
+.lz-lock-box input.bad { border-color: #dc3545; animation: lzshake .3s; }
+.lz-lock-err { min-height: 1.3em; margin: 6px 0 2px; font-size: 13px; color: #dc3545; font-weight: bold; }
+.lz-lock-btns { display: flex; gap: 8px; margin-top: 8px; }
+.lz-lock-btns button { flex: 1; padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; color: #fff; background: #1e88e5; }
+.lz-lock-btns button.cancel { background: #6c757d; }
+@keyframes lzshake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+</style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="row">
+            <h1 id="ttl">TOÁN ANH KIÊN - 0987 473 509</h1>
+            <div class="tools">
+                <button type="button" class="tbtn" id="btnToc">☰ Mục lục</button>
+                <button type="button" class="tbtn" id="btnAll">👁 Hiện tất cả lời giải</button>
+                <button type="button" class="tbtn" id="btnSum" hidden>📊 Tổng kết</button>
+            </div>
+        </div>
+        <div class="prow" id="prow" hidden>
+            <span class="ptxt" id="ptxt">Đã làm 0/0 · đúng 0</span>
+            <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+            <select class="fsel" id="fltSel" aria-label="Lọc câu hỏi">
+                <option value="all">Tất cả</option>
+                <option value="todo">Chưa làm</option>
+                <option value="rev">Cần ôn lại</option>
+            </select>
+            <span class="lswarn" id="lsWarn" hidden>⚠ Trình duyệt không cho lưu tiến độ</span>
+        </div>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <aside class="drawer" id="drawer" aria-label="Mục lục">
+        <div class="dtop"><span>Mục lục</span><button type="button" id="btnTocClose" aria-label="Đóng">✕</button></div>
+        <nav class="toc" id="toc"><a class="l2" href="#sub0_1">KIẾN THỨC TRỌNG TÂM</a><a class="l3" href="#subsub0_1_1">Đường thẳng vuông góc với mặt phẳng</a><a class="l3" href="#subsub0_1_2">Liên hệ giữa tính song song và tính vuông góc của đường thẳng và mặt phẳng</a><a class="l2" href="#sub0_2">CÁC DẠNG BÀI TẬP VÀ PHƯƠNG PHÁP GIẢI</a><a class="l4" href="#d1">Dạng 1. Đường thẳng vuông góc với mặt phẳng</a><a class="l4" href="#d2">Dạng 2. Đường thẳng vuông góc đường thẳng</a></nav>
+    </aside>
+
+    <main id="content">
+<div class="lz"><h3 class="hd hd2" id="sub0_1">KIẾN THỨC TRỌNG TÂM</h3></div><div class="lz"><h4 class="hd hd3" id="subsub0_1_1">Đường thẳng vuông góc với mặt phẳng</h4></div><div class="lz"><div class="txt"><div class="box k-def"><div class="bh"><span>Định nghĩa 1</span></div><div class="bb"><div class="tp">Đường thẳng $d$ gọi là vuông góc với mặt phẳng $(\alpha)$ nếu nó vuông góc với mọi đường thẳng $a$ nằm trong $(\alpha)$, kí hiệu $d \perp (\alpha)$.</div><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='125.485191pt' height='84.437191pt' viewBox='-69.011212 -69.011212 125.485191 84.437191'>
+<defs>
+<path id='g0-11' d='M4.064757-1.115816C4.805978-1.928767 5.068991-2.964882 5.068991-3.028643C5.068991-3.100374 5.021171-3.132254 4.94944-3.132254C4.845828-3.132254 4.837858-3.100374 4.790037-2.933001C4.566874-2.12005 4.088667-1.498381 4.064757-1.498381C4.048817-1.498381 4.048817-1.697634 4.048817-1.825156C4.032877-3.227895 3.124284-3.514819 2.582316-3.514819C1.458531-3.514819 .350685-2.422914 .350685-1.299128C.350685-.510087 .900623 .079701 1.745455 .079701C2.303362 .079701 2.893151-.119552 3.52279-.589788C3.698132 .039851 4.160399 .079701 4.303861 .079701C4.758157 .079701 5.021171-.326775 5.021171-.478207C5.021171-.573848 4.925529-.573848 4.901619-.573848C4.813948-.573848 4.798007-.549938 4.774097-.494147C4.646575-.159402 4.375592-.143462 4.335741-.143462C4.224159-.143462 4.096638-.143462 4.064757-1.115816ZM3.466999-.852802C2.901121-.342715 2.231631-.143462 1.769365-.143462C1.354919-.143462 .996264-.382565 .996264-1.020174C.996264-1.299128 1.123786-2.12005 1.498381-2.654047C1.817186-3.100374 2.247572-3.291656 2.574346-3.291656C3.012702-3.291656 3.259776-2.980822 3.363387-2.494645C3.482939-1.952677 3.419178-1.315068 3.466999-.852802Z'/>
+<path id='g0-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g0-100' d='M4.28792-5.292154C4.29589-5.308095 4.319801-5.411706 4.319801-5.419676C4.319801-5.459527 4.28792-5.531258 4.192279-5.531258C4.160399-5.531258 3.913325-5.507347 3.730012-5.491407L3.283686-5.459527C3.108344-5.443587 3.028643-5.435616 3.028643-5.292154C3.028643-5.180573 3.140224-5.180573 3.235866-5.180573C3.618431-5.180573 3.618431-5.132752 3.618431-5.061021C3.618431-5.0132 3.55467-4.750187 3.514819-4.590785L3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.669489 3.156164-.757161 3.180075-.860772L4.28792-5.292154ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-68.612713,-.573882)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0 0L31.292 31.292L125.15578 31.28893L93.87607 0Z' fill='none'/>
+<path d='' fill='none'/>
+<path d='M14.22636 0C14.22636 3.77235 12.727 7.3921 10.05956 10.05956' fill='none'/>
+<path d='M1.8778-2.19109' fill='none'/>
+<g transform='translate(5.60995,1.54106)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,-.573882)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='-.573882' xlink:href='#g0-11'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M78.23007 62.58405' fill='none'/>
+<g transform='translate(81.96222,59.80627)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,-.573882)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='-.573882' xlink:href='#g0-100'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M78.23007 62.58405L78.21773 15.63565M78.22237-15.65987L78.2086 0' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M78.21773 15.63565L78.2086 0' fill='none'/>
+</g>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M29.72444 21.27669L51.6274 3.7545' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<path d='M32.85034 18.77155' fill='none'/>
+<g transform='translate(30.59291,22.5037)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,-.573882)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='-.573882' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M79.31773 15.63565C79.31773 16.24316 78.82524 16.73566 78.21773 16.73566C77.61021 16.73566 77.11772 16.24316 77.11772 15.63565S77.61021 14.53564 78.21773 14.53564C78.82524 14.53564 79.31773 15.02814 79.31773 15.63565ZM78.21773 15.63565'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="box k-thm"><div class="bh"><span>Định lý 1</span><span class="bsub">(Điều kiện để đường thẳng vuông góc với mặt phẳng)</span></div><div class="bb"><div class="tp">$$\left. \begin{array}{l} d\perp a, d\perp b\\ a,b\subset (P)\\ a\cap b=I \end{array} \right\}\Rightarrow d\perp (P)$$</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='152.976189pt' height='85.975173pt' viewBox='-69.011212 -69.011215 152.976189 85.975173'>
+<defs>
+<path id='g0-73' d='M3.092403-4.821918C3.164134-5.100872 3.180075-5.180573 3.777833-5.180573C3.961146-5.180573 4.056787-5.180573 4.056787-5.332005C4.056787-5.339975 4.048817-5.443587 3.921295-5.443587C3.801743-5.443587 3.55467-5.427646 3.427148-5.419676H2.327273C2.215691-5.427646 1.928767-5.443587 1.817186-5.443587C1.785305-5.443587 1.657783-5.443587 1.657783-5.292154C1.657783-5.180573 1.753425-5.180573 1.912827-5.180573C2.414944-5.180573 2.414944-5.132752 2.414944-5.037111C2.414944-5.021171 2.414944-4.98132 2.383064-4.853798L1.323039-.629639C1.251308-.342715 1.227397-.263014 .637609-.263014C.446326-.263014 .358655-.263014 .358655-.111582C.358655-.071731 .390535 0 .486177 0C.597758 0 .860772-.01594 .980324-.02391H2.088169C2.199751-.01594 2.486675 0 2.598257 0C2.646077 0 2.757659 0 2.757659-.151432C2.757659-.263014 2.662017-.263014 2.494645-.263014C2.375093-.263014 2.327273-.263014 2.191781-.278954S1.992528-.302864 1.992528-.390535C1.992528-.430386 2.000498-.430386 2.024408-.541968L3.092403-4.821918Z'/>
+<path id='g0-80' d='M2.510585-2.486675H3.961146C5.108842-2.486675 6.304359-3.283686 6.304359-4.224159C6.304359-4.901619 5.66675-5.443587 4.638605-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.809215-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639C1.259278-.334745 1.243337-.263014 .67746-.263014C.494147-.263014 .406476-.263014 .406476-.111582C.406476-.079701 .430386 0 .533998 0C.68543 0 .876712-.01594 1.028144-.02391H1.538232C2.303362-.02391 2.510585 0 2.566376 0C2.614197 0 2.725778 0 2.725778-.151432C2.725778-.263014 2.622167-.263014 2.486675-.263014C2.462765-.263014 2.319303-.263014 2.183811-.278954C2.016438-.294894 2.000498-.318804 2.000498-.390535C2.000498-.430386 2.016438-.478207 2.024408-.518057L2.510585-2.486675ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.375592C5.029141-5.180573 5.531258-4.98929 5.531258-4.399502C5.531258-4.29589 5.491407-3.58655 5.045081-3.148194C4.925529-3.028643 4.542964-2.725778 3.761893-2.725778H2.550436L3.092403-4.885679Z'/>
+<path id='g0-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g0-98' d='M1.944707-5.292154C1.952677-5.308095 1.976588-5.411706 1.976588-5.419676C1.976588-5.459527 1.944707-5.531258 1.849066-5.531258C1.817186-5.531258 1.570112-5.507347 1.3868-5.491407L.940473-5.459527C.765131-5.443587 .68543-5.435616 .68543-5.292154C.68543-5.180573 .797011-5.180573 .892653-5.180573C1.275218-5.180573 1.275218-5.132752 1.275218-5.061021C1.275218-5.0132 1.195517-4.694396 1.147696-4.511083L.454296-1.737484C.390535-1.466501 .390535-1.346949 .390535-1.211457C.390535-.390535 .892653 .079701 1.506351 .079701C2.486675 .079701 3.506849-1.052055 3.506849-2.207721C3.506849-2.996762 2.996762-3.514819 2.359153-3.514819C1.912827-3.514819 1.570112-3.227895 1.39477-3.076463L1.944707-5.292154ZM1.506351-.143462C1.219427-.143462 .932503-.366625 .932503-.948443C.932503-1.163636 .964384-1.362889 1.060025-1.745455C1.115816-1.976588 1.171606-2.199751 1.235367-2.430884C1.275218-2.574346 1.275218-2.590286 1.370859-2.709838C1.641843-3.044583 2.000498-3.291656 2.335243-3.291656C2.733748-3.291656 2.885181-2.901121 2.885181-2.542466C2.885181-2.247572 2.709838-1.39477 2.470735-.924533C2.263512-.494147 1.880946-.143462 1.506351-.143462Z'/>
+<path id='g0-100' d='M4.28792-5.292154C4.29589-5.308095 4.319801-5.411706 4.319801-5.419676C4.319801-5.459527 4.28792-5.531258 4.192279-5.531258C4.160399-5.531258 3.913325-5.507347 3.730012-5.491407L3.283686-5.459527C3.108344-5.443587 3.028643-5.435616 3.028643-5.292154C3.028643-5.180573 3.140224-5.180573 3.235866-5.180573C3.618431-5.180573 3.618431-5.132752 3.618431-5.061021C3.618431-5.0132 3.55467-4.750187 3.514819-4.590785L3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.669489 3.156164-.757161 3.180075-.860772L4.28792-5.292154ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-68.612713,16.565458)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-width='0.8'>
+<path d='M0 0H119.4866L152.74986 39.65875L33.28166 39.66353Z' fill='none'/>
+<path d='M50.52235 31.73093L102.24586 7.93257' fill='none'/>
+<path d='M30.5495 7.93161L122.20035 31.72711' fill='none'/>
+<path d='M77.4849 19.82733C77.4849 20.44589 76.98346 20.94733 76.3649 20.94733S75.2449 20.44589 75.2449 19.82733S75.74634 18.70734 76.3649 18.70734S77.4849 19.20877 77.4849 19.82733ZM76.3649 19.82733' stroke='none'/>
+<g transform='translate(74.21002,8.5582)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,16.565458)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='16.565458' xlink:href='#g0-73'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(65.4975,27.52762)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,16.565458)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='16.565458' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(34.27794,11.66278)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,16.565458)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='16.565458' xlink:href='#g0-98'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M111.50655 13.79689V85.49759' fill='none'/>
+<g transform='translate(115.22527,74.74385)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,16.565458)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='16.565458' xlink:href='#g0-100'/>
+</g>
+</g>
+</g>
+</g>
+<clipPath id='pgfcp9'>
+<path d='M119.4866 0H0L33.28166 39.66353'/> </clipPath>
+<g clip-path='url(#pgfcp9)'>
+<g stroke-opacity='0.7'>
+<g fill-opacity='0.7'>
+<path d='M19.91681 0C19.91681 10.99988 10.99988 19.91681 0 19.91681S-19.91681 10.99988-19.91681 0S-10.99988-19.91681 0-19.91681S19.91681-10.99988 19.91681 0ZM0 0' fill='none'/>
+<g fill='#000' stroke='#000'>
+<g fill='#000' stroke='#000'>
+</g>
+<g transform='translate(6.85585,2.43362)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,16.565458)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='16.565458' xlink:href='#g0-80'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M111.51888 19.48901L117.20932 19.48875L117.21043 13.79831' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div></div><div class="box k-thm"><div class="bh"><span>Tính chất 1</span></div><div class="bb"><div class="tp">$$\left. \begin{array}{l} d\perp (\alpha) \\ a\subset (\alpha) \end{array} \right\}\Rightarrow d\perp a.$$</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='176.544867pt' height='106.389978pt' viewBox='-69.011212 -69.011212 176.544867 106.389978'>
+<defs>
+<path id='g0-11' d='M4.752179-2.351183C4.752179-3.915318 3.825654-4.403487 3.088418-4.403487C1.723537-4.403487 .408468-2.978829 .408468-1.574097C.408468-.647572 1.006227 .109589 2.022416 .109589C2.650062 .109589 3.367372-.119552 4.124533-.727273C4.254047-.199253 4.582814 .109589 5.031133 .109589C5.559153 .109589 5.867995-.438356 5.867995-.597758C5.867995-.667497 5.808219-.697385 5.748443-.697385C5.678705-.697385 5.648817-.667497 5.618929-.597758C5.439601-.109589 5.080946-.109589 5.061021-.109589C4.752179-.109589 4.752179-.886675 4.752179-1.125778C4.752179-1.334994 4.752179-1.354919 4.851806-1.474471C5.788294-2.650062 5.997509-3.805729 5.997509-3.815691C5.997509-3.835616 5.987547-3.915318 5.877958-3.915318C5.778331-3.915318 5.778331-3.88543 5.728518-3.706102C5.549191-3.078456 5.220423-2.321295 4.752179-1.733499V-2.351183ZM4.084682-.986301C3.20797-.219178 2.440847-.109589 2.042341-.109589C1.444583-.109589 1.145704-.557908 1.145704-1.195517C1.145704-1.683686 1.404732-2.759651 1.723537-3.267746C2.191781-3.995019 2.729763-4.184309 3.078456-4.184309C4.064757-4.184309 4.064757-2.879203 4.064757-2.102117C4.064757-1.733499 4.064757-1.155666 4.084682-.986301Z'/>
+<path id='g0-97' d='M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g0-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(16.42662,-39.555038)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linecap='round'>
+<g stroke-linejoin='round'>
+<g transform='translate(3.53215,-50.51682)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-10.69423,19.29005)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-100'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0-42.67912L51.2148-12.80385' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-14.22638 22.76227V-28.45274M-14.22636-56.90549V-76.82231' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<g stroke-width='0.8'>
+<path d='M-14.22638-28.45274L-14.22636-56.90549' fill='none'/>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-22.76228 0L-85.35823-56.90549H28.45274L91.04869 0Z' fill='none'/>
+</g>
+<path d='M-62.59595-56.90549C-62.59595-51.24445-64.70862-45.78331-68.51645-41.59473' fill='none'/>
+<g fill='#000' stroke='#000'>
+</g>
+<path d='M-14.22638-28.45274V-22.76228L-8.575-22.0976V-27.78806L-14.22638-28.45274' fill='none'/>
+<g fill='#000' stroke='#000'>
+<g fill='#000' stroke='#000'>
+</g>
+<g transform='translate(-76.63338,-54.44153)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-11'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div></div></div></div><div class="lz"><h4 class="hd hd3" id="subsub0_1_2">Liên hệ giữa tính song song và tính vuông góc của đường thẳng và mặt phẳng</h4></div><div class="lz"><div class="txt"><div class="box k-thm"><div class="bh"><span>Định lý 2</span></div><div class="bb"><ol><li>Cho hai đường thẳng song song. Mặt phẳng nào vuông góc với đường thẳng này thì cũng vuông góc với đường thẳng kia.</li><li>Hai đường thẳng phân biệt cùng vuông góc với một mặt phẳng thì song song với nhau.</li></ol><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='111.342067pt' height='98.606466pt' viewBox='-69.011212 -69.01121 111.342067 98.606466'>
+<defs>
+<path id='g0-80' d='M2.510585-2.486675H3.961146C5.108842-2.486675 6.304359-3.283686 6.304359-4.224159C6.304359-4.901619 5.66675-5.443587 4.638605-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.809215-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639C1.259278-.334745 1.243337-.263014 .67746-.263014C.494147-.263014 .406476-.263014 .406476-.111582C.406476-.079701 .430386 0 .533998 0C.68543 0 .876712-.01594 1.028144-.02391H1.538232C2.303362-.02391 2.510585 0 2.566376 0C2.614197 0 2.725778 0 2.725778-.151432C2.725778-.263014 2.622167-.263014 2.486675-.263014C2.462765-.263014 2.319303-.263014 2.183811-.278954C2.016438-.294894 2.000498-.318804 2.000498-.390535C2.000498-.430386 2.016438-.478207 2.024408-.518057L2.510585-2.486675ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.375592C5.029141-5.180573 5.531258-4.98929 5.531258-4.399502C5.531258-4.29589 5.491407-3.58655 5.045081-3.148194C4.925529-3.028643 4.542964-2.725778 3.761893-2.725778H2.550436L3.092403-4.885679Z'/>
+<path id='g0-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g0-98' d='M1.944707-5.292154C1.952677-5.308095 1.976588-5.411706 1.976588-5.419676C1.976588-5.459527 1.944707-5.531258 1.849066-5.531258C1.817186-5.531258 1.570112-5.507347 1.3868-5.491407L.940473-5.459527C.765131-5.443587 .68543-5.435616 .68543-5.292154C.68543-5.180573 .797011-5.180573 .892653-5.180573C1.275218-5.180573 1.275218-5.132752 1.275218-5.061021C1.275218-5.0132 1.195517-4.694396 1.147696-4.511083L.454296-1.737484C.390535-1.466501 .390535-1.346949 .390535-1.211457C.390535-.390535 .892653 .079701 1.506351 .079701C2.486675 .079701 3.506849-1.052055 3.506849-2.207721C3.506849-2.996762 2.996762-3.514819 2.359153-3.514819C1.912827-3.514819 1.570112-3.227895 1.39477-3.076463L1.944707-5.292154ZM1.506351-.143462C1.219427-.143462 .932503-.366625 .932503-.948443C.932503-1.163636 .964384-1.362889 1.060025-1.745455C1.115816-1.976588 1.171606-2.199751 1.235367-2.430884C1.275218-2.574346 1.275218-2.590286 1.370859-2.709838C1.641843-3.044583 2.000498-3.291656 2.335243-3.291656C2.733748-3.291656 2.885181-2.901121 2.885181-2.542466C2.885181-2.247572 2.709838-1.39477 2.470735-.924533C2.263512-.494147 1.880946-.143462 1.506351-.143462Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-68.612713,10.772591)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(28.7395,72.25085)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,10.772591)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='10.772591' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(66.60475,71.1953)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,10.772591)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='10.772591' xlink:href='#g0-98'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M18.49326 55.4798H110.95961L92.46216 0H0ZM36.98651 73.97307V27.73988M36.98651 0V-18.49326M73.97307 73.97307V27.73988M73.97307-18.49326V0' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M36.98651 27.73988V0M73.97307 27.73988V0' fill='none'/>
+</g>
+<path d='' fill='none'/>
+<path d='M36.9882 36.27705H45.52411V27.74115' fill='none'/>
+<path d='' fill='none'/>
+<path d='M73.97643 36.27705H65.44052V27.74115' fill='none'/>
+<path d='' fill='none'/>
+<path d='M19.91684 0C19.91684 8.57169 14.42928 16.18344 6.29785 18.89388' fill='none'/>
+<g transform='translate(4.79353,3.08907)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-68.612713,10.772591)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-68.612713' y='10.772591' xlink:href='#g0-80'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="box k-thm"><div class="bh"><span>Định lý 3</span></div><div class="bb"><ol><li>Cho hai mặt phẳng song song. Đường thẳng nào vuông góc với mặt phẳng này thì cũng vuông góc với mặt phẳng kia.</li><li>Hai mặt phẳng phân biệt cùng vuông góc với một đường thẳng thì song song với nhau.</li></ol></div></div></div></div><div class="lz"><h3 class="hd hd2" id="sub0_2">CÁC DẠNG BÀI TẬP VÀ PHƯƠNG PHÁP GIẢI</h3></div><div class="lz"><div class="dang" id="d1"><div class="dh"><span class="dno">Dạng 1</span><span class="dtt">Đường thẳng vuông góc với mặt phẳng</span></div><div class="db"><div class="txt"><div class="tp">Ta chứng minh $d$ vuông góc với <b>\fontfamily{cmss}\selectfont hai đường thẳng cắt nhau</b> nằm trong $(\alpha)$.<br></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='176.544867pt' height='106.389978pt' viewBox='-69.011212 -69.011212 176.544867 106.389978'>
+<defs>
+<path id='g0-11' d='M4.752179-2.351183C4.752179-3.915318 3.825654-4.403487 3.088418-4.403487C1.723537-4.403487 .408468-2.978829 .408468-1.574097C.408468-.647572 1.006227 .109589 2.022416 .109589C2.650062 .109589 3.367372-.119552 4.124533-.727273C4.254047-.199253 4.582814 .109589 5.031133 .109589C5.559153 .109589 5.867995-.438356 5.867995-.597758C5.867995-.667497 5.808219-.697385 5.748443-.697385C5.678705-.697385 5.648817-.667497 5.618929-.597758C5.439601-.109589 5.080946-.109589 5.061021-.109589C4.752179-.109589 4.752179-.886675 4.752179-1.125778C4.752179-1.334994 4.752179-1.354919 4.851806-1.474471C5.788294-2.650062 5.997509-3.805729 5.997509-3.815691C5.997509-3.835616 5.987547-3.915318 5.877958-3.915318C5.778331-3.915318 5.778331-3.88543 5.728518-3.706102C5.549191-3.078456 5.220423-2.321295 4.752179-1.733499V-2.351183ZM4.084682-.986301C3.20797-.219178 2.440847-.109589 2.042341-.109589C1.444583-.109589 1.145704-.557908 1.145704-1.195517C1.145704-1.683686 1.404732-2.759651 1.723537-3.267746C2.191781-3.995019 2.729763-4.184309 3.078456-4.184309C4.064757-4.184309 4.064757-2.879203 4.064757-2.102117C4.064757-1.733499 4.064757-1.155666 4.084682-.986301Z'/>
+<path id='g0-73' d='M3.726027-6.03736C3.815691-6.396015 3.845579-6.495641 4.632628-6.495641C4.871731-6.495641 4.951432-6.495641 4.951432-6.684932C4.951432-6.804483 4.841843-6.804483 4.801993-6.804483C4.513076-6.804483 3.775841-6.774595 3.486924-6.774595C3.188045-6.774595 2.460772-6.804483 2.161893-6.804483C2.092154-6.804483 1.96264-6.804483 1.96264-6.60523C1.96264-6.495641 2.052304-6.495641 2.241594-6.495641C2.660025-6.495641 2.929016-6.495641 2.929016-6.306351C2.929016-6.256538 2.929016-6.236613 2.909091-6.146949L1.564134-.777086C1.474471-.408468 1.444583-.308842 .657534-.308842C.428394-.308842 .33873-.308842 .33873-.109589C.33873 0 .458281 0 .488169 0C.777086 0 1.504359-.029888 1.793275-.029888C2.092154-.029888 2.82939 0 3.128269 0C3.20797 0 3.327522 0 3.327522-.18929C3.327522-.308842 3.247821-.308842 3.028643-.308842C2.849315-.308842 2.799502-.308842 2.600249-.328767C2.391034-.348692 2.351183-.388543 2.351183-.498132C2.351183-.577833 2.371108-.657534 2.391034-.727273L3.726027-6.03736Z'/>
+<path id='g0-97' d='M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g0-98' d='M2.381071-6.804483C2.381071-6.814446 2.381071-6.914072 2.251557-6.914072C2.022416-6.914072 1.295143-6.834371 1.036115-6.814446C.956413-6.804483 .846824-6.794521 .846824-6.615193C.846824-6.495641 .936488-6.495641 1.085928-6.495641C1.564134-6.495641 1.58406-6.425903 1.58406-6.326276C1.58406-6.256538 1.494396-5.917808 1.444583-5.708593L.627646-2.460772C.508095-1.96264 .468244-1.803238 .468244-1.454545C.468244-.508095 .996264 .109589 1.733499 .109589C2.909091 .109589 4.134496-1.374844 4.134496-2.809465C4.134496-3.716065 3.606476-4.403487 2.809465-4.403487C2.351183-4.403487 1.942715-4.11457 1.643836-3.805729L2.381071-6.804483ZM1.444583-3.038605C1.504359-3.257783 1.504359-3.277709 1.594022-3.387298C2.082192-4.034869 2.530511-4.184309 2.789539-4.184309C3.148194-4.184309 3.417186-3.88543 3.417186-3.247821C3.417186-2.660025 3.088418-1.514321 2.909091-1.135741C2.580324-.468244 2.122042-.109589 1.733499-.109589C1.39477-.109589 1.066002-.37858 1.066002-1.115816C1.066002-1.305106 1.066002-1.494396 1.225405-2.122042L1.444583-3.038605Z'/>
+<path id='g0-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(16.42662,-39.555038)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linecap='round'>
+<g stroke-linejoin='round'>
+<g transform='translate(31.55293,-19.23012)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-73'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-5.4884,-16.3736)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(3.53215,-53.1557)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-98'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-10.69423,19.29005)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-100'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M-2.84546-8.5359L52.63753-29.87546' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0-42.67912L51.2148-12.80385' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-14.22638 22.76227V-28.45274M-14.22636-56.90549V-76.82231' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<g stroke-width='0.8'>
+<path d='M-14.22638-28.45274L-14.22636-56.90549' fill='none'/>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-22.76228 0L-85.35823-56.90549H28.45274L91.04869 0Z' fill='none'/>
+</g>
+<path d='M-62.59595-56.90549C-62.59595-51.24445-64.70862-45.78331-68.51645-41.59473' fill='none'/>
+<g fill='#000' stroke='#000'>
+</g>
+<g fill='#000' stroke='#000'>
+<g fill='#000' stroke='#000'>
+</g>
+<g transform='translate(-76.63338,-54.44153)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-11'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke='#000'>
+<g fill='#e6e6e6'>
+<g fill='#000'>
+<g stroke='#000'>
+<g fill='#e6e6e6'>
+<g fill='#000'>
+<path d='M35.1432-22.76227C35.1432-22.20998 34.6955-21.76227 34.1432-21.76227C33.59091-21.76227 33.1432-22.20998 33.1432-22.76227S33.59091-23.76227 34.1432-23.76227C34.6955-23.76227 35.1432-23.31456 35.1432-22.76227ZM34.1432-22.76227'/>
+</g>
+</g>
+</g>
+<g transform='translate(34.1432,-22.76227)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><div class="center"><div class="tp">$\left. \begin{array}{l} d\perp a, d\perp b\\ a,b\subset (\alpha)\\ a\cap b={I} \end{array} \right\}\Rightarrow d\perp (\alpha)$</div></div><div class="tp">Nếu $d\perp (\alpha)$ thì $d$ vuông góc với tất cả các đường thẳng nằm trong $(\alpha)$.</div></div></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd1" data-kind="essay" data-level="1" data-qid="1H3B3-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Ví dụ 1</span><span class="lvl lv1" title="Mã ID: 1H3B3-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông và $SA\perp (ABCD)$. <ol><li>Chứng minh $BC\perp (SAB)$;</li><li>Chứng minh $CD\perp (SAD)$;</li><li>Chứng minh $BD\perp (SAC)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $$ \left. \begin{array}{l} BC\perp AB \text{ (vì } ABCD \text{ là hình vuông})\\ BC \perp SA \text{ (vì } SA \perp (ABCD), BC \subset (ABCD)) \end{array} \right\} $$ $ \Rightarrow BC \perp (SAB) $.</li><li>Ta có $$ \left. \begin{array}{l} CD\perp AD \text{ (vì } ABCD \text{ là hình vuông})\\ CD \perp SA \text{ (vì } SA \perp (ABCD), CD \subset (ABCD)) \end{array} \right\} $$ $ \Rightarrow CD \perp (SAD) $.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='147.079741pt' height='134.093191pt' viewBox='-69.011212 -69.011213 147.079741 134.093191'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-68' d='M1.331009-.629639C1.259278-.326775 1.243337-.263014 .653549-.263014C.502117-.263014 .406476-.263014 .406476-.111582C.406476 0 .510087 0 .645579 0H3.387298C5.068991 0 6.742715-1.609963 6.742715-3.387298C6.742715-4.606725 5.929763-5.443587 4.742217-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.801245-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.463263C5.395766-5.180573 6.025405-4.646575 6.025405-3.674222C6.025405-3.411208 5.913823-2.11208 5.220423-1.219427C4.869738-.773101 4.184309-.263014 3.243836-.263014H2.056289C1.984558-.278954 1.960648-.278954 1.960648-.334745C1.960648-.398506 1.976588-.462267 1.992528-.510087L3.092403-4.885679Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-55.193096,52.597848)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(-10.53778,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(36.64803,30.63261)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(76.35112,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(123.21967,37.09583)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-68'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(37.02078,113.2663)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(56.40091,23.64671)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.193096,52.597848)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.193096' y='52.597848' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0 0H79.66283L119.48752 39.82915L39.82915 109.53415ZM39.82915 109.53415L79.66283 0' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M39.8314 39.8314L119.48752 39.82915M39.82915 109.53415L39.8314 39.8314L0 0M39.8314 39.8314L79.66283 0M0 0L119.48752 39.82915' fill='none'/>
+</g>
+<path d='M40.8814 39.8314C40.8814 40.4113 40.4113 40.8814 39.8314 40.8814C39.25151 40.8814 38.78142 40.4113 38.78142 39.8314C38.78142 39.25151 39.25151 38.78142 39.8314 38.78142C40.4113 38.78142 40.8814 39.25151 40.8814 39.8314ZM39.8314 39.8314' stroke='none'/>
+<path d='M1.04999 0C1.04999 .5799 .5799 1.04999 0 1.04999S-1.04999 .5799-1.04999 0S-.5799-1.04999 0-1.04999S1.04999-.5799 1.04999 0ZM0 0' stroke='none'/>
+<path d='M80.71281 0C80.71281 .5799 80.24272 1.04999 79.66283 1.04999C79.08293 1.04999 78.61284 .5799 78.61284 0S79.08293-1.04999 79.66283-1.04999C80.24272-1.04999 80.71281-.5799 80.71281 0ZM79.66283 0' stroke='none'/>
+<path d='M120.5375 39.82915C120.5375 40.40904 120.06741 40.87914 119.48752 40.87914C118.90762 40.87914 118.43753 40.40904 118.43753 39.82915C118.43753 39.24925 118.90762 38.77916 119.48752 38.77916C120.06741 38.77916 120.5375 39.24925 120.5375 39.82915ZM119.48752 39.82915' stroke='none'/>
+<path d='M40.87914 109.53415C40.87914 110.11404 40.40904 110.58414 39.82915 110.58414C39.24925 110.58414 38.77916 110.11404 38.77916 109.53415C38.77916 108.95425 39.24925 108.48416 39.82915 108.48416C40.40904 108.48416 40.87914 108.95425 40.87914 109.53415ZM39.82915 109.53415' stroke='none'/>
+<path d='M60.79372 19.91457C60.79372 20.49446 60.32362 20.96455 59.74373 20.96455C59.16383 20.96455 58.69374 20.49446 58.69374 19.91457C58.69374 19.33467 59.16383 18.86458 59.74373 18.86458C60.32362 18.86458 60.79372 19.33467 60.79372 19.91457ZM59.74373 19.91457' stroke='none'/>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M39.83356 46.94672L46.94661 46.94661L46.94672 39.83356' fill='none'/>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M54.71799 24.9459L47.97015 22.69667L52.99927 17.66646' fill='none'/>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M6.03574 6.03574H14.57155L8.53581 0' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>[c)] Ta có $$ \left. \begin{array}{l} BD\perp AC \text{ (vì } ABCD \text{ là hình vuông})\\ BD \perp SA \text{ (vì } SA \perp (ABCD), BD \subset (ABCD)) \end{array} \right\} \Rightarrow BD \perp (SAC).$$</li></ol></div></div></div><div class="lz"><div class="q" id="vd2" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có $\Delta ABC$ là tam giác vuông tại $B$ và $SA\perp (ABC)$. <ol><li>Chứng minh $BC\perp (SAB)$.</li><li>Kẻ $BI\perp AC$ tại $I$. Chứng minh $BI\perp (SAC)$.</li><li>Gọi $AH$ và $AK$ là các đường cao của $\Delta SAB$ và $\Delta SAC$. Chứng minh $SC\perp (AHK)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $$ \left. \begin{array}{l} BC\perp AB \text{ (vì } \triangle ABC \text{ vuông tại } B)\\ BC \perp SA \text{ (vì } SA \perp (ABC), BC \subset (ABC)) \end{array} \right\}$$ $\Rightarrow BC \perp (SAB)$.</li><li>Ta có $$ \left. \begin{array}{l} BI\perp AC \text{ (giả thiết)}\\ BI \perp SA \text{ (vì } SA \perp (ABC), BI \subset (ABC)) \end{array} \right\}$$ $\Rightarrow BI \perp (SAC)$.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='154.576448pt' height='180.873694pt' viewBox='-69.011212 -69.011211 154.576448 180.873694'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-72' d='M6.36812-4.798007C6.447821-5.108842 6.463761-5.180573 7.021669-5.180573C7.204981-5.180573 7.300623-5.180573 7.300623-5.332005C7.300623-5.339975 7.292653-5.443587 7.165131-5.443587C7.013699-5.443587 6.822416-5.427646 6.670984-5.419676H6.168867C5.403736-5.419676 5.196513-5.443587 5.140722-5.443587C5.108842-5.443587 4.98132-5.443587 4.98132-5.292154C4.98132-5.180573 5.084932-5.180573 5.212453-5.180573C5.475467-5.180573 5.7066-5.180573 5.7066-5.053051C5.7066-5.021171 5.69863-5.0132 5.67472-4.909589L5.196513-2.964882H2.630137L3.092403-4.821918C3.164134-5.108842 3.180075-5.180573 3.761893-5.180573C3.921295-5.180573 4.016936-5.180573 4.016936-5.332005C4.016936-5.339975 4.008966-5.443587 3.881445-5.443587C3.730012-5.443587 3.53873-5.427646 3.387298-5.419676H2.885181C2.12005-5.419676 1.912827-5.443587 1.857036-5.443587C1.825156-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.801245-5.180573 1.928767-5.180573C2.191781-5.180573 2.422914-5.180573 2.422914-5.053051C2.422914-5.021171 2.414944-5.0132 2.391034-4.909589L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506-.079701 .422416 0 .526027 0C.67746 0 .868742-.01594 1.020174-.02391H1.530262C2.295392-.02391 2.502615 0 2.558406 0C2.606227 0 2.717808 0 2.717808-.151432C2.717808-.263014 2.614197-.263014 2.478705-.263014C2.454795-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.992528-.318804 1.992528-.390535C1.992528-.430386 2.008468-.478207 2.016438-.518057L2.558406-2.701868H5.124782C4.893649-1.761395 4.582814-.518057 4.574844-.518057C4.503113-.270984 4.359651-.270984 3.881445-.263014C3.785803-.263014 3.682192-.263014 3.682192-.111582C3.682192-.079701 3.706102 0 3.809714 0C3.961146 0 4.152428-.01594 4.303861-.02391H4.813948C5.579078-.02391 5.786301 0 5.842092 0C5.889913 0 6.001494 0 6.001494-.151432C6.001494-.263014 5.897883-.263014 5.762391-.263014C5.738481-.263014 5.595019-.263014 5.459527-.278954C5.292154-.294894 5.276214-.318804 5.276214-.390535C5.276214-.430386 5.292154-.478207 5.300125-.518057L6.36812-4.798007Z'/>
+<path id='g0-73' d='M3.092403-4.821918C3.164134-5.100872 3.180075-5.180573 3.777833-5.180573C3.961146-5.180573 4.056787-5.180573 4.056787-5.332005C4.056787-5.339975 4.048817-5.443587 3.921295-5.443587C3.801743-5.443587 3.55467-5.427646 3.427148-5.419676H2.327273C2.215691-5.427646 1.928767-5.443587 1.817186-5.443587C1.785305-5.443587 1.657783-5.443587 1.657783-5.292154C1.657783-5.180573 1.753425-5.180573 1.912827-5.180573C2.414944-5.180573 2.414944-5.132752 2.414944-5.037111C2.414944-5.021171 2.414944-4.98132 2.383064-4.853798L1.323039-.629639C1.251308-.342715 1.227397-.263014 .637609-.263014C.446326-.263014 .358655-.263014 .358655-.111582C.358655-.071731 .390535 0 .486177 0C.597758 0 .860772-.01594 .980324-.02391H2.088169C2.199751-.01594 2.486675 0 2.598257 0C2.646077 0 2.757659 0 2.757659-.151432C2.757659-.263014 2.662017-.263014 2.494645-.263014C2.375093-.263014 2.327273-.263014 2.191781-.278954S1.992528-.302864 1.992528-.390535C1.992528-.430386 2.000498-.430386 2.024408-.541968L3.092403-4.821918Z'/>
+<path id='g0-75' d='M4.27995-3.203985C4.27198-3.219925 4.23213-3.299626 4.23213-3.307597C4.23213-3.323537 4.367621-3.419178 4.447323-3.474969C5.076961-3.937235 5.937733-4.558904 6.200747-4.726276C6.607223-4.98132 6.902117-5.148692 7.260772-5.180573C7.324533-5.188543 7.436115-5.196513 7.436115-5.339975C7.428144-5.395766 7.380324-5.443587 7.324533-5.443587C7.316563-5.443587 7.0934-5.419676 7.037609-5.419676H6.718804C6.583313-5.419676 6.38406-5.419676 6.312329-5.427646C6.256538-5.427646 5.945704-5.443587 5.889913-5.443587S5.72254-5.443587 5.72254-5.292154C5.72254-5.284184 5.730511-5.188543 5.850062-5.180573C5.913823-5.172603 6.041345-5.156663 6.041345-5.061021C6.041345-4.933499 5.881943-4.798007 5.866002-4.790037L5.802242-4.734247C5.778331-4.710336 5.746451-4.678456 5.7066-4.654545L2.454795-2.295392L3.084433-4.821918C3.156164-5.108842 3.172105-5.180573 3.753923-5.180573C3.913325-5.180573 4.008966-5.180573 4.008966-5.332005C4.008966-5.339975 4.000996-5.443587 3.873474-5.443587C3.722042-5.443587 3.53076-5.427646 3.379328-5.419676H2.87721C2.11208-5.419676 1.904857-5.443587 1.849066-5.443587C1.809215-5.443587 1.689664-5.443587 1.689664-5.292154C1.689664-5.180573 1.785305-5.180573 1.920797-5.180573C2.183811-5.180573 2.414944-5.180573 2.414944-5.053051C2.414944-5.021171 2.406974-5.0132 2.383064-4.909589L1.315068-.629639C1.243337-.326775 1.227397-.263014 .637609-.263014C.486177-.263014 .390535-.263014 .390535-.111582C.390535-.079701 .414446 0 .518057 0C.669489 0 .860772-.01594 1.012204-.02391H2.040349C2.16787-.01594 2.430884 0 2.550436 0C2.590286 0 2.709838 0 2.709838-.143462C2.709838-.263014 2.614197-.263014 2.478705-.263014C2.422914-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.984558-.310834 1.984558-.390535C1.984558-.438356 2.040349-.637609 2.064259-.765131L2.367123-1.968618L3.650311-2.893151L4.606725-.924533C4.638605-.860772 4.726276-.68543 4.758157-.613699C4.805978-.533998 4.805978-.518057 4.805978-.486177C4.805978-.270984 4.511083-.263014 4.423412-.263014C4.343711-.263014 4.23213-.263014 4.23213-.111582C4.23213-.103611 4.2401 0 4.367621 0C4.447323 0 4.750187-.01594 4.821918-.02391H5.284184C6.017435-.02391 5.993524 0 6.097136 0C6.129016 0 6.248568 0 6.248568-.151432C6.248568-.263014 6.136986-.263014 6.089166-.263014C5.778331-.270984 5.67472-.326775 5.547198-.597758L4.27995-3.203985Z'/>
+<path id='g0-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(6.73176,14.33902)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(17.91496,-94.55702)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-72.69485,-31.18607)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(69.17354,-24.7206)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-65.40431,74.864)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(18.9879,-24.72058)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-73'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-22.44487,5.80345)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-72'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-20.45221,44.98831)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(6.73176,14.33902)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='6.73176' y='14.33902' xlink:href='#g0-75'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-62.59595 71.13185V-28.45274L28.45274-85.35823L65.44139-28.45274L-62.59595 71.13185L28.45274-85.35823M-62.59595-28.45274L-26.17702 8.53677L-24.18436 41.25616' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M65.44139-28.45274H-62.59595M28.45274-85.35823L27.0298-28.45273M-62.59595-28.45274L-24.18436 41.25616' fill='none'/>
+</g>
+<path d='' fill='none'/>
+<path d='M-62.59595-19.91693H-54.06013V-28.45274' fill='none'/>
+<path d='M33.10461-78.2016L25.86632-73.67776L21.21445-80.8344' fill='none'/>
+<path d='M27.24313-36.98541H35.77895L35.56561-28.45273' fill='none'/>
+<path d='M-32.1652 2.45468L-27.87282-4.92285L-21.88463 1.15924' fill='none'/>
+<path d='M-28.30377 33.78056L-35.04128 39.02087L-30.92186 46.49648' fill='none'/>
+<g fill='#000'>
+<path d='M-61.59595-28.45274C-61.59595-27.90045-62.04366-27.45274-62.59595-27.45274S-63.59595-27.90045-63.59595-28.45274C-63.59595-29.00504-63.14824-29.45274-62.59595-29.45274S-61.59595-29.00504-61.59595-28.45274ZM-62.59595-28.45274'/>
+</g>
+<g fill='#000'>
+<path d='M29.45274-85.35823C29.45274-84.80594 29.00504-84.35823 28.45274-84.35823C27.90045-84.35823 27.45274-84.80594 27.45274-85.35823S27.90045-86.35823 28.45274-86.35823C29.00504-86.35823 29.45274-85.91052 29.45274-85.35823ZM28.45274-85.35823'/>
+</g>
+<g fill='#000'>
+<path d='M66.44139-28.45274C66.44139-27.90045 65.99368-27.45274 65.44139-27.45274S64.44139-27.90045 64.44139-28.45274C64.44139-29.00504 64.8891-29.45274 65.44139-29.45274S66.44139-29.00504 66.44139-28.45274ZM65.44139-28.45274'/>
+</g>
+<g fill='#000'>
+<path d='M-61.59595 71.13185C-61.59595 71.68414-62.04366 72.13185-62.59595 72.13185S-63.59595 71.68414-63.59595 71.13185S-63.14824 70.13185-62.59595 70.13185S-61.59595 70.57956-61.59595 71.13185ZM-62.59595 71.13185'/>
+</g>
+<g fill='#000'>
+<path d='M-25.17702 8.53677C-25.17702 9.08907-25.62473 9.53677-26.17702 9.53677S-27.17702 9.08907-27.17702 8.53677C-27.17702 7.98448-26.72931 7.53677-26.17702 7.53677S-25.17702 7.98448-25.17702 8.53677ZM-26.17702 8.53677'/>
+</g>
+<g fill='#000'>
+<path d='M-23.18436 41.25616C-23.18436 41.80846-23.63206 42.25616-24.18436 42.25616C-24.73665 42.25616-25.18436 41.80846-25.18436 41.25616C-25.18436 40.70387-24.73665 40.25616-24.18436 40.25616C-23.63206 40.25616-23.18436 40.70387-23.18436 41.25616ZM-24.18436 41.25616'/>
+</g>
+<g fill='#000'>
+<path d='M28.0298-28.45273C28.0298-27.90044 27.58209-27.45273 27.0298-27.45273S26.0298-27.90044 26.0298-28.45273S26.47751-29.45273 27.0298-29.45273S28.0298-29.00502 28.0298-28.45273ZM27.0298-28.45273'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>[c)] Ta có $$ \left. \begin{array}{l} AH\perp SB \text{ (giả thiết)}\\ AH \perp BC \text{ (vì } BC \perp (SAB), AH \subset (SAB)) \end{array} \right\}$$ $\Rightarrow AH \perp (SBC)$.<br> Mà $SC\subset (SBC)$.<br> $\Rightarrow AH\perp SC$.<br> Ta có $$ \left. \begin{array}{l} SC\perp AK \text{ (giả thiết)}\\ SC \perp AH \text{ (cmt)} \end{array} \right\}\Rightarrow SC \perp (AHK).$$</li></ol></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex3" data-kind="essay" data-level="1" data-qid="1H3B3-3" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 1</span><span class="lvl lv1" title="Mã ID: 1H3B3-3 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có đáy là tam giác $ABC$ vuông tại $B$ và có cạnh $SA$ vuông góc với mặt phẳng $(ABC)$. <ol><li>Chứng minh $BC \perp(SAB)$.</li><li>Chứng minh $\triangle SBC$ là tam giác vuông.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex4" data-kind="essay" data-level="1" data-qid="1H3K3-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 2</span><span class="lvl lv1" title="Mã ID: 1H3K3-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có $SA \perp (ABC)$, tam giác $ABC$ vuông cân tại $B$. Gọi $G$ là trọng tâm của tam giác $SAC$ và $N$ là điểm thuộc cạnh $SB$ sao cho $SN=2NB$. <ol><li>Chứng minh $BC \perp (SAB)$.</li><li>Chứng minh $NG \perp (SAC)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex5" data-kind="essay" data-level="1" data-qid="1T8B2-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 3</span><span class="lvl lv1" title="Mã ID: 1T8B2-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $SA \perp(ABCD)$. Cho biết $ABCD$ là hình thang vuông tại $A$ và $D$, $AB=2AD$. <ol><li>Chứng minh $CD \perp(SAD)$;</li><li>Gọi $M$ là trung điểm của $AB$. Chứng minh $CM \perp (SAB)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex6" data-kind="essay" data-level="1" data-qid="1H3K3-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 4</span><span class="lvl lv1" title="Mã ID: 1H3K3-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $ S.ABCD $ có $ ABCD $ là hình vuông và $ SA\perp (ABCD) $. Gọi $ E $ là hình chiếu của $ A $ lên $ SB $. Chứng minh $ SB\perp (ADE) $.</div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex7" data-kind="essay" data-level="1" data-qid="1H3B3-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 5</span><span class="lvl lv1" title="Mã ID: 1H3B3-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông cạnh $a$, $SA\perp(ABCD)$ và $SA=a\sqrt{2}$. <ol><li>Chứng minh $CD\perp SA$</li><li>Chứng minh $BC\perp (SAB)$</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex8" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Cho hình chóp $ S.ABCD $ có $ ABCD $ là hình thoi tâm $ O $. Biết rằng $ SA = SC $ và $ SB = SD $. <ol><li>Chứng minh: $ SO \perp (ABCD) $.</li><li>Gọi $ I, J $ lần lượt là trung điểm của $ BA, BC $. Chứng minh $ IJ\perp (SBD) $.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex9" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Cho tứ diện $DABC$ có hai mặt bên $ABC$ và $DBC$ là hai tam giác cân có chung đáy $BC$. <ol><li>Gọi $I$ là trung điểm của $BC$. Chứng minh $BC\perp (ADI)$.</li><li>Dựng $AH$ là đường cao của $\Delta ADI$. Chứng minh $AH\perp (BCD)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex10" data-kind="essay" data-level="1" data-qid="1T8B2-2" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 8</span><span class="lvl lv1" title="Mã ID: 1T8B2-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình vuông $ABCD$. Gọi $H$, $K$ lần lượt là trung điểm của $AB$, $AD$. Trên đường thẳng vuông góc với $(ABCD)$ tại $H$, lấy điểm $S$. Chứng minh rằng: <ol><li>$AC \perp (SHK)$;</li><li>$CK \perp (SDH)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex11" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 9</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $ABCD$ là hình vuông và $SM\perp (ABCD)$ với $M$ là trung điểm của $AD$. <ol><li>Chứng minh $AB\perp (SAD)$ và $CD\perp (SAD)$.</li><li>Gọi $N$ là trung điểm $CD$. Chứng minh: $AN\perp (SMB)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex12" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 10</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có đáy $ABCD$ là một hình vuông và $SH$ vuông góc với mặt phẳng $(ABCD)$ tại trung điểm $H$ của cạnh $AD$. <ol><li>Chứng minh $CD\perp (SAD)$.</li><li>Gọi $M$, $K$ là trung điểm của các cạnh $BC$ và $SA$. Chứng minh $(SCD)\parallel (HKM)$.</li><li>Mặt phẳng $(HKM)$ cắt $SB$ tại $N$. Chứng minh tứ giác $HKNM$ là một hình thang vuông.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex13" data-kind="essay" data-dang="d1" data-sub="sub0_2"><div class="eh"><span class="el">Câu 11</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông tâm $O$ và $SH$ vuông góc với mặt phẳng $(ABCD)$, với $H$ là trung điểm của $AB$. <ol><li>Chứng minh $AD\perp (SAB)$.</li><li>Gọi $K$ là trung điểm của $BC$. Chứng minh $BD$ vuông góc với $(SHK)$.</li><li>Gọi $G$ và $G'$ lần lượt là trọng tâm của tam giác $SCD$ và tam giác $ACD$. Chứng minh $GG'$ song song với mặt phẳng $(SAD)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="dang" id="d2"><div class="dh"><span class="dno">Dạng 2</span><span class="dtt">Đường thẳng vuông góc đường thẳng</span></div><div class="db"><div class="txt"><div class="tp">Ta chứng minh $d$ vuông góc với một mặt phẳng nào đó chứa $a$.</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='176.544867pt' height='106.389978pt' viewBox='-69.011212 -69.011212 176.544867 106.389978'>
+<defs>
+<path id='g0-11' d='M4.752179-2.351183C4.752179-3.915318 3.825654-4.403487 3.088418-4.403487C1.723537-4.403487 .408468-2.978829 .408468-1.574097C.408468-.647572 1.006227 .109589 2.022416 .109589C2.650062 .109589 3.367372-.119552 4.124533-.727273C4.254047-.199253 4.582814 .109589 5.031133 .109589C5.559153 .109589 5.867995-.438356 5.867995-.597758C5.867995-.667497 5.808219-.697385 5.748443-.697385C5.678705-.697385 5.648817-.667497 5.618929-.597758C5.439601-.109589 5.080946-.109589 5.061021-.109589C4.752179-.109589 4.752179-.886675 4.752179-1.125778C4.752179-1.334994 4.752179-1.354919 4.851806-1.474471C5.788294-2.650062 5.997509-3.805729 5.997509-3.815691C5.997509-3.835616 5.987547-3.915318 5.877958-3.915318C5.778331-3.915318 5.778331-3.88543 5.728518-3.706102C5.549191-3.078456 5.220423-2.321295 4.752179-1.733499V-2.351183ZM4.084682-.986301C3.20797-.219178 2.440847-.109589 2.042341-.109589C1.444583-.109589 1.145704-.557908 1.145704-1.195517C1.145704-1.683686 1.404732-2.759651 1.723537-3.267746C2.191781-3.995019 2.729763-4.184309 3.078456-4.184309C4.064757-4.184309 4.064757-2.879203 4.064757-2.102117C4.064757-1.733499 4.064757-1.155666 4.084682-.986301Z'/>
+<path id='g0-97' d='M3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.787049 3.666252-.86675 3.775841-1.305106C3.88543-1.723537 3.905355-1.823163 3.995019-2.201743L4.353674-3.596513C4.423412-3.875467 4.423412-3.895392 4.423412-3.935243C4.423412-4.104608 4.303861-4.204234 4.134496-4.204234C3.895392-4.204234 3.745953-3.985056 3.716065-3.765878ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g0-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(16.42662,-39.555038)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linecap='round'>
+<g stroke-linejoin='round'>
+<g transform='translate(3.53215,-50.51682)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-97'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-10.69423,19.29005)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-100'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0-42.67912L51.2148-12.80385' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-14.22638 22.76227V-28.45274M-14.22636-56.90549V-76.82231' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<g stroke-width='0.8'>
+<path d='M-14.22638-28.45274L-14.22636-56.90549' fill='none'/>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M-22.76228 0L-85.35823-56.90549H28.45274L91.04869 0Z' fill='none'/>
+</g>
+<path d='M-62.59595-56.90549C-62.59595-51.24445-64.70862-45.78331-68.51645-41.59473' fill='none'/>
+<g fill='#000' stroke='#000'>
+</g>
+<path d='M-14.22638-28.45274V-22.76228L-8.575-22.0976V-27.78806L-14.22638-28.45274' fill='none'/>
+<g fill='#000' stroke='#000'>
+<g fill='#000' stroke='#000'>
+</g>
+<g transform='translate(-76.63338,-54.44153)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(16.42662,-39.555038)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='16.42662' y='-39.555038' xlink:href='#g0-11'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><div class="center"><div class="tp">$\left. \begin{array}{l} d\perp (\alpha) \\ a\subset (\alpha) \end{array} \right\}\Rightarrow d\perp a$</div></div></div></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd14" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $ABCD$ là hình vuông và $SA\perp (ABCD)$. <ol><li>Chứng minh $BC\perp SB$;</li><li>Chứng minh $\Delta SDC$ là tam giác vuông;</li><li>Chứng minh $BD\perp SC$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $$\left\{\begin{aligned}&amp; BC\perp AB \text{ (vì } ABCD \text{ là hình vuông})\\ &amp; BC \perp SA \text{ (vì } SA \perp (ABCD), BC \subset (ABCD))\end{aligned}\right. $$ $ \Rightarrow BC \perp (SAB) $.<br> Mà $SB \subset (SAB)$ nên $BC \perp SB$.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='173.518954pt' height='142.775721pt' viewBox='-69.011212 -69.011216 173.518954 142.775721'>
+<defs>
+<path id='g0-65' d='M1.783313-1.145704C1.384807-.478207 .996264-.33873 .557908-.308842C.438356-.298879 .348692-.298879 .348692-.109589C.348692-.049813 .398506 0 .478207 0C.747198 0 1.05604-.029888 1.334994-.029888C1.663761-.029888 2.012453 0 2.331258 0C2.391034 0 2.520548 0 2.520548-.18929C2.520548-.298879 2.430884-.308842 2.361146-.308842C2.132005-.328767 1.892902-.408468 1.892902-.657534C1.892902-.777086 1.952677-.886675 2.032379-1.026152L2.789539-2.30137H5.290162C5.310087-2.092154 5.449564-.737235 5.449564-.637609C5.449564-.33873 4.931507-.308842 4.732254-.308842C4.592777-.308842 4.493151-.308842 4.493151-.109589C4.493151 0 4.612702 0 4.632628 0C5.041096 0 5.469489-.029888 5.877958-.029888C6.127024-.029888 6.75467 0 7.003736 0C7.063512 0 7.183064 0 7.183064-.199253C7.183064-.308842 7.083437-.308842 6.953923-.308842C6.336239-.308842 6.336239-.37858 6.306351-.667497L5.69863-6.894147C5.678705-7.0934 5.678705-7.13325 5.50934-7.13325C5.349938-7.13325 5.310087-7.063512 5.250311-6.963885L1.783313-1.145704ZM2.978829-2.610212L4.941469-5.897883L5.260274-2.610212H2.978829Z'/>
+<path id='g0-66' d='M1.594022-.777086C1.494396-.388543 1.474471-.308842 .687422-.308842C.518057-.308842 .418431-.308842 .418431-.109589C.418431 0 .508095 0 .687422 0H4.244085C5.818182 0 6.993773-1.175592 6.993773-2.15193C6.993773-2.86924 6.41594-3.447073 5.449564-3.556663C6.485679-3.745953 7.531756-4.483188 7.531756-5.429639C7.531756-6.166874 6.874222-6.804483 5.678705-6.804483H2.331258C2.141968-6.804483 2.042341-6.804483 2.042341-6.60523C2.042341-6.495641 2.132005-6.495641 2.321295-6.495641C2.34122-6.495641 2.530511-6.495641 2.699875-6.475716C2.879203-6.455791 2.968867-6.445828 2.968867-6.316314C2.968867-6.276463 2.958904-6.246575 2.929016-6.127024L1.594022-.777086ZM3.098381-3.646326L3.716065-6.117061C3.805729-6.465753 3.825654-6.495641 4.254047-6.495641H5.539228C6.41594-6.495641 6.625156-5.907846 6.625156-5.469489C6.625156-4.592777 5.768369-3.646326 4.552927-3.646326H3.098381ZM2.650062-.308842C2.510585-.308842 2.49066-.308842 2.430884-.318804C2.331258-.328767 2.30137-.33873 2.30137-.418431C2.30137-.448319 2.30137-.468244 2.351183-.647572L3.038605-3.427148H4.921544C5.877958-3.427148 6.067248-2.689913 6.067248-2.261519C6.067248-1.275218 5.180573-.308842 4.004981-.308842H2.650062Z'/>
+<path id='g0-67' d='M7.571606-6.924035C7.571606-6.953923 7.551681-7.023661 7.462017-7.023661C7.43213-7.023661 7.422167-7.013699 7.312578-6.90411L6.615193-6.136986C6.525529-6.276463 6.067248-7.023661 4.961395-7.023661C2.739726-7.023661 .498132-4.821918 .498132-2.510585C.498132-.86675 1.673724 .219178 3.198007 .219178C4.064757 .219178 4.821918-.179328 5.349938-.637609C6.276463-1.454545 6.445828-2.361146 6.445828-2.391034C6.445828-2.49066 6.346202-2.49066 6.326276-2.49066C6.266501-2.49066 6.216687-2.470735 6.196762-2.391034C6.107098-2.102117 5.877958-1.39477 5.190535-.816936C4.503113-.259029 3.875467-.089664 3.35741-.089664C2.460772-.089664 1.404732-.607721 1.404732-2.161893C1.404732-2.729763 1.613948-4.343711 2.610212-5.50934C3.217933-6.216687 4.154421-6.714819 5.041096-6.714819C6.057285-6.714819 6.645081-5.947696 6.645081-4.79203C6.645081-4.393524 6.615193-4.383562 6.615193-4.283935S6.724782-4.184309 6.764633-4.184309C6.894147-4.184309 6.894147-4.204234 6.94396-4.383562L7.571606-6.924035Z'/>
+<path id='g0-68' d='M1.58406-.777086C1.484433-.388543 1.464508-.308842 .67746-.308842C.508095-.308842 .398506-.308842 .398506-.119552C.398506 0 .488169 0 .67746 0H3.975093C6.047323 0 8.009963-2.102117 8.009963-4.283935C8.009963-5.688667 7.163138-6.804483 5.668742-6.804483H2.321295C2.132005-6.804483 2.022416-6.804483 2.022416-6.615193C2.022416-6.495641 2.11208-6.495641 2.311333-6.495641C2.440847-6.495641 2.620174-6.485679 2.739726-6.475716C2.899128-6.455791 2.958904-6.425903 2.958904-6.316314C2.958904-6.276463 2.948941-6.246575 2.919054-6.127024L1.58406-.777086ZM3.73599-6.117061C3.825654-6.465753 3.845579-6.495641 4.273973-6.495641H5.339975C6.316314-6.495641 7.143213-5.967621 7.143213-4.652553C7.143213-4.164384 6.94396-2.530511 6.097136-1.43462C5.808219-1.066002 5.021171-.308842 3.795766-.308842H2.669988C2.530511-.308842 2.510585-.308842 2.450809-.318804C2.351183-.328767 2.321295-.33873 2.321295-.418431C2.321295-.448319 2.321295-.468244 2.371108-.647572L3.73599-6.117061Z'/>
+<path id='g0-83' d='M6.425903-6.924035C6.425903-6.953923 6.405978-7.023661 6.316314-7.023661C6.266501-7.023661 6.256538-7.013699 6.136986-6.874222L5.65878-6.306351C5.399751-6.774595 4.881694-7.023661 4.234122-7.023661C2.968867-7.023661 1.77335-5.877958 1.77335-4.672478C1.77335-3.865504 2.30137-3.407223 2.809465-3.257783L3.875467-2.978829C4.244085-2.889166 4.79203-2.739726 4.79203-1.92279C4.79203-1.026152 3.975093-.089664 2.998755-.089664C2.361146-.089664 1.255293-.308842 1.255293-1.544209C1.255293-1.783313 1.305106-2.022416 1.315068-2.082192C1.325031-2.122042 1.334994-2.132005 1.334994-2.15193C1.334994-2.251557 1.265255-2.261519 1.215442-2.261519S1.145704-2.251557 1.115816-2.221669C1.075965-2.181818 .518057 .089664 .518057 .119552C.518057 .179328 .56787 .219178 .627646 .219178C.67746 .219178 .687422 .209215 .806974 .069738L1.295143-.498132C1.723537 .079701 2.400996 .219178 2.978829 .219178C4.333748 .219178 5.50934-1.105853 5.50934-2.34122C5.50934-3.028643 5.17061-3.367372 5.021171-3.506849C4.79203-3.73599 4.64259-3.775841 3.755915-4.004981C3.536737-4.064757 3.178082-4.164384 3.088418-4.184309C2.819427-4.273973 2.480697-4.562889 2.480697-5.090909C2.480697-5.897883 3.277709-6.744707 4.224159-6.744707C5.051059-6.744707 5.65878-6.316314 5.65878-5.200498C5.65878-4.881694 5.618929-4.702366 5.618929-4.64259C5.618929-4.632628 5.618929-4.542964 5.738481-4.542964C5.838107-4.542964 5.84807-4.572852 5.88792-4.742217L6.425903-6.924035Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(5.607177,.394912)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(-71.56606,-70.31258)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(5.607177,.394912)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='5.607177' y='.394912' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(43.56693,-70.3092)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(5.607177,.394912)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='5.607177' y='.394912' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-27.16139,-20.16325)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(5.607177,.394912)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='5.607177' y='.394912' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(87.38234,-20.1619)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(5.607177,.394912)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='5.607177' y='.394912' xlink:href='#g0-68'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-19.2825,59.50093)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(5.607177,.394912)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='5.607177' y='.394912' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M11.95413-41.82169' fill='none'/>
+<path d='M-15.92834 55.76878L-59.74712-59.74712L39.83478-59.74374L83.65019-23.89404L-15.92834 55.76878L39.83478-59.74374' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-15.92834 55.76878L-15.92924-23.8954L-59.74712-59.74712M-15.92924-23.8954L83.65019-23.89404M-59.74712-59.74712L83.65019-23.89404M-15.92924-23.8954L39.83478-59.74374' fill='none'/>
+</g>
+<path d='' fill='none'/>
+<path d='M-15.93007-18.20631L-10.23962-18.20624L-10.2397-23.89668' fill='none'/>
+<path d='M7.16751-38.74467L12.68802-37.3646L17.47464-40.4416' fill='none'/>
+<g fill='#000'>
+<path d='M-15.22835 55.76878C-15.22835 56.15538-15.54175 56.46878-15.92834 56.46878C-16.31494 56.46878-16.62834 56.15538-16.62834 55.76878C-16.62834 55.38219-16.31494 55.06879-15.92834 55.06879C-15.54175 55.06879-15.22835 55.38219-15.22835 55.76878ZM-15.92834 55.76878'/>
+</g>
+<g fill='#000'>
+<path d='M-15.22925-23.8954C-15.22925-23.5088-15.54265-23.1954-15.92924-23.1954C-16.31584-23.1954-16.62924-23.5088-16.62924-23.8954S-16.31584-24.5954-15.92924-24.5954C-15.54265-24.5954-15.22925-24.282-15.22925-23.8954ZM-15.92924-23.8954'/>
+</g>
+<g fill='#000'>
+<path d='M-59.04712-59.74712C-59.04712-59.36052-59.36052-59.04712-59.74712-59.04712C-60.13371-59.04712-60.44711-59.36052-60.44711-59.74712C-60.44711-60.13371-60.13371-60.44711-59.74712-60.44711C-59.36052-60.44711-59.04712-60.13371-59.04712-59.74712ZM-59.74712-59.74712'/>
+</g>
+<g fill='#000'>
+<path d='M40.53477-59.74374C40.53477-59.35715 40.22137-59.04375 39.83478-59.04375C39.44818-59.04375 39.13478-59.35715 39.13478-59.74374C39.13478-60.13034 39.44818-60.44374 39.83478-60.44374C40.22137-60.44374 40.53477-60.13034 40.53477-59.74374ZM39.83478-59.74374'/>
+</g>
+<g fill='#000'>
+<path d='M84.35019-23.89404C84.35019-23.50745 84.03679-23.19405 83.65019-23.19405C83.2636-23.19405 82.9502-23.50745 82.9502-23.89404C82.9502-24.28064 83.2636-24.59404 83.65019-24.59404C84.03679-24.59404 84.35019-24.28064 84.35019-23.89404ZM83.65019-23.89404'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>[b)] Ta có $$\left\{\begin{aligned}&amp; CD\perp AD \text{ (vì } ABCD \text{ là hình vuông})\\ &amp; CD \perp SA \text{ (vì } SA \perp (ABCD), CD \subset (ABCD))\end{aligned}\right. $$ $ \Rightarrow CD \perp (SAD) $.<br> Mà $SD \subset (SAD)$ nên $CD \perp SD$.<br> $\Rightarrow \triangle SDC$ vuông tại $D$.</li><li>[c)] Ta có $$\left\{\begin{aligned}&amp; BD\perp AC \text{ (vì } ABCD \text{ là hình vuông})\\ &amp; BD \perp SA \text{ (vì } SA \perp (ABCD), BD \subset (ABCD))\end{aligned}\right. $$ $ \Rightarrow BD \perp (SAC) $.<br> Mà $SC \subset (SAC)$ nên $BD \perp SC$.</li></ol></div></div></div><div class="lz"><div class="q" id="vd15" data-kind="essay" data-level="1" data-qid="1H3B3-2" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Ví dụ 2</span><span class="lvl lv1" title="Mã ID: 1H3B3-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có tam giác $ABC$ vuông tại $B$ và $SA \perp (ABC)$. Gọi $AH$, $AK$ lần lượt là các đường cao trong tam giác $SAB$ và $SAC$. <ol><li>Chứng minh $\triangle SBC$ vuông.</li><li>Chứng minh $\triangle AHK$ vuông.</li><li>Chứng minh $SC \perp (AHK)$.</li><li>Chứng minh $\triangle SHK$ vuông.</li><li>* Gọi $I=HK \cap BC$. Chứng minh $IA \perp (SAC)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $$\left\{\begin{aligned}&amp; BC\perp AB \quad(\triangle ABC\,\text{vuông tại } B)\\ &amp; BC \perp SA \quad(\text{do}\, SA \perp (ABC), BC \subset (ABC))\end{aligned}\right. $$ $ \Rightarrow BC \perp (SAB) $.<br> Mà $SB \subset (SAB)$ nên $BC \perp SB$.<br> Vậy $\triangle SBC$ vuông tại $B$.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='153.948941pt' height='191.582107pt' viewBox='-69.011212 -69.011215 153.948941 191.582107'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-72' d='M6.36812-4.798007C6.447821-5.108842 6.463761-5.180573 7.021669-5.180573C7.204981-5.180573 7.300623-5.180573 7.300623-5.332005C7.300623-5.339975 7.292653-5.443587 7.165131-5.443587C7.013699-5.443587 6.822416-5.427646 6.670984-5.419676H6.168867C5.403736-5.419676 5.196513-5.443587 5.140722-5.443587C5.108842-5.443587 4.98132-5.443587 4.98132-5.292154C4.98132-5.180573 5.084932-5.180573 5.212453-5.180573C5.475467-5.180573 5.7066-5.180573 5.7066-5.053051C5.7066-5.021171 5.69863-5.0132 5.67472-4.909589L5.196513-2.964882H2.630137L3.092403-4.821918C3.164134-5.108842 3.180075-5.180573 3.761893-5.180573C3.921295-5.180573 4.016936-5.180573 4.016936-5.332005C4.016936-5.339975 4.008966-5.443587 3.881445-5.443587C3.730012-5.443587 3.53873-5.427646 3.387298-5.419676H2.885181C2.12005-5.419676 1.912827-5.443587 1.857036-5.443587C1.825156-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.801245-5.180573 1.928767-5.180573C2.191781-5.180573 2.422914-5.180573 2.422914-5.053051C2.422914-5.021171 2.414944-5.0132 2.391034-4.909589L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506-.079701 .422416 0 .526027 0C.67746 0 .868742-.01594 1.020174-.02391H1.530262C2.295392-.02391 2.502615 0 2.558406 0C2.606227 0 2.717808 0 2.717808-.151432C2.717808-.263014 2.614197-.263014 2.478705-.263014C2.454795-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.992528-.318804 1.992528-.390535C1.992528-.430386 2.008468-.478207 2.016438-.518057L2.558406-2.701868H5.124782C4.893649-1.761395 4.582814-.518057 4.574844-.518057C4.503113-.270984 4.359651-.270984 3.881445-.263014C3.785803-.263014 3.682192-.263014 3.682192-.111582C3.682192-.079701 3.706102 0 3.809714 0C3.961146 0 4.152428-.01594 4.303861-.02391H4.813948C5.579078-.02391 5.786301 0 5.842092 0C5.889913 0 6.001494 0 6.001494-.151432C6.001494-.263014 5.897883-.263014 5.762391-.263014C5.738481-.263014 5.595019-.263014 5.459527-.278954C5.292154-.294894 5.276214-.318804 5.276214-.390535C5.276214-.430386 5.292154-.478207 5.300125-.518057L6.36812-4.798007Z'/>
+<path id='g0-73' d='M3.092403-4.821918C3.164134-5.100872 3.180075-5.180573 3.777833-5.180573C3.961146-5.180573 4.056787-5.180573 4.056787-5.332005C4.056787-5.339975 4.048817-5.443587 3.921295-5.443587C3.801743-5.443587 3.55467-5.427646 3.427148-5.419676H2.327273C2.215691-5.427646 1.928767-5.443587 1.817186-5.443587C1.785305-5.443587 1.657783-5.443587 1.657783-5.292154C1.657783-5.180573 1.753425-5.180573 1.912827-5.180573C2.414944-5.180573 2.414944-5.132752 2.414944-5.037111C2.414944-5.021171 2.414944-4.98132 2.383064-4.853798L1.323039-.629639C1.251308-.342715 1.227397-.263014 .637609-.263014C.446326-.263014 .358655-.263014 .358655-.111582C.358655-.071731 .390535 0 .486177 0C.597758 0 .860772-.01594 .980324-.02391H2.088169C2.199751-.01594 2.486675 0 2.598257 0C2.646077 0 2.757659 0 2.757659-.151432C2.757659-.263014 2.662017-.263014 2.494645-.263014C2.375093-.263014 2.327273-.263014 2.191781-.278954S1.992528-.302864 1.992528-.390535C1.992528-.430386 2.000498-.430386 2.024408-.541968L3.092403-4.821918Z'/>
+<path id='g0-75' d='M4.27995-3.203985C4.27198-3.219925 4.23213-3.299626 4.23213-3.307597C4.23213-3.323537 4.367621-3.419178 4.447323-3.474969C5.076961-3.937235 5.937733-4.558904 6.200747-4.726276C6.607223-4.98132 6.902117-5.148692 7.260772-5.180573C7.324533-5.188543 7.436115-5.196513 7.436115-5.339975C7.428144-5.395766 7.380324-5.443587 7.324533-5.443587C7.316563-5.443587 7.0934-5.419676 7.037609-5.419676H6.718804C6.583313-5.419676 6.38406-5.419676 6.312329-5.427646C6.256538-5.427646 5.945704-5.443587 5.889913-5.443587S5.72254-5.443587 5.72254-5.292154C5.72254-5.284184 5.730511-5.188543 5.850062-5.180573C5.913823-5.172603 6.041345-5.156663 6.041345-5.061021C6.041345-4.933499 5.881943-4.798007 5.866002-4.790037L5.802242-4.734247C5.778331-4.710336 5.746451-4.678456 5.7066-4.654545L2.454795-2.295392L3.084433-4.821918C3.156164-5.108842 3.172105-5.180573 3.753923-5.180573C3.913325-5.180573 4.008966-5.180573 4.008966-5.332005C4.008966-5.339975 4.000996-5.443587 3.873474-5.443587C3.722042-5.443587 3.53076-5.427646 3.379328-5.419676H2.87721C2.11208-5.419676 1.904857-5.443587 1.849066-5.443587C1.809215-5.443587 1.689664-5.443587 1.689664-5.292154C1.689664-5.180573 1.785305-5.180573 1.920797-5.180573C2.183811-5.180573 2.414944-5.180573 2.414944-5.053051C2.414944-5.021171 2.406974-5.0132 2.383064-4.909589L1.315068-.629639C1.243337-.326775 1.227397-.263014 .637609-.263014C.486177-.263014 .390535-.263014 .390535-.111582C.390535-.079701 .414446 0 .518057 0C.669489 0 .860772-.01594 1.012204-.02391H2.040349C2.16787-.01594 2.430884 0 2.550436 0C2.590286 0 2.709838 0 2.709838-.143462C2.709838-.263014 2.614197-.263014 2.478705-.263014C2.422914-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.984558-.310834 1.984558-.390535C1.984558-.438356 2.040349-.637609 2.064259-.765131L2.367123-1.968618L3.650311-2.893151L4.606725-.924533C4.638605-.860772 4.726276-.68543 4.758157-.613699C4.805978-.533998 4.805978-.518057 4.805978-.486177C4.805978-.270984 4.511083-.263014 4.423412-.263014C4.343711-.263014 4.23213-.263014 4.23213-.111582C4.23213-.103611 4.2401 0 4.367621 0C4.447323 0 4.750187-.01594 4.821918-.02391H5.284184C6.017435-.02391 5.993524 0 6.097136 0C6.129016 0 6.248568 0 6.248568-.151432C6.248568-.263014 6.136986-.263014 6.089166-.263014C5.778331-.270984 5.67472-.326775 5.547198-.597758L4.27995-3.203985Z'/>
+<path id='g0-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-42.08463,42.685465)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(-10.0989,-2.73332)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(117.54312,-2.73332)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(33.05392,-45.77716)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-2.80836,103.31674)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(29.88744,15.15266)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-72'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(41.28996,63.98816)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-75'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-opacity='0'>
+<g fill-opacity='0'>
+<path d='M37.55782 66.72148L3.35023-79.785' fill='none'/>
+</g>
+</g>
+<g stroke-opacity='0'>
+<g fill-opacity='0'>
+<path d='M43.5917-36.57837L-26.62756-73.15674' fill='none'/>
+</g>
+</g>
+<path d='M10.76308-54.46112C10.76308-53.63269 10.0915-52.96112 9.26308-52.96112C8.43465-52.96112 7.76308-53.63269 7.76308-54.46112S8.43465-55.96112 9.26308-55.96112C10.0915-55.96112 10.76308-55.28955 10.76308-54.46112ZM9.26308-54.46112' stroke='none'/>
+<g transform='translate(7.1082,-63.65991)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-42.08463,42.685465)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-42.08463' y='42.685465' xlink:href='#g0-73'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M43.5917-36.57837L113.81097 0L0 99.5846V0M0 99.5846L43.5917-36.57837M0 0L26.15529 17.88599M37.55782 66.72148L9.26308-54.46112L113.81097 0M0 0L9.26308-54.46112' fill='none'/>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M0 0H113.81097M0 0L37.55782 66.72148M0 0L43.5917-36.57837' fill='none'/>
+</g>
+<path d='M1.5 0C1.5 .82843 .82843 1.5 0 1.5S-1.5 .82843-1.5 0S-.82843-1.5 0-1.5S1.5-.82843 1.5 0ZM0 0' stroke='none'/>
+<path d='M45.0917-36.57837C45.0917-35.74994 44.42014-35.07837 43.5917-35.07837C42.76328-35.07837 42.0917-35.74994 42.0917-36.57837S42.76328-38.07837 43.5917-38.07837C44.42014-38.07837 45.0917-37.4068 45.0917-36.57837ZM43.5917-36.57837' stroke='none'/>
+<path d='M115.31097 0C115.31097 .82843 114.6394 1.5 113.81097 1.5S112.31097 .82843 112.31097 0S112.98254-1.5 113.81097-1.5S115.31097-.82843 115.31097 0ZM113.81097 0' stroke='none'/>
+<path d='M1.5 99.5846C1.5 100.41302 .82843 101.0846 0 101.0846S-1.5 100.41302-1.5 99.5846C-1.5 98.75616-.82843 98.0846 0 98.0846S1.5 98.75616 1.5 99.5846ZM0 99.5846' stroke='none'/>
+<path d='M27.65529 17.88599C27.65529 18.71442 26.98372 19.38599 26.15529 19.38599S24.65529 18.71442 24.65529 17.88599S25.32686 16.38599 26.15529 16.38599S27.65529 17.05756 27.65529 17.88599ZM26.15529 17.88599' stroke='none'/>
+<path d='M39.05782 66.72148C39.05782 67.54991 38.38625 68.22148 37.55782 68.22148S36.05782 67.54991 36.05782 66.72148S36.72939 65.22148 37.55782 65.22148S39.05782 65.89305 39.05782 66.72148ZM37.55782 66.72148' stroke='none'/>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M0 7.11317H7.11317V0' fill='none'/>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M38.14287-32.0062L44.45111-28.7202L49.89995-33.29237' fill='none'/>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M20.28401 13.87105L22.45271 7.09685L28.32399 11.11179' fill='none'/>
+</g>
+<g stroke='#000'>
+</g>
+<g stroke='#000'>
+<path d='M34.06874 60.52318L39.42174 55.83932L42.91081 62.03763' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>[b)] Ta có $$ \left\{\begin{aligned}&amp; AH\perp SB \quad(\text{giả thiết} )\\ &amp; AH \perp BC \quad(\text{do}\, BC \perp (SAB), AH \subset (SAB))\end{aligned}\right. $$ $ \Rightarrow AH \perp (SBC) $.<br> Mà $HK \subset (SBC)$ nên $AH \perp HK$.<br> Vậy $\triangle AHK$ vuông tại $H$.</li><li>[c)] Ta có $$ \left\{\begin{aligned}&amp; SC\perp AK \quad(\text{giả thiết} )\\ &amp; SC \perp AH \quad(\text{do}\, AH \perp (SBC), SC \subset (SBC))\end{aligned}\right. $$ $ \Rightarrow SC \perp (AHK) $.</li><li>[d)] Ta có $ SC \perp (AHK) $. <br> Mà $HK \subset (AHK)$ nên $SC \perp HK$.<br> Vậy $\triangle SHK$ vuông tại $K$.</li><li>[e)] Ta có $$ \left\{\begin{aligned}&amp; IA\perp SA \quad(\text{do}\, SA \perp (ABC) )\\ &amp; IA \perp SC \quad(\text{do}\, SC \perp (AHK), IA \subset (AHK))\end{aligned}\right. \Rightarrow IA \perp (SAC).$$</li></ol></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex16" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Cho hính chóp $S.ABC$ có $\Delta ABC$ vuông tại $A$ và $SB\perp (ABC)$. <ol><li>Chứng minh $\Delta SAC$ vuông.</li><li>Gọi $BM$ là đường cao của $\Delta SAB$. Chứng minh $\Delta BMC$ vuông.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex17" data-kind="essay" data-level="1" data-qid="1C8K2-2" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 2</span><span class="lvl lv1" title="Mã ID: 1C8K2-2 · Mức độ: Nhận biết"><span class="dots">●○○○</span>Nhận biết</span></div><div class="qtext"><div class="tp">Cho tứ diện $ABCD$ có $AB\perp (BCD)$, $BC\perp CD$. Gọi $M$, $N$ lần lượt là hình chiếu vuông góc của $B$ trên $AC$ và $AD$. Chứng minh rằng: <ol><li>$CD\perp BM$;</li><li>$BM\perp MN$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex18" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông và $SA$ vuông góc với $(ABCD)$. <ol><li>Chứng minh $CD\perp (SAD)$.</li><li>Chứng minh $BD\perp (SAC)$.</li><li>Gọi $M$ là điểm đối xứng của $A$ qua $B$. Chứng minh $\Delta SCM$ vuông.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex19" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có $\Delta ABC$ vuông tại $B$ và $SA$ vuông góc với $(ABC)$. <ol><li>Chứng minh $BC\perp (SAB)$.</li><li>Gọi $AH$ là đường cao của $\Delta SAB$. Chứng minh $\Delta AHC$ là tam giác vuông.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex20" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $ABCD$ là hình vuông và $SA$ vuông góc với $(ABCD)$. <ol><li>Chứng minh $\Delta SBC$ và $\Delta SDC$ là tam giác vuông.</li><li>Chứng minh $DB\perp SC$.</li><li>Gọi $AH$ và $AK$ là các đường cao của $\Delta SAB$ và $\Delta SAD$. Chứng minh $SC\perp (AHK)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex21" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABC$ có $\Delta ABC$ vuông tại $B$ và $SA\perp (ABC)$. Gọi $AH$ và $AK$ là các đường cao của $\Delta SAB$ và $\Delta SAC$. Đường thẳng $HK$ cắt đường thẳng $BC$ tại $I$. Chứng minh $\Delta AIC$ là tam giác vuông.</div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex22" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $ABCD$ là hình vuông tâm $O$ và $SA=SB=SC=SD$. <ol><li>Chứng minh $SO\perp (ABCD)$.</li><li>Chứng minh $AC\perp SD$.</li><li>Gọi $I,K$ là trung điểm của $SB$ và $SD$. Chứng minh $SC\perp IK$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex23" data-kind="essay" data-dang="d2" data-sub="sub0_2"><div class="eh"><span class="el">Câu 8</span></div><div class="qtext"><div class="tp">Cho hình chóp $S.ABCD$ có $ABCD$ là hình thang vuông tại $A$ và $D$. Cho $AB=2a$, $AD=DC=a$ và $SA\perp (ABCD)$. <ol><li>Chứng minh $\Delta SDC$ và $\Delta SBC$ là các tam giác vuông.</li><li>Gọi $M,N$ là trung điểm của $SA$ và $SB$. Chứng minh $DCNM$ là hình chữ nhật.</li></ol></div></div><div class="qtools"></div></div></div>
+    </main>
+    <div class="foot">Liên hệ TOÁN ANH KIÊN - 0987473509</div>
+    <div class="fab">
+        <div class="credit"><span class="cr-i">🖋 <b>TOÁN ANH KIÊN</b></span><span class="cr-i">📟 0987473509</span></div>
+        <button type="button" id="toTop" title="Lên đầu trang" hidden>⬆</button>
+    </div>
+
+    <script>
+        const MEDIA_SCOPE = '.lz';
+        const MEDIA_SVG_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' svg').join(', ');
+        const MEDIA_ALL_SEL = MEDIA_SCOPE.split(',').map(s => s.trim()).flatMap(s => [s + ' svg', s + ' img']).join(', ');
+
+        function svgNum(v) {
+            if (v == null) return NaN;
+            const m = String(v).trim().match(/^([0-9]*\.?[0-9]+)(px)?$/i);
+            return m ? parseFloat(m[1]) : NaN;
+        }
+
+        let __svgSeq = 0;
+        function uniquifySvgIds(svg) {
+            if (svg.dataset.idsDone) return;
+            svg.dataset.idsDone = '1';
+            const withId = svg.querySelectorAll('[id]');
+            if (!withId.length) return;
+            const prefix = 'svg' + (++__svgSeq) + '_';
+            const map = {};
+            withId.forEach(n => { map[n.id] = prefix + n.id; });
+            const ids = Object.keys(map);
+            const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const urlRe = /url\(\s*(['"]?)#([^)'"\s]+)\1\s*\)/g;
+            const fixUrls = str => str.replace(urlRe, (m, q, id) => map[id] ? `url(${q}#${map[id]}${q})` : m);
+
+            svg.querySelectorAll('*').forEach(n => {
+                if (n.tagName.toLowerCase() === 'style') {
+                    let css = fixUrls(n.textContent);
+                    css = css.replace(new RegExp('#(' + ids.map(esc).join('|') + ')(?![\\w-])', 'g'), '#' + prefix + '$1');
+                    n.textContent = css;
+                    return;
+                }
+                Array.from(n.attributes).forEach(a => {
+                    if (a.name === 'id' || a.value.indexOf('#') < 0) return;
+                    if ((a.name === 'href' || a.name === 'xlink:href') && a.value.charAt(0) === '#') {
+                        const id = a.value.slice(1);
+                        if (map[id]) n.setAttribute(a.name, '#' + map[id]);
+                    } else {
+                        const nv = fixUrls(a.value);
+                        if (nv !== a.value) n.setAttribute(a.name, nv);
+                    }
+                });
+            });
+            withId.forEach(n => { n.id = map[n.id]; });
+        }
+
+        function normalizeSvgs() {
+            document.querySelectorAll(MEDIA_SVG_SEL).forEach(svg => {
+                if (svg.closest('mjx-container')) return;
+                uniquifySvgIds(svg);
+                if (svg.dataset.normalized) return;
+                const w = svgNum(svg.getAttribute('width'));
+                const h = svgNum(svg.getAttribute('height'));
+
+                if (!svg.hasAttribute('viewBox')) {
+                    if (w > 0 && h > 0) {
+                        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                    } else {
+                        try {
+                            const b = svg.getBBox();
+                            if (b.width && b.height)
+                                svg.setAttribute('viewBox', `${b.x - 2} ${b.y - 2} ${b.width + 4} ${b.height + 4}`);
+                        } catch (e) { return; }
+                    }
+                }
+                if (svg.hasAttribute('viewBox')) {
+                    if (w > 0) { svg.style.width = '100%'; svg.style.maxWidth = w + 'px'; }
+                    svg.removeAttribute('height');
+                    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                    svg.dataset.normalized = '1';
+                }
+            });
+        }
+
+        const __zoomRefresh = new Set();
+        let __zoomResizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(__zoomResizeTimer);
+            __zoomResizeTimer = setTimeout(() => __zoomRefresh.forEach(fn => fn()), 150);
+        });
+
+        function setupImageZoom() {
+            document.querySelectorAll(MEDIA_ALL_SEL).forEach(el => {
+                if (el.closest('.zoom-container') || el.closest('mjx-container') || el.classList.contains('no-zoom')) return;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'zoom-container';
+                const viewport = document.createElement('div');
+                viewport.className = 'zoom-viewport';
+                el.parentNode.insertBefore(wrapper, el);
+                viewport.appendChild(el);
+                wrapper.appendChild(viewport);
+                el.classList.add('zoom-media');
+
+                let scale = 1;
+                const STEP = 0.25, MIN = 1, MAX = 4;
+
+                const toolbar = document.createElement('div');
+                toolbar.className = 'zoom-toolbar';
+                const mk = (txt, title) => {
+                    const b = document.createElement('button');
+                    b.type = 'button'; b.className = 'zoom-btn'; b.innerHTML = txt; b.title = title;
+                    b.setAttribute('aria-label', title);
+                    return b;
+                };
+                const btnIn = mk('➕', 'Phóng to'), btnOut = mk('➖', 'Thu nhỏ'), btnReset = mk('↺', 'Mặc định');
+
+                function apply(newScale) {
+                    const cx = viewport.scrollWidth ? (viewport.scrollLeft + viewport.clientWidth / 2) / viewport.scrollWidth : 0.5;
+                    const cy = viewport.scrollHeight ? (viewport.scrollTop + viewport.clientHeight / 2) / viewport.scrollHeight : 0.5;
+
+                    scale = Math.min(MAX, Math.max(MIN, Math.round(newScale * 100) / 100));
+
+                    el.classList.remove('zoomed');
+                    el.style.removeProperty('--zw');
+                    const base = el.getBoundingClientRect().width;
+                    if (scale > 1 && base > 0) {
+                        el.style.setProperty('--zw', (base * scale) + 'px');
+                        el.classList.add('zoomed');
+                        viewport.scrollLeft = cx * viewport.scrollWidth - viewport.clientWidth / 2;
+                        viewport.scrollTop = cy * viewport.scrollHeight - viewport.clientHeight / 2;
+                    }
+                    viewport.classList.toggle('can-pan', el.classList.contains('zoomed'));
+                    btnIn.disabled = scale >= MAX;
+                    btnOut.disabled = scale <= MIN;
+                }
+
+                btnIn.onclick = () => apply(scale + STEP);
+                btnOut.onclick = () => apply(scale - STEP);
+                btnReset.onclick = () => apply(1);
+                __zoomRefresh.add(() => { if (scale > 1) apply(scale); });
+
+                viewport.addEventListener('wheel', e => {
+                    if (!e.ctrlKey) return;
+                    e.preventDefault();
+                    apply(scale + (e.deltaY < 0 ? STEP : -STEP));
+                }, { passive: false });
+                viewport.addEventListener('dblclick', () => apply(scale > 1 ? 1 : 2));
+
+                let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
+                viewport.addEventListener('pointerdown', e => {
+                    if (e.pointerType !== 'mouse' || !el.classList.contains('zoomed')) return;
+                    dragging = true; sx = e.clientX; sy = e.clientY; sl = viewport.scrollLeft; st = viewport.scrollTop;
+                    viewport.setPointerCapture(e.pointerId);
+                    viewport.classList.add('dragging');
+                });
+                viewport.addEventListener('pointermove', e => {
+                    if (!dragging) return;
+                    viewport.scrollLeft = sl - (e.clientX - sx);
+                    viewport.scrollTop = st - (e.clientY - sy);
+                });
+                const stop = () => { dragging = false; viewport.classList.remove('dragging'); };
+                viewport.addEventListener('pointerup', stop);
+                viewport.addEventListener('pointercancel', stop);
+
+                toolbar.append(btnIn, btnOut, btnReset);
+                wrapper.appendChild(toolbar);
+                apply(1);
+            });
+        }
+
+        const MEDIA_TABLE_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' table').join(', ');
+        function wrapTables() {
+            document.querySelectorAll(MEDIA_TABLE_SEL).forEach(t => {
+                if (t.closest('mjx-container, .table-scroll, .table-responsive, #tblOverlay')) return;
+                if (!t.parentNode) return;
+                const w = document.createElement('div');
+                w.className = 'table-scroll';
+                t.parentNode.insertBefore(w, t);
+                w.appendChild(t);
+            });
+        }
+
+        const __tblRefresh = [];
+        window.addEventListener('resize', () => __tblRefresh.forEach(fn => fn()));
+        function tblState(box, sc) {
+            const over = sc.scrollWidth > sc.clientWidth + 2;
+            box.classList.toggle('has-scroll', over);
+            box.classList.toggle('at-end', !over || sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2);
+        }
+        function enhanceTables() {
+            document.querySelectorAll('.table-responsive, .table-scroll').forEach(sc => {
+                if (sc.dataset.tblDone || sc.closest('#tblOverlay')) return;
+                const table = sc.querySelector('table');
+                if (!table || !sc.parentNode) return;
+                sc.dataset.tblDone = '1';
+                const box = document.createElement('div'); box.className = 'tbl-box';
+                const hint = document.createElement('div'); hint.className = 'tbl-hint';
+                const msg = document.createElement('span'); msg.textContent = '\u2194 Vuốt ngang để xem thêm';
+                const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'tbl-open'; btn.textContent = '\u26F6 Xem toàn màn hình';
+                btn.addEventListener('click', e => { e.stopPropagation(); openTableOverlay(table); });
+                hint.append(msg, btn);
+                const wrap = document.createElement('div'); wrap.className = 'tbl-wrap';
+                const fade = document.createElement('div'); fade.className = 'tbl-fade';
+                sc.parentNode.insertBefore(box, sc);
+                box.append(hint, wrap);
+                wrap.append(sc, fade);
+                const first = table.rows[0];
+                if (first && first.cells.length >= 4 && first.cells[0].colSpan === 1 && first.cells[0].rowSpan === 1) table.classList.add('sticky-first');
+                const upd = () => tblState(box, sc);
+                sc.addEventListener('scroll', upd, { passive: true });
+                if (window.ResizeObserver) new ResizeObserver(upd).observe(table);
+                __tblRefresh.push(upd);
+                upd();
+            });
+        }
+        let tblOv = null, tblScale = 1;
+        function closeTableOverlay() {
+            if (!tblOv) return;
+            tblOv.classList.remove('open');
+            document.documentElement.style.overflow = '';
+        }
+        function openTableOverlay(table) {
+            if (!tblOv) {
+                tblOv = document.createElement('div'); tblOv.id = 'tblOverlay';
+                tblOv.innerHTML = '<div class="tbl-ov-bar"><span class="ttl">Kéo để xem; A+ / A\u2212 đổi cỡ chữ</span>'
+                    + '<button type="button" class="zoom-btn" data-a="-">A\u2212</button><button type="button" class="zoom-btn" data-a="+">A+</button>'
+                    + '<button type="button" class="zoom-btn" data-a="x">\u2715 Đóng</button></div><div class="tbl-ov-body"></div>';
+                document.body.appendChild(tblOv);
+                tblOv.addEventListener('click', e => {
+                    const b = e.target.closest('button[data-a]');
+                    if (!b) return;
+                    if (b.dataset.a === 'x') { closeTableOverlay(); return; }
+                    tblScale = Math.min(2.6, Math.max(0.6, tblScale + (b.dataset.a === '+' ? 0.2 : -0.2)));
+                    tblOv.style.setProperty('--tbl-s', tblScale);
+                });
+                window.addEventListener('keydown', e => {
+                    if (!tblOv.classList.contains('open')) return;
+                    e.stopImmediatePropagation();
+                    if (e.key === 'Escape') closeTableOverlay();
+                }, true);
+            }
+            const body = tblOv.querySelector('.tbl-ov-body');
+            body.innerHTML = '';
+            const c = table.cloneNode(true);
+            c.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+            c.classList.remove('sticky-first');
+            body.appendChild(c);
+            tblScale = 1;
+            tblOv.style.setProperty('--tbl-s', 1);
+            tblOv.classList.add('open');
+            document.documentElement.style.overflow = 'hidden';
+            body.scrollTo(0, 0);
+        }
+
+        function initMedia() { wrapTables(); enhanceTables(); normalizeSvgs(); setupImageZoom(); }
+
+        window.addEventListener('load', () => setTimeout(initMedia, 300));
+
+        const $ = (s, r) => (r || document).querySelector(s);
+        const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+        let queue = [], busy = false, pendingJump = null;
+        function keepJump() { if (pendingJump) pendingJump.scrollIntoView({ block: 'start' }); }
+        function pump() {
+            if (busy) return;
+            const batch = [];
+            while (queue.length && batch.length < 3) {
+                const e = queue.shift();
+                if (!e.dataset.ts) { e.dataset.ts = '1'; batch.push(e); }
+            }
+            if (!batch.length) return;
+            busy = true;
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise(batch))
+                    .then(() => { initMedia(); keepJump(); })
+                    .catch(err => console.warn(err))
+                    .then(() => { busy = false; setTimeout(pump, 0); });
+            };
+            go();
+        }
+        function want(els, front) {
+            els = els.filter(e => !e.dataset.ts);
+            queue = front ? els.concat(queue) : queue.concat(els);
+            pump();
+        }
+        function typesetNow(el) {
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise([el]))
+                    .then(() => { initMedia(); })
+                    .catch(err => console.warn(err));
+            };
+            go();
+        }
+
+        const lzs = $$('.lz');
+        const title = $('#ttl');
+        want([title], true);
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(es => {
+                const vis = es.filter(e => e.isIntersecting).map(e => e.target);
+                if (vis.length) want(vis, true);
+            }, { rootMargin: '1500px 0px' });
+            lzs.forEach(e => io.observe(e));
+        }
+        want(lzs, false);
+
+        function openSol(q, force) {
+            const s = $('.solution-box', q), b = $('.sol-btn', q);
+            if (!s) return;
+            const open = s.style.display === 'block';
+            const target = force === undefined ? !open : force;
+            if (target === open) return;
+            s.style.display = target ? 'block' : 'none';
+            if (b) b.textContent = target ? 'Ẩn lời giải' : 'Xem lời giải';
+            if (target) {
+                markSeen(q);
+                if (!s.dataset.ts) {
+                    s.dataset.ts = '1';
+                    s.classList.remove('tex2jax_ignore');
+                    typesetNow(s);
+                } else initMedia();
+            }
+        }
+        let allOpen = false;
+        $('#btnAll').addEventListener('click', () => {
+            if (!allOpen) {
+                const risky = tracked.filter(q => q.dataset.ans && !(P[q.id] && P[q.id].st) && $('.solution-box', q));
+                if (risky.length && !confirm('Còn ' + risky.length + ' câu chưa làm xong. Xem lời giải bây giờ thì các câu đó sẽ được ghi nhận là "đã xem lời giải trước" và không tính đúng. Tiếp tục?')) return;
+            }
+            allOpen = !allOpen;
+            $$('.q').forEach(q => openSol(q, allOpen));
+            $('#btnAll').textContent = allOpen ? '🙈 Ẩn tất cả lời giải' : '👁 Hiện tất cả lời giải';
+        });
+
+        function norm(s) { return s.replace(/\u2212/g, '-').replace(/,/g, '.').replace(/\s+/g, ''); }
+        function sameAns(a, b) {
+            a = norm(a); b = norm(b);
+            if (a === '' || b === '') return false;
+            if (a === b) return true;
+            const x = Number(a), y = Number(b);
+            return isFinite(x) && isFinite(y) && Math.abs(x - y) < 1e-9;
+        }
+
+        const GOOD = ['c1', 'c2', 'cr', 'ok'];
+        const FB = {
+            c1: ['correct', '✔ Chính xác — đúng ngay lần đầu'],
+            c2: ['correct', '✔ Đúng (sau khi thử lại)'],
+            cr: ['correct', '✔ Đúng (khi làm lại)'],
+            w: ['wrong', '✘ Chưa đúng'],
+            p: ['partial', ''],
+            sv: ['partial', '👁 Em đã xem lời giải trước nên câu này không tính đúng']
+        };
+        const BADGE = { c1: '🥇 Đúng ngay lần đầu', c2: 'Đúng ở lần 2', cr: 'Đúng khi làm lại', w: 'Sai', p: 'Đúng một phần',
+                        sv: 'Đã xem lời giải trước', ok: '✔ Làm được', near: '~ Gần đúng', no: '✘ Chưa làm được' };
+        const BCLS = { c1: 'correct', c2: 'correct', cr: 'correct', ok: 'correct', w: 'wrong', no: 'wrong', p: 'partial', near: 'partial', sv: 'partial' };
+        const KIND_NAME = { mc: 'Trắc nghiệm', tf: 'Đúng/Sai', short: 'Trả lời ngắn', essay: 'Tự luận' };
+
+        function mk(tag, cls, html) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (html) e.innerHTML = html;
+            if (tag === 'button') e.type = 'button';
+            return e;
+        }
+        function kindOf(q) {
+            if (q.dataset.ans) return q.dataset.kind;
+            return $('.solution-box', q) ? 'essay' : '';
+        }
+        const qs = $$('.q');
+        const tracked = qs.filter(q => kindOf(q));
+
+        function hash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+        const LS_KEY = 'tex2html.lesson.' + hash(document.title + '|' + tracked.map(q =>
+            q.id + ':' + kindOf(q) + ':' + (q.dataset.ans || '') + $$('.tfrow', q).map(w => w.dataset.ans.charAt(0)).join('')).join('|'));
+        let P = {}, lsOK = true;
+        function load() {
+            let raw = null;
+            try { raw = localStorage.getItem(LS_KEY); } catch (e) { lsOK = false; return; }
+            try { const o = JSON.parse(raw || 'null'); if (o && o.q) P = o.q; } catch (e) { P = {}; }
+            const ids = new Set(tracked.map(q => q.id));
+            Object.keys(P).forEach(k => { if (!ids.has(k)) delete P[k]; });
+        }
+        function save() {
+            try {
+                if (Object.keys(P).length) localStorage.setItem(LS_KEY, JSON.stringify({ v: 1, t: Date.now(), q: P }));
+                else localStorage.removeItem(LS_KEY);
+            } catch (e) { lsOK = false; }
+            const w = $('#lsWarn'); if (w) w.hidden = lsOK;
+        }
+        function W(q) { return P[q.id] || (P[q.id] = { n: 0, st: '' }); }
+
+        function enhance(q) {
+            const kind = kindOf(q), tools = $('.qtools', q), eh = $('.eh', q);
+            if (eh) eh.appendChild(mk('span', 'stt'));
+            if (kind === 'tf') { const c = mk('button', 'tf-chk', 'Kiểm tra'); c.disabled = true; $('.opts', q).appendChild(c); }
+            if (kind === 'essay') {
+                const rd = mk('button', 'redo-btn', '↺ Làm lại'); rd.hidden = true; tools.appendChild(rd);
+                const rate = mk('div', 'rate', '<span class="rq">Sau khi xem lời giải, em tự đánh giá nhé:</span>' +
+                    '<button type="button" class="rb ok" data-r="ok">✔ Em làm được</button>' +
+                    '<button type="button" class="rb near" data-r="near">~ Gần đúng</button>' +
+                    '<button type="button" class="rb no" data-r="no">✘ Chưa</button>');
+                rate.hidden = true; q.appendChild(rate);
+            }
+            tools.appendChild(mk('button', 'rv-btn', '🔖 Ôn lại'));
+        }
+
+        function paint(q) {
+            const kind = kindOf(q), r = P[q.id] || {}, st = r.st || '', n = r.n || 0;
+            q.classList.remove('s-correct', 's-wrong', 's-partial');
+            if (st) q.classList.add('s-' + BCLS[st]);
+            const badge = $('.stt', q); if (badge) badge.textContent = BADGE[st] || '';
+            const rv = $('.rv-btn', q);
+            if (rv) { rv.classList.toggle('on', !!r.rv); rv.textContent = r.rv ? '🔖 Đã đánh dấu ôn lại' : '🔖 Ôn lại'; }
+            const redo = $('.redo-btn', q); if (redo) redo.hidden = !st;
+            if (kind === 'essay') {
+                $('.rate', q).hidden = !(r.sn || st);
+                $$('.rb', q).forEach(b => b.classList.toggle('on', b.dataset.r === st));
+                return;
+            }
+            const ans = q.dataset.ans, total = $$('.tfrow', q).length;
+            if (kind === 'mc') {
+                $$('.opt', q).forEach(o => {
+                    const bad = (r.bad || []).indexOf(o.dataset.k) >= 0;
+                    o.classList.toggle('wrong', bad);
+                    o.classList.toggle('correct', o.dataset.k === ans && (!!st || !!r.v));
+                    o.classList.toggle('locked', !!st || bad);
+                });
+            } else if (kind === 'tf') {
+                const tf = r.tf || {}, rows = $$('.tfrow', q);
+                rows.forEach(row => {
+                    const sel = tf[row.dataset.k], a = row.dataset.ans;
+                    row.classList.remove('r-ok', 'r-bad');
+                    if (st) row.classList.add(sel === a ? 'r-ok' : 'r-bad');
+                    $$('.tfb button', row).forEach(b => {
+                        const v = b.dataset.v;
+                        b.disabled = !!st;
+                        b.classList.toggle('sel', !st && sel === v);
+                        b.classList.toggle('correct', !!st && v === a);
+                        b.classList.toggle('wrong', !!st && sel === v && v !== a);
+                    });
+                });
+                const chk = $('.tf-chk', q);
+                chk.hidden = !!st;
+                chk.disabled = !rows.every(row => tf[row.dataset.k]);
+                chk.textContent = n >= 1 ? 'Kiểm tra lại' : 'Kiểm tra';
+            } else if (kind === 'short') {
+                const inp = $('.sans', q), chk = $('.chk', q), ta = $('.true-ans', q);
+                const right = sameAns(r.txt || '', ans);
+                inp.value = r.txt || '';
+                inp.readOnly = !!st;
+                inp.classList.remove('correct', 'wrong');
+                if (st) inp.classList.add(right ? 'correct' : 'wrong'); else if (n >= 1) inp.classList.add('wrong');
+                chk.disabled = !!st;
+                chk.textContent = n >= 1 && !st ? 'Kiểm tra lại' : 'Kiểm tra';
+                ta.hidden = !(st && !right);
+                ta.textContent = 'Đáp án đúng: ' + ans;
+            }
+            const fb = $('.fb', q);
+            let cls = '', txt = '';
+            if (st) {
+                cls = FB[st][0]; txt = FB[st][1];
+                if (st === 'p') txt = '½ Đúng ' + r.k + '/' + total + ' ý';
+            } else if (r.v) {
+                cls = 'partial'; txt = 'Em đã xem lời giải — câu này sẽ không được tính đúng.';
+            } else if (n >= 1) {
+                cls = 'wrong';
+                txt = kind === 'tf' ? 'Mới đúng ' + r.k + '/' + total + ' ý — em xem lại rồi chọn lại một lần nữa nhé.'
+                                    : 'Chưa đúng — em thử lại một lần nữa nhé.';
+            }
+            fb.textContent = txt;
+            fb.className = 'fb' + (cls ? ' f-' + cls : '');
+        }
+
+        function markSeen(q) {
+            const kind = kindOf(q);
+            if (!kind) return;
+            const r = W(q);
+            if (kind === 'essay') r.sn = 1;
+            else if (!r.st && !r.v) { r.v = 1; if (!r.rd) r.sv = 1; r.rv = 1; }
+            else return;
+            save(); paint(q); refresh();
+        }
+
+        function goodSt(r) { return r.rd ? 'cr' : (r.n === 1 ? 'c1' : 'c2'); }
+        function finishQ(q, st) {
+            const r = W(q);
+            r.st = st;
+            if (!r.first) r.first = st;
+            r.rv = GOOD.indexOf(st) >= 0 ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function answerMC(q, val) {
+            const r = W(q);
+            if (r.st || (r.bad || []).indexOf(val) >= 0) return;
+            const ok = val === q.dataset.ans;
+            r.n = (r.n || 0) + 1;
+            r.bad = r.bad || [];
+            if (!ok) r.bad.push(val);
+            if (r.v) { r.pick = val; finishQ(q, 'sv'); return; }
+            if (ok) { r.pick = val; finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { r.pick = val; finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+        }
+        function pickTF(q, row, val) {
+            const r = W(q);
+            if (r.st) return;
+            r.tf = r.tf || {};
+            r.tf[row.dataset.k] = val;
+            save(); paint(q);
+        }
+        function checkTF(q) {
+            const r = W(q), rows = $$('.tfrow', q);
+            if (r.st || !r.tf || !rows.every(w => r.tf[w.dataset.k])) return;
+            r.n = (r.n || 0) + 1;
+            r.k = rows.filter(w => r.tf[w.dataset.k] === w.dataset.ans).length;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (r.k === rows.length) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, r.k === 0 ? 'w' : 'p'); return; }
+            save(); paint(q); refresh();
+        }
+        function checkShort(q) {
+            const r = W(q);
+            if (r.st) return;
+            const inp = $('.sans', q);
+            if (norm(inp.value) === '') { inp.focus(); return; }
+            r.txt = inp.value.trim();
+            r.n = (r.n || 0) + 1;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (sameAns(r.txt, q.dataset.ans)) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+            inp.focus(); inp.select();
+        }
+        function rateQ(q, v) {
+            const r = W(q);
+            r.sn = 1;
+            r.st = v;
+            if (!r.first) r.first = v;
+            r.rv = v === 'ok' ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function toggleRv(q) { const r = W(q); r.rv = r.rv ? 0 : 1; save(); paint(q); refresh(); }
+        function redoQ(q) {
+            const o = P[q.id] || {};
+            P[q.id] = { n: 0, st: '', first: o.first || '', sv: o.sv || 0, rd: (o.rd || 0) + 1, rv: o.rv || 0 };
+            openSol(q, false);
+            save(); paint(q); refresh();
+        }
+
+        function tally(list) {
+            const s = { n: list.length, done: 0, good: 0, first: 0, retry: 0, sv: 0, redo: 0, rev: 0, todo: 0, ok: 0, near: 0, no: 0 };
+            list.forEach(q => {
+                const r = P[q.id] || {}, st = r.st || '';
+                if (r.rv) s.rev++;
+                if (r.sv) s.sv++;
+                if (!st) { s.todo++; return; }
+                s.done++;
+                if (GOOD.indexOf(st) >= 0) s.good++; else s.redo++;
+                if (r.first === 'c1') s.first++; else if (st === 'c2' || st === 'cr') s.retry++;
+                if (st === 'ok' || st === 'near' || st === 'no') s[st]++;
+            });
+            return s;
+        }
+        function wrongList(list) { return list.filter(q => { const r = P[q.id]; return r && r.st && GOOD.indexOf(r.st) < 0; }); }
+
+        let flt = 'all';
+        const redoSet = new Set();
+        const FLT = {
+            all: () => true,
+            todo: q => !(P[q.id] && P[q.id].st),
+            rev: q => !!(P[q.id] && P[q.id].rv),
+            redo: q => redoSet.has(q.id)
+        };
+        function applyFilter() {
+            const on = flt !== 'all', f = FLT[flt] || FLT.all;
+            qs.forEach(q => { q.hidden = on && !(kindOf(q) && f(q)); });
+            $$('.lz').forEach(z => { z.hidden = on && !$$('.q', z).some(q => !q.hidden); });
+            const shown = qs.filter(q => !q.hidden).length;
+            $('#fltNote').hidden = !on;
+            $('#fltTxt').textContent = shown ? 'Đang lọc: ' + shown + ' câu' : 'Không có câu nào thuộc mục này.';
+            want($$('.lz').filter(z => !z.hidden), true);
+        }
+        function setFilter(v) {
+            if (v === 'redo' && !$('#fltSel option[value="redo"]')) { const o = mk('option'); o.value = 'redo'; $('#fltSel').appendChild(o); }
+            flt = v; $('#fltSel').value = v;
+            refresh();
+            applyFilter();
+        }
+        function jumpTo(el) {
+            pendingJump = el;
+            el.scrollIntoView({ block: 'start' });
+            want($$('.lz').filter(x => x.contains(el) || el.contains(x)), true);
+            setTimeout(() => { pendingJump = null; }, 2500);
+        }
+        function redoWrong(list) {
+            const l = wrongList(list);
+            if (!l.length) return;
+            l.forEach(q => { redoQ(q); redoSet.add(q.id); });
+            setFilter('redo');
+            window.scrollTo(0, 0);
+            jumpTo(l[0]);
+        }
+        function resetAll() {
+            if (!confirm('Xóa toàn bộ tiến độ của bài giảng này trên trình duyệt?')) return;
+            P = {}; redoSet.clear();
+            tracked.forEach(q => { openSol(q, false); paint(q); });
+            allOpen = false; $('#btnAll').textContent = '👁 Hiện tất cả lời giải';
+            save();
+            setFilter('all');
+        }
+
+        function buildGroups() {
+            const out = [];
+            const groupedIds = new Set();
+            $$('.dang').forEach(d => {
+                const l = tracked.filter(q => d.contains(q) || q.dataset.dang === d.id), db = d.querySelector(':scope > .db');
+                if (!l.length || !db) return;
+                l.forEach(q => groupedIds.add(q.id));
+                const no = $('.dno', d), tt = $('.dtt', d), label = no ? no.textContent : 'Dạng';
+                const g = { i: out.length, id: d.id, label: label, qs: l, sum: mk('div', 'dsum'),
+                            nameHtml: label + (tt && tt.innerHTML.trim() ? ': ' + tt.innerHTML : '') };
+                db.appendChild(g.sum);
+                out.push(g);
+            });
+            $$('h3.hd2').forEach(h => {
+                const l = tracked.filter(q => !groupedIds.has(q.id) && q.dataset.sub === h.id);
+                if (!l.length) return;
+                l.forEach(q => groupedIds.add(q.id));
+                out.push({ i: out.length, id: h.id, label: h.textContent, nameHtml: h.innerHTML, qs: l, sum: null });
+            });
+            const loose = tracked.filter(q => !groupedIds.has(q.id));
+            [['Ví dụ ngoài các dạng', loose.filter(q => !q.classList.contains('ex'))],
+             ['Bài tập luyện tập', loose.filter(q => q.classList.contains('ex'))]].forEach(p => {
+                if (p[1].length) out.push({ i: out.length, id: '', label: p[0], nameHtml: p[0], qs: p[1], sum: null });
+            });
+            return out;
+        }
+        const CARDS = [['done', 'Đã làm'], ['good', 'Đúng'], ['first', 'Đúng ngay lần đầu'], ['retry', 'Đúng sau thử lại'],
+                       ['sv', 'Xem lời giải trước'], ['redo', 'Cần làm lại'], ['todo', 'Chưa làm']];
+        function buildSummary() {
+            const sec = mk('section', 'sumsec');
+            sec.id = 'summary';
+            sec.innerHTML = '<h2 class="hd hd1">📊 Tổng kết</h2><p class="sline" id="sline"></p>' +
+                '<div class="sgrid">' + CARDS.map(c => '<div class="scard"><b data-s="' + c[0] + '">0</b><span>' + c[1] + '</span></div>').join('') + '</div>' +
+                '<h3 class="hd hd2">Theo dạng</h3>' +
+                '<div class="swrap"><table class="stab"><thead><tr><th>Dạng</th><th>Đã làm</th><th>Đúng</th><th>Cần ôn</th></tr></thead><tbody></tbody></table></div>' +
+                '<h3 class="hd hd2">Theo loại câu</h3><ul class="skind" id="skind"></ul>' +
+                '<div class="sbtns"><button type="button" class="dbtn" data-act="redo-all" id="sbRedo">🔁 Làm lại câu sai</button>' +
+                '<button type="button" class="dbtn" data-act="show-rev" id="sbRev">🔖 Xem câu cần ôn</button>' +
+                '<button type="button" class="dbtn" data-act="reset">🗑 Xóa tiến độ</button></div>' +
+                '<p class="snote">Tiến độ được lưu ngay trên trình duyệt này; mở lại bài giảng sẽ làm tiếp được. ' +
+                'Tự luận tính là đúng khi em tự đánh giá ✔. Câu xem lời giải trước khi làm xong không tính đúng.</p>';
+            const tb = $('tbody', sec);
+            groups.forEach(g => {
+                const tr = mk('tr', '', '<td>' + (g.id ? '<a href="#' + g.id + '" data-go="' + g.id + '">' + g.nameHtml + '</a>' : g.nameHtml) + '</td><td></td><td></td><td></td>');
+                tb.appendChild(tr); g.row = tr;
+            });
+            $('#content').appendChild(sec);
+            $('#toc').insertAdjacentHTML('beforeend', '<a class="l1" href="#summary">📊 Tổng kết</a>');
+            return sec;
+        }
+        function updateGroup(g) {
+            const s = tally(g.qs);
+            if (g.sum) {
+                g.sum.innerHTML = '<b>' + g.label + '</b><span>đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good + (s.rev ? ' · cần ôn ' + s.rev : '') + '</span>' +
+                    (s.redo ? '<button type="button" class="dbtn" data-act="redo-g" data-g="' + g.i + '">🔁 Làm lại câu sai (' + s.redo + ')</button>' : '');
+            }
+            const c = g.row.cells;
+            c[1].textContent = s.done + '/' + s.n; c[2].textContent = s.good; c[3].textContent = s.rev;
+        }
+        function refresh() {
+            const s = tally(tracked);
+            $('#ptxt').textContent = 'Đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good;
+            $('#pfill').style.width = (s.n ? Math.round(100 * s.done / s.n) : 0) + '%';
+            const lab = { todo: 'Chưa làm (' + s.todo + ')', rev: 'Cần ôn lại (' + s.rev + ')', redo: 'Đang làm lại (' + redoSet.size + ')' };
+            Object.keys(lab).forEach(k => { const o = $('#fltSel option[value="' + k + '"]'); if (o) o.textContent = lab[k]; });
+            groups.forEach(updateGroup);
+            $$('[data-s]', sumEl).forEach(b => { b.textContent = b.dataset.s === 'done' ? s.done + '/' + s.n : s[b.dataset.s]; });
+            $('#sline').textContent = s.done === s.n
+                ? '🎉 Em đã làm hết ' + s.n + ' câu, đúng ' + s.good + '.' + (s.redo ? ' Còn ' + s.redo + ' câu cần làm lại.' : ' Giỏi lắm!')
+                : 'Em đã làm ' + s.done + '/' + s.n + ' câu, đúng ' + s.good + '. Còn ' + s.todo + ' câu chưa làm.';
+            $('#skind').innerHTML = Object.keys(KIND_NAME).map(k => {
+                const l = tracked.filter(q => kindOf(q) === k);
+                if (!l.length) return '';
+                const t = tally(l);
+                return '<li><b>' + KIND_NAME[k] + ':</b> đã làm ' + t.done + '/' + t.n +
+                    (k === 'essay' ? ' · ✔ ' + t.ok + ' · ~ ' + t.near + ' · ✘ ' + t.no : ' · đúng ' + t.good + ' (ngay lần đầu ' + t.first + ')') + '</li>';
+            }).join('');
+            const br = $('#sbRedo'); br.textContent = '🔁 Làm lại câu sai (' + s.redo + ')'; br.disabled = !s.redo;
+            $('#sbRev').textContent = '🔖 Xem câu cần ôn (' + s.rev + ')';
+        }
+
+        load();
+        tracked.forEach(enhance);
+        $('#content').insertAdjacentHTML('afterbegin', '<div class="fltnote" id="fltNote" hidden><span id="fltTxt"></span>' +
+            '<button type="button" class="dbtn" data-act="flt-all">Hiện tất cả</button></div>');
+        const groups = tracked.length ? buildGroups() : [];
+        const sumEl = tracked.length ? buildSummary() : null;
+        if (tracked.length) {
+            tracked.forEach(paint);
+            $('#prow').hidden = false;
+            $('#btnSum').hidden = false;
+            refresh();
+            want([sumEl], false);
+        }
+        if (!lsOK) $('#lsWarn').hidden = false;
+        $('#btnSum').addEventListener('click', () => { if (sumEl) jumpTo(sumEl); });
+        $('#fltSel').addEventListener('change', e => { flt = e.target.value; applyFilter(); window.scrollTo(0, 0); });
+
+        function doAct(a) {
+            const act = a.dataset.act;
+            if (act === 'redo-g') redoWrong(groups[+a.dataset.g].qs);
+            else if (act === 'redo-all') redoWrong(tracked);
+            else if (act === 'show-rev') { setFilter('rev'); const f = tracked.find(q => !q.hidden); if (f) jumpTo(f); else window.scrollTo(0, 0); }
+            else if (act === 'flt-all') setFilter('all');
+            else if (act === 'reset') resetAll();
+        }
+
+        document.addEventListener('click', e => {
+            const t = e.target;
+            const go = t.closest('[data-go]');
+            if (go) {
+                e.preventDefault();
+                const el = document.getElementById(go.dataset.go);
+                if (el) { if (flt !== 'all') setFilter('all'); jumpTo(el); }
+                return;
+            }
+            const act = t.closest('[data-act]');
+            if (act) { doAct(act); return; }
+            const sb = t.closest('.sol-btn');
+            if (sb) { openSol(sb.closest('.q')); return; }
+            const q = t.closest('.q');
+            if (!q || !kindOf(q)) return;
+            if (t.closest('.redo-btn')) { redoQ(q); return; }
+            if (t.closest('.rv-btn')) { toggleRv(q); return; }
+            const rb = t.closest('.rb');
+            if (rb) { rateQ(q, rb.dataset.r); return; }
+            if (!q.dataset.ans) return;
+            const opt = t.closest('.opt');
+            if (opt && q.dataset.kind === 'mc' && !opt.classList.contains('static')) { answerMC(q, opt.dataset.k); return; }
+            const tb = t.closest('.tfb button');
+            if (tb) { pickTF(q, tb.closest('.tfrow'), tb.dataset.v); return; }
+            if (t.closest('.tf-chk')) { checkTF(q); return; }
+            if (t.closest('.chk')) checkShort(q);
+        });
+        document.addEventListener('keydown', e => {
+            const t = e.target;
+            if ((e.key === 'Enter' || e.key === ' ') && t.classList && t.classList.contains('opt') && !t.classList.contains('static')) {
+                e.preventDefault();
+                const q = t.closest('.q[data-ans]');
+                if (q) answerMC(q, t.dataset.k);
+            } else if (e.key === 'Enter' && t.classList && t.classList.contains('sans')) {
+                checkShort(t.closest('.q'));
+            }
+        });
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (t.classList && t.classList.contains('sans')) {
+                const q = t.closest('.q'), r = q && P[q.id];
+                if (!(r && r.st)) t.classList.remove('wrong');
+            }
+        });
+
+        const drawer = $('#drawer'), veil = $('#veil');
+        let tocDone = false;
+        function toc(open) {
+            drawer.classList.toggle('open', open);
+            veil.classList.toggle('open', open);
+            if (open && !tocDone) { tocDone = true; typesetNow($('#toc')); }
+        }
+        $('#btnToc').addEventListener('click', () => toc(true));
+        $('#btnTocClose').addEventListener('click', () => toc(false));
+        veil.addEventListener('click', () => toc(false));
+        $('#toc').addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            e.preventDefault();
+            const el = document.getElementById(a.getAttribute('href').slice(1));
+            toc(false);
+            if (el) jumpTo(el);
+        });
+        ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { pendingJump = null; }, { passive: true }));
+
+        const up = $('#toTop');
+        window.addEventListener('scroll', () => { up.hidden = window.scrollY < 600; }, { passive: true });
+        up.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+<script>
+(function () {
+    var PW = "0987473509";
+    var unlocked = false, pending = null, box = null, inp = null, err = null;
+    var RE_ALL = /(tất cả|toàn bộ)/i, RE_SOL = /(lời giải|đáp án)/i;
+
+    function isGate(b) {
+        if (b.closest('.sol-btn, .sol-all, .show-all-sol, #showAllSol, [data-act="sol-all"]')) return true;
+        var t = (b.textContent || '');
+        return RE_ALL.test(t) && RE_SOL.test(t);
+    }
+    function build() {
+        if (box) return;
+        box = document.createElement('div');
+        box.className = 'lz-lock';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.innerHTML = '<div class="lz-lock-box"><h4>🔒 Mở khóa lời giải</h4>' +
+            '<p>Nhập mật khẩu của giáo viên để xem lời giải.</p>' +
+            '<input type="password" autocomplete="off" placeholder="Mật khẩu…">' +
+            '<div class="lz-lock-err"></div>' +
+            '<div class="lz-lock-btns"><button type="button" class="cancel">Hủy</button><button type="button" class="ok">Mở khóa</button></div></div>';
+        document.body.appendChild(box);
+        inp = box.querySelector('input');
+        err = box.querySelector('.lz-lock-err');
+        box.querySelector('.ok').onclick = submit;
+        box.querySelector('.cancel').onclick = close;
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+        inp.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); submit(); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); }
+        });
+    }
+    function open(btn) {
+        build();
+        pending = btn;
+        inp.value = ''; inp.classList.remove('bad'); err.textContent = '';
+        box.classList.add('open');
+        setTimeout(function () { inp.focus(); }, 30);
+    }
+    function close() { if (box) box.classList.remove('open'); pending = null; }
+    function submit() {
+        if (inp.value.trim() === PW) {
+            unlocked = true;
+            var b = pending;
+            close();
+            if (b && document.contains(b)) b.click();
+        } else {
+            err.textContent = 'Mật khẩu không đúng!';
+            inp.classList.remove('bad'); void inp.offsetWidth; inp.classList.add('bad');
+            inp.select();
+        }
+    }
+    document.addEventListener('click', function (e) {
+        if (unlocked || !e.target || !e.target.closest) return;
+        var b = e.target.closest('button, a, [role="button"], input[type="button"]');
+        if (!b || !isGate(b)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        open(b);
+    }, true);
+})();
+</script>
+</body>
+</html>
