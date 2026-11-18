@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Th.S Nguyễn Ngọc Kiên - 0987 473 509</title>
+    <style>
+        * { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f7fbff; color: #1c2b3a; line-height: 1.6; padding-bottom: 72px; }
+
+        .topbar { position: sticky; top: 0; z-index: 50; background: #1e88e5; color: #fff; padding: 8px 14px; box-shadow: 0 2px 6px rgba(30,136,229,.25); }
+        .topbar .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: auto; }
+        .topbar h1 { margin: 0; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 200px; min-width: 0; }
+        .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tbtn { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 5px 12px; font-weight: bold; cursor: pointer; font-size: 13px; white-space: nowrap; }
+        .tbtn:hover { background: #e3f0fb; }
+
+        main { max-width: 860px; margin: auto; padding: 14px; }
+        mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+        .lz { margin: 0 0 12px; }
+        .txt { margin: 8px 0; }
+
+        /* ---- tiêu đề ---- */
+        h2.hd1 { color: #1565c0; border-bottom: 3px solid #b3d4fc; padding-bottom: 6px; margin: 30px 0 12px; font-size: 22px; }
+        h3.hd2 { color: #1565c0; border-bottom: 2px solid #b3d4fc; padding-bottom: 4px; margin: 24px 0 10px; font-size: 18px; }
+        h4.hd3 { color: #0d47a1; margin: 20px 0 8px; font-size: 16px; }
+        .sub-banner { text-align: center; font-weight: bold; font-size: 17px; color: #0d47a1; margin: 18px 0 10px; padding: 4px 10px; }
+        .hd { scroll-margin-top: 104px; }
+
+        /* ---- khung lý thuyết ---- */
+        .box { border: 2px solid var(--bc, #b3d4fc); background: var(--bg, #eef6fc); border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .box .bh { background: var(--bc, #b3d4fc); color: var(--fg, #0d47a1); font-weight: bold; padding: 5px 12px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .box .bsub { font-weight: normal; }
+        .box .bb { padding: 8px 14px; overflow-x: auto; }
+        .box .box { margin: 8px 0; }
+        .box .bb > .tp:first-child { margin-top: 2px; }
+        .k-def  { --bc: #b3d4fc; --bg: #eef6fc; --fg: #0d47a1; }
+        .k-thm  { --bc: #c5b3f5; --bg: #f5f1fe; --fg: #3b1e8a; }
+        .k-note { --bc: #ffe08a; --bg: #fffbea; --fg: #7a5600; }
+        .k-warn { --bc: #ffb4a8; --bg: #fff3f0; --fg: #9a2410; }
+        .k-key  { --bc: #a5dfb5; --bg: #f0fbf3; --fg: #14602b; }
+        .k-sum  { --bc: #9ed8e3; --bg: #eefafc; --fg: #0b5563; }
+        .k-try  { --bc: #f5c18c; --bg: #fff6ec; --fg: #8a4a00; }
+        .k-ask  { --bc: #d5d5d5; --bg: #f7f7f7; --fg: #333; }
+
+        /* ---- dạng toán (cỡ chữ tiêu đề 18px bằng subsection) ---- */
+        .dang { border: 2px solid #1e88e5; border-radius: 8px; margin: 22px 0 12px; background: #fff; overflow: hidden; scroll-margin-top: 104px; }
+        .dang .dh { background: #1e88e5; color: #fff; padding: 7px 14px; font-weight: bold; font-size: 18px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+        .dang .dno { background: #fff; color: #1565c0; border-radius: 12px; padding: 0 10px; white-space: nowrap; }
+        .dang .db { padding: 8px 14px; overflow-x: auto; }
+
+        /* ---- ví dụ / câu hỏi ---- */
+        .q { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 12px 14px; margin: 14px 0; overflow-x: auto; }
+        .q.s-correct { border-color: #28a745; }
+        .q.s-wrong { border-color: #dc3545; }
+        .q.s-partial { border-color: #ff9800; }
+        .q .eh { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .q .el { background: #1e88e5; color: #fff; font-weight: bold; padding: 2px 12px; border-radius: 14px; }
+        .q.ex .el { background: #00897b; }
+        .q .tag { font-size: 12px; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 10px; padding: 0 8px; background: #eef6fc; }
+        .qtext { margin-bottom: 8px; word-wrap: break-word; }
+
+        .opt { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 8px 11px; margin: 6px 0; cursor: pointer; transition: .2s; }
+        .opt:hover:not(.locked):not(.static) { background: #e3f0fb; border-color: #1e88e5; }
+        .opt:focus-visible, .tfb button:focus-visible { outline: 3px solid #ff9800; outline-offset: 1px; }
+        .opt.static { cursor: default; }
+        .opt.locked { cursor: default; }
+        .opt.locked:not(.correct):not(.wrong) { opacity: .55; }
+        .opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .lab { font-weight: bold; min-width: 1.7em; }
+        .ob { flex: 1; min-width: 0; overflow-x: auto; }
+
+        .tfrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 7px 10px; margin: 6px 0; }
+        .tfrow.r-ok { border-color: #28a745; }
+        .tfrow.r-bad { border-color: #dc3545; }
+        .tfc { flex: 1 1 60%; min-width: 0; overflow-x: auto; }
+        .tfb { display: flex; gap: 8px; }
+        .tfb button { padding: 6px 16px; font-weight: bold; border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; cursor: pointer; }
+        .tfb button:hover:not(:disabled) { background: #e3f0fb; }
+        .tfb button:disabled { cursor: default; }
+        .tfb button.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .tfb button.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        .shortrow { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sans { width: 190px; max-width: 100%; padding: 8px 12px; font-size: 17px; font-weight: bold; border: 2px solid #1e88e5; border-radius: 5px; color: #1565c0; }
+        .sans.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .sans.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; }
+        .chk:disabled { background: #ccc; cursor: default; }
+        .true-ans { margin-top: 8px; color: #28a745; font-weight: bold; }
+
+        .fb { margin-top: 6px; font-weight: bold; min-height: 1.2em; }
+        .f-correct { color: #28a745; } .f-wrong { color: #dc3545; } .f-partial { color: #ef6c00; }
+        .qtools { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .sol-btn { background: #17a2b8; color: #fff; border: none; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-weight: bold; }
+        .sol-btn:hover { background: #138496; }
+        .redo-btn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .solution-box { display: none; margin-top: 10px; padding: 12px 14px; background: #e8f4fc; border-left: 5px solid #0288d1; border-radius: 4px; overflow-x: auto; }
+
+        /* ---- mục lục (ngăn kéo) ---- */
+        .drawer { position: fixed; top: 0; bottom: 0; left: 0; width: min(360px, 88vw); z-index: 80; background: #fff; box-shadow: 4px 0 18px rgba(0,0,0,.25); transform: translateX(-105%); transition: transform .25s; display: flex; flex-direction: column; }
+        .drawer.open { transform: none; }
+        .drawer .dtop { background: #1e88e5; color: #fff; padding: 10px 14px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .drawer .dtop button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        .toc { overflow-y: auto; padding: 8px 6px 20px; }
+        .toc a { display: block; padding: 5px 10px; color: #1c2b3a; text-decoration: none; border-radius: 4px; font-size: 14px; line-height: 1.4; }
+        .toc a:hover { background: #e3f0fb; }
+        .toc a.l1 { font-weight: bold; color: #1565c0; margin-top: 8px; }
+        .toc a.l2 { padding-left: 18px; }
+        .toc a.l3 { padding-left: 30px; font-size: 13px; }
+        .toc a.l4 { padding-left: 30px; font-size: 13px; color: #00695c; }
+        .veil { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 70; display: none; }
+        .veil.open { display: block; }
+
+        .foot { text-align: center; font-size: 12px; color: #5f7b94; padding: 10px; }
+        .foot:empty { display: none; }
+        @media screen { .foot { display: none; } }
+
+        /* ---- góc dưới phải ---- */
+        .fab { position: fixed; right: 14px; bottom: 14px; z-index: 40; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 28px); pointer-events: none; }
+        .fab > * { pointer-events: auto; }
+        .credit { display: flex; align-items: center; flex-wrap: wrap; gap: 0 12px; min-height: 42px; padding: 4px 14px; background: #fff; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 21px; font-size: 12px; line-height: 1.35; box-shadow: 0 2px 8px rgba(30,136,229,.18); min-width: 0; }
+        .credit:empty { display: none; }
+        .credit .cr-i { white-space: nowrap; }
+        .credit .cr-i b { font-weight: bold; }
+        #toTop { flex: 0 0 42px; background: #1e88e5; color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+
+        /* ---- tiến độ học tập ---- */
+        .prow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: 6px auto 0; font-size: 13px; }
+        .ptxt { font-weight: bold; white-space: nowrap; }
+        .ptrack { flex: 1 1 90px; min-width: 70px; height: 8px; background: rgba(255,255,255,.35); border-radius: 4px; overflow: hidden; }
+        .pfill { height: 100%; width: 0; background: #fff; transition: width .3s; }
+        .fsel { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 3px 6px; font-weight: bold; font-size: 13px; max-width: 100%; }
+        .lswarn { background: #fff3cd; color: #7a5600; border-radius: 4px; padding: 0 8px; font-size: 12px; }
+        .fltnote { margin: 4px 0 10px; padding: 6px 12px; background: #fff6ec; border: 1px solid #f5c18c; border-radius: 6px; color: #8a4a00; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+        /* ---- trạng thái từng câu ---- */
+        .stt { font-size: 12px; font-weight: bold; border: 1px solid transparent; border-radius: 10px; padding: 0 8px; }
+        .stt:empty { display: none; }
+        .s-correct .stt { color: #155724; background: #d4edda; border-color: #28a745; }
+        .s-partial .stt { color: #8a4a00; background: #fff3e0; border-color: #ff9800; }
+        .s-wrong .stt { color: #721c24; background: #f8d7da; border-color: #dc3545; }
+        .tfb button.sel { background: #e3f0fb; border-color: #1e88e5; color: #1565c0; }
+        .tf-chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; margin-top: 6px; }
+        .tf-chk:disabled { background: #ccc; cursor: default; }
+        .rv-btn { background: #fff; color: #8a4a00; border: 1px solid #f5c18c; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .rv-btn.on { background: #fff6ec; border-color: #ff9800; }
+        .rate { margin-top: 10px; padding: 8px 12px; background: #f7fbff; border: 1px dashed #b3d4fc; border-radius: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .rate .rq { font-weight: bold; color: #1565c0; margin-right: 4px; }
+        .rb { border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; padding: 5px 14px; font-weight: bold; cursor: pointer; }
+        .rb:hover { background: #e3f0fb; }
+        .rb.ok.on { background: #d4edda; border-color: #28a745; color: #155724; }
+        .rb.near.on { background: #fff3e0; border-color: #ff9800; color: #8a4a00; }
+        .rb.no.on { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        /* ---- tổng kết ---- */
+        .dsum { margin-top: 10px; padding: 6px 12px; background: #eef6fc; border: 1px solid #b3d4fc; border-radius: 6px; font-size: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .dsum:empty { display: none; }
+        .dbtn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-weight: bold; }
+        .dbtn:disabled { color: #999; border-color: #ccc; cursor: default; }
+        .sumsec { margin: 34px 0 10px; scroll-margin-top: 104px; }
+        .sumsec .sline { font-weight: bold; color: #0d47a1; }
+        .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+        .scard { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 8px 10px; text-align: center; }
+        .scard b { display: block; font-size: 22px; color: #1565c0; }
+        .scard span { font-size: 12px; color: #5f7b94; }
+        .swrap { overflow-x: auto; }
+        .stab { border-collapse: collapse; width: 100%; background: #fff; }
+        .stab th, .stab td { border: 1px solid #b3d4fc; padding: 5px 10px; text-align: center; }
+        .stab th { background: #e8f4fc; color: #0d47a1; }
+        .stab td:first-child { text-align: left; }
+        .skind { margin: 6px 0; padding-left: 20px; }
+        .sbtns { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 6px; }
+        .sbtns .dbtn { padding: 7px 14px; }
+        .snote { font-size: 12px; color: #5f7b94; margin: 4px 0; }
+
+        /* --- SVG / ẢNH + KHUNG ZOOM --- */
+        :root {
+            --zoom-accent: #1e88e5; --zoom-accent-hover: #1565c0;
+            --zoom-border: #b3d4fc; --zoom-bar-bg: #eef6fc; --zoom-max-h: none;
+        }
+        svg { max-width: 100%; height: auto; display: block; margin: 10px auto; overflow: visible; }
+        svg text { font-family: Arial, sans-serif; }
+        img { max-width: 100%; height: auto; }
+        .zoom-container { display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; }
+        .zoom-viewport {
+            flex: 1 1 auto; min-width: 0;
+            overflow: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--zoom-border); border-radius: 4px; background: #fff;
+            box-sizing: border-box; padding: 4px;
+        }
+        .zoom-viewport.can-pan { cursor: grab; max-height: var(--zoom-max-h); overscroll-behavior: contain; }
+        .zoom-viewport.dragging { cursor: grabbing; user-select: none; }
+        .zoom-toolbar { display: flex; flex-direction: column; gap: 5px; background: var(--zoom-bar-bg); padding: 5px; border-radius: 4px; border: 1px solid var(--zoom-border); flex-shrink: 0; }
+        .zoom-btn { background: var(--zoom-accent); color: #fff; border: none; padding: 6px 10px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: background .2s, opacity .2s; white-space: nowrap; }
+        .zoom-btn:hover:not(:disabled) { background: var(--zoom-accent-hover); }
+        .zoom-btn:disabled { background: #ccc; cursor: not-allowed; opacity: .6; }
+        .zoom-media { display: block; margin: 0 auto; max-width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+        .zoom-media.zoomed { width: var(--zw) !important; max-width: none !important; height: auto !important; }
+
+        /* --- BẢNG DÀI & BẢNG RỘNG --- */
+        .table-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 10px 0; }
+        .table-scroll > table { margin: 0; max-width: 100%; border-collapse: collapse; }
+        .table-scroll th, .table-scroll td { overflow-wrap: break-word; }
+        .table-responsive { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 15px 0; }
+        .tbl-box { position: relative; margin: 12px 0; max-width: 100%; min-width: 0; }
+        .tbl-box > .tbl-wrap { position: relative; }
+        .tbl-box .table-responsive, .tbl-box .table-scroll { margin: 0; }
+        .tbl-hint { display: none; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 4px; font-size: 12.5px; color: #5f7b94; }
+        .tbl-box.has-scroll > .tbl-hint { display: flex; }
+        .tbl-open { font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 14px; border: 1px solid var(--zoom-border); background: var(--zoom-bar-bg); color: var(--zoom-accent-hover); cursor: pointer; white-space: nowrap; }
+        .tbl-fade { display: none; position: absolute; top: 0; right: 0; bottom: 0; width: 30px; pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), rgba(120,140,160,.28)); }
+        .tbl-box.has-scroll:not(.at-end) .tbl-fade { display: block; }
+        .tbl-box.has-scroll table.sticky-first tr > :first-child { position: sticky; left: 0; z-index: 2; background: #fff; box-shadow: 2px 0 4px -2px rgba(0,0,0,.35); }
+        @media (max-width: 600px) {
+            .tbl-box td, .tbl-box th { font-size: 14px; padding: 4px 7px !important; }
+        }
+        #tblOverlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: none; flex-direction: column; }
+        #tblOverlay.open { display: flex; }
+        .tbl-ov-bar { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--zoom-bar-bg); border-bottom: 1px solid var(--zoom-border); }
+        .tbl-ov-bar .ttl { flex: 1; min-width: 0; font-size: 13px; font-weight: bold; color: #333; }
+        .tbl-ov-body { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding: 10px; touch-action: pan-x pan-y; }
+        .tbl-ov-body table { margin: 0; width: auto; max-width: none; border-collapse: collapse; font-size: calc(15px * var(--tbl-s, 1)); }
+        .tbl-ov-body td, .tbl-ov-body th { font-size: inherit !important; padding: 5px 9px; }
+
+        /* ===== Bổ sung định dạng TeX2HTML ===== */
+        .tp { margin: 6px 0; }
+        .center { text-align: center; }
+        .lvl { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 12px; border: 1px solid; font-size: 12px; font-weight: bold; line-height: 1.6; white-space: nowrap; vertical-align: middle; cursor: help; }
+        .lvl .dots { letter-spacing: 1px; margin-right: 4px; }
+        .lvl.lv1 { background: #e6f4ea; border-color: #34a853; color: #1b6b32; }
+        .lvl.lv2 { background: #e3f0fb; border-color: #4a90d9; color: #0d47a1; }
+        .lvl.lv3 { background: #fff3e0; border-color: #fb8c00; color: #8a4b00; }
+        .lvl.lv4 { background: #fdeaea; border-color: #e53935; color: #a31515; }
+        .figure svg, .figure img { max-width: 100%; height: auto; }
+        .fig-error { color: #b00020; border: 1px dashed #b00020; padding: 6px 10px; text-align: center; margin: 8px 0; font-size: 14px; }
+        .fbox { border: 1px solid currentColor; padding: 0 4px; }
+        blockquote { margin: 8px 20px; }
+        img { max-width: 100%; height: auto; }
+        ul, ol { margin: 6px 0; padding-left: 24px; }
+        ul.desc, li.cl { list-style: none; }
+        li.cl .lbl { font-weight: bold; margin-right: .4em; }
+        ol[class^="paren-"] { list-style: none; counter-reset: pc; padding-left: 2.2em; }
+        ol[class^="paren-"] > li { counter-increment: pc; position: relative; margin: 4px 0; }
+        ol[class^="paren-"] > li::before { position: absolute; left: -2.2em; width: 2em; text-align: right; font-weight: bold; }
+        ol.paren-a > li::before { content: counter(pc, lower-alpha) ")"; }
+        ol.paren-A > li::before { content: counter(pc, upper-alpha) ")"; }
+        ol.paren-i > li::before { content: counter(pc, lower-roman) ")"; }
+        ol.paren-I > li::before { content: counter(pc, upper-roman) ")"; }
+        ol.paren-1 > li::before { content: counter(pc, decimal) ")"; }
+        table.tex-table { border-collapse: collapse; margin: 8px auto; }
+        table.tex-table td { padding: 4px 10px; }
+        table.tex-table.bordered td { border: 1px solid #555; }
+        .tex-fa { margin: 0 .25em; font-style: normal; }
+
+        @media (max-width: 600px) {
+            main { padding: 10px; } .q { padding: 10px; } .tfc { flex-basis: 100%; }
+            .tbtn { padding: 5px 9px; }
+            .credit { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; font-size: 11px; padding: 3px 10px; border-radius: 14px; }
+        }
+        @media print {
+            .topbar, .fab, #toTop, .drawer, .veil, .qtools, .rate, .tf-chk, .dsum, .fltnote, .sumsec { display: none !important; }
+            .solution-box.show-print { display: block !important; }
+        }
+    </style>
+
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']], processEscapes: true, macros: {"wideparen": ["\\overset{\\frown}{#1}", 1], "overarc": ["\\overset{\\frown}{#1}", 1]} },
+          startup: { typeset: false },
+          options: { enableMenu: false, ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<style>
+.lz-lock { position: fixed; inset: 0; z-index: 100000; display: none; align-items: center; justify-content: center; padding: 14px; background: rgba(0,0,0,.5); }
+.lz-lock.open { display: flex; }
+.lz-lock-box { background: #fff; color: #1c2b3a; width: 100%; max-width: 360px; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-family: Arial, sans-serif; }
+.lz-lock-box h4 { margin: 0 0 6px; color: #1565c0; font-size: 18px; }
+.lz-lock-box p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.lz-lock-box input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; border: 2px solid #1e88e5; border-radius: 6px; }
+.lz-lock-box input.bad { border-color: #dc3545; animation: lzshake .3s; }
+.lz-lock-err { min-height: 1.3em; margin: 6px 0 2px; font-size: 13px; color: #dc3545; font-weight: bold; }
+.lz-lock-btns { display: flex; gap: 8px; margin-top: 8px; }
+.lz-lock-btns button { flex: 1; padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; color: #fff; background: #1e88e5; }
+.lz-lock-btns button.cancel { background: #6c757d; }
+@keyframes lzshake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+</style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="row">
+            <h1 id="ttl">Th.S Nguyễn Ngọc Kiên - 0987 473 509</h1>
+            <div class="tools">
+                <button type="button" class="tbtn" id="btnToc">☰ Mục lục</button>
+                <button type="button" class="tbtn" id="btnAll">👁 Hiện tất cả lời giải</button>
+                <button type="button" class="tbtn" id="btnSum" hidden>📊 Tổng kết</button>
+            </div>
+        </div>
+        <div class="prow" id="prow" hidden>
+            <span class="ptxt" id="ptxt">Đã làm 0/0 · đúng 0</span>
+            <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+            <select class="fsel" id="fltSel" aria-label="Lọc câu hỏi">
+                <option value="all">Tất cả</option>
+                <option value="todo">Chưa làm</option>
+                <option value="rev">Cần ôn lại</option>
+            </select>
+            <span class="lswarn" id="lsWarn" hidden>⚠ Trình duyệt không cho lưu tiến độ</span>
+        </div>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <aside class="drawer" id="drawer" aria-label="Mục lục">
+        <div class="dtop"><span>Mục lục</span><button type="button" id="btnTocClose" aria-label="Đóng">✕</button></div>
+        <nav class="toc" id="toc"><a class="l1" href="#sec1">Giới hạn của hàm số</a><a class="l2" href="#sub1_1">Giới hạn hữu hạn của hàm số</a><a class="l3" href="#subsub1_1_1">Giới hạn hữu hạn của hàm số tại một điểm</a><a class="l3" href="#subsub1_1_2">Giới hạn hữu hạn của hàm số tại vô cực</a><a class="l2" href="#sub1_2">Giới hạn vô cực của hàm số</a><a class="l3" href="#subsub1_2_1">Giới hạn vô cực (một phía) của hàm số tại một điểm</a><a class="l3" href="#subsub1_2_2">Giới hạn vô cực của hàm số tại vô cực</a><a class="l3" href="#subsub1_2_3">Quy tắc tính giới hạn vô cực</a><a class="l2" href="#sub1_3">Các giới hạn hàm số cơ bản</a><a class="l2" href="#sub1_4">Các dạng bài tập và phương pháp giải</a><a class="l4" href="#d1">Dạng 1. Dùng định nghĩa để tính giới hạn</a><a class="l4" href="#d2">Dạng 2. Tính giới hạn hàm số tại một điểm ($\boldsymbol{x \to x_0}$)</a><a class="l4" href="#d3">Dạng 3. Tính giới hạn hàm số tại vô cực ($\boldsymbol{x \to \pm\infty}$)</a><a class="l4" href="#d4">Dạng 4. Tính giới hạn một phía</a><a class="l4" href="#d5">Dạng 5. Một số bài toán thực tiễn gắn với giới hạn hàm số</a></nav>
+    </aside>
+
+    <main id="content">
+<div class="lz"><h2 class="hd hd1" id="sec1">Giới hạn của hàm số</h2></div><div class="lz"><h3 class="hd hd2" id="sub1_1">Giới hạn hữu hạn của hàm số</h3></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_1">Giới hạn hữu hạn của hàm số tại một điểm</h4></div><div class="lz"><div class="txt"><div class="box k-def"><div class="bh"><span>Định nghĩa 1</span></div><div class="bb"><div class="tp">Cho khoảng $K$ chứa điểm $x_0$ và hàm số $y=f(x)$ xác định trên $K$ hoặc trên $K\setminus\{x_0\}$. Hàm số $f(x)$ có giới hạn là số $L$ khi $x$ dần tới $x_0$ nếu với dãy số $(x_n)$ bất kỳ, $x_n \in K\setminus\{x_0\}$ và $x_n \rightarrow x_0$ thì $f(x_n) \rightarrow L$. Ký hiệu $\displaystyle \lim_{ x \to x_0}{f(x)} = L$.</div></div></div><div class="box k-thm"><div class="bh"><span>Định lý 1</span><span class="bsub">(Các phép toán giới hạn hữu hạn)</span></div><div class="bb"><div class="tp">Nếu $\displaystyle \lim_{ x \to x_0}{f(x)}$ và $\displaystyle \lim_{ x \to x_0}{g(x)}$ hữu hạn thì: <ul><li>$\displaystyle \lim_{ x \to x_0}[{f(x)+g(x)]} = \displaystyle \lim_{ x \to x_0}{f(x)} + \displaystyle \lim_{ x \to x_0}{g(x)}$;</li><li>$\displaystyle \lim_{ x \to x_0}[{f(x)-g(x)]} = \displaystyle \lim_{ x \to x_0}{f(x)} - \displaystyle \lim_{ x \to x_0}{g(x)}$;</li><li>$\displaystyle \lim_{ x \to x_0}[{f(x)\cdot g(x)]} = \displaystyle \lim_{ x \to x_0}{f(x)} \cdot \displaystyle \lim_{ x \to x_0}{g(x)}$;</li><li>$\displaystyle \lim_{ x \to x_0}\dfrac{f(x)}{g(x)} = \dfrac{\displaystyle \lim_{ x \to x_0}f(x)}{\displaystyle \lim_{ x \to x_0}g(x)}$ (nếu $\displaystyle \lim_{ x \to x_0}g(x) \neq 0$);</li></ul> Nếu $f(x)\geq 0$ và $\displaystyle \lim_{ x \to x_0}f(x)=L$, thì $L \geq 0$ và $\displaystyle \lim_{ x \to x_0}\sqrt{f(x)} = \sqrt{L}$. <br></div></div></div><div class="box k-def"><div class="bh"><span>Định nghĩa 2</span><span class="bsub">(Giới hạn một phía)</span></div><div class="bb"><ul><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(a;x_0)$. <br> Số $L$ được gọi là giới hạn bên trái của $f(x)$ khi $x \to x_0$ nếu với dãy số $(x_n)$ bất kỳ, $a &lt; x_n &lt; x_0$ và $x_n \rightarrow x_0$, ta có $f(x_n) \rightarrow L$. Ký hiệu $\displaystyle \lim_{ x \to {x_0}^{-}}{f(x)} = L$.</li><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(x_0;b)$. <br> Số $L$ được gọi là giới hạn bên phải của $f(x)$ khi $x \to x_0$ nếu với dãy số $(x_n)$ bất kỳ, $x_0 &lt; x_n &lt; b$ và $x_n \rightarrow x_0$, ta có $f(x_n) \rightarrow L$. Ký hiệu $\displaystyle \lim_{ x \to {x_0}^{+}}{f(x)} = L$</li></ul></div></div><div class="box k-thm"><div class="bh"><span>Định lý 2</span></div><div class="bb"><div class="tp">$\displaystyle \lim_{ x \to x_0}{f(x)} = L$ khi và chỉ khi $\displaystyle \lim_{ x \to {x_0}^{-}}{f(x)} = \displaystyle \lim_{ x \to {x_0}^{+}}{f(x)} = L$.</div></div></div></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_2">Giới hạn hữu hạn của hàm số tại vô cực</h4></div><div class="lz"><div class="txt"><div class="tp"><ul><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(-\infty;a)$. <br> Hàm số $f(x)$ có giới hạn là số $L$ khi $x \to -\infty$ nếu với dãy số $(x_n)$ bất kỳ, $x_n &lt; a$ và $x_n \rightarrow -\infty$, ta có $f(x_n)\rightarrow L$. Ký hiệu $\displaystyle \lim_{ x \to {-\infty}}{f(x)} = L$.</li><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(a;+\infty)$. <br> Hàm số $f(x)$ có giới hạn là số $L$ khi $x \to +\infty$ nếu với dãy số $(x_n)$ bất kỳ, $x_n &gt; a$ và $x_n \rightarrow +\infty$, ta có $f(x_n) \rightarrow L$. Ký hiệu $\displaystyle \lim_{ x \to {+\infty}}{f(x)} = L$.</li></ul> Các phép toán giới hạn hữu hạn của hàm số khi $x \rightarrow x_0$ vẫn đúng khi $x \rightarrow +\infty$ hoặc $x \rightarrow -\infty$.</div></div></div><div class="lz"><h3 class="hd hd2" id="sub1_2">Giới hạn vô cực của hàm số</h3></div><div class="lz"><h4 class="hd hd3" id="subsub1_2_1">Giới hạn vô cực (một phía) của hàm số tại một điểm</h4></div><div class="lz"><div class="txt"><ul><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(x_0;b)$. <br> Hàm số $f(x)$ có giới hạn là $+\infty$ khi $x \to x_0^{+}$ nếu với dãy số $(x_n)$ bất kỳ, $x_0 &lt; x_n &lt; b$ và $x_n \rightarrow x_0$, ta có $f(x_n) \rightarrow +\infty$. Ký hiệu $\displaystyle \lim_{ x \to {x_0}^{+}}{f(x)} = +\infty$.</li><li>Các trường hợp $\displaystyle \lim_{ x \to {x_0}^{+}}{f(x)} = -\infty$; $\displaystyle \lim_{ x \to {x_0}^{-}}{f(x)} = +\infty$; $\displaystyle \lim_{ x \to {x_0}^{-}}{f(x)} = -\infty$ được định nghĩa tương tự.</li></ul></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_2_2">Giới hạn vô cực của hàm số tại vô cực</h4></div><div class="lz"><div class="txt"><ul><li>Cho hàm số $y=f(x)$ xác định trên khoảng $(a;+\infty)$. <br> Hàm số $f(x)$ có giới hạn là $+\infty$ khi $x \to +\infty$ nếu với dãy số $(x_n)$ bất kỳ, $x_n &gt; a$ và $x_n \rightarrow +\infty$, ta có $f(x_n) \rightarrow +\infty$. Ký hiệu $\displaystyle \lim_{ x \to {+\infty}}{f(x)} = +\infty$.</li><li>Các trường hợp $\displaystyle \lim_{ x \to {+\infty}}{f(x)} = -\infty$; $\displaystyle \lim_{ x \to {-\infty}}{f(x)} = +\infty$; $\displaystyle \lim_{ x \to {-\infty}}{f(x)} = -\infty$ được định nghĩa tương tự.</li></ul></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_2_3">Quy tắc tính giới hạn vô cực</h4></div><div class="lz"><div class="txt"><ul><li>Nếu $\lim\limits_{x\to x_0}f(x)=L\ne 0$ và $\lim\limits_{x\to x_0}g(x)=\pm\infty$ thì $$\lim\limits_{x\to x_0} f(x)\cdot g(x) = \left\{\begin{aligned}&amp;+\infty \text{ nếu } L \text{ và}\lim\limits_{x\to x_0}g(x) \text{ cùng dấu}\\ &amp;-\infty \text{ nếu }L \text{ và}\lim\limits_{x\to x_0}g(x) \text{ trái dấu}\end{aligned}\right.$$</li><li>Nếu $\lim\limits_{x\to x_0}f(x)=L\ne 0$ thì $$\lim\limits_{x\to x_0}\dfrac{f(x)}{g(x)}= \left\{\begin{aligned}&amp;0&amp;\text{nếu}&amp; \lim\limits_{x\to x_0} g(x)=\pm\infty\\ &amp;+\infty&amp; \text{nếu}&amp;\lim\limits_{x\to x_0} g(x)=0 \text{ và }L\cdot g(x)&gt;0\\&amp; -\infty&amp;\text{nếu}&amp;\lim\limits_{x\to x_0} g(x)=0 \text{ và }L\cdot g(x)&lt;0\end{aligned}\right.$$</li></ul></div></div><div class="lz"><h3 class="hd hd2" id="sub1_3">Các giới hạn hàm số cơ bản</h3></div><div class="lz"><div class="txt"><div class="tp">Cho $c$ là hằng số, $k$ là số nguyên dương <ol><li>$\displaystyle \lim_{ x \to x_0}{x} = x_0$;</li><li>$\displaystyle \lim_{ x \to x_0}{c} = c$;</li><li>$\displaystyle \lim_{ x \to \pm \infty}{c} = c$;</li><li>$\displaystyle \lim_{ x \to \pm \infty}{\dfrac{c}{x^k}} = 0$;</li><li>$\displaystyle \lim_{ x \to +\infty}{x^k} = +\infty$;</li><li>*(2) $\displaystyle \lim_{ x \to -\infty}{x^k} = -\infty$ nếu $k$ lẻ;</li></ol></div><ol><li>* $\displaystyle \lim_{ x \to -\infty}{x^k} = +\infty$ nếu $k$ chẵn.</li></ol></div></div><div class="lz"><h3 class="hd hd2" id="sub1_4">Các dạng bài tập và phương pháp giải</h3></div><div class="lz"><div class="dang" id="d1"><div class="dh"><span class="dno">Dạng 1</span><span class="dtt">Dùng định nghĩa để tính giới hạn</span></div><div class="db"><div class="txt"><div class="tp">Vận dụng trực tiếp các định nghĩa về giới hạn của hàm số. <br> Lưu ý: Hàm số $f(x)$ có thể không xác định tại $x_0$ nhưng vẫn tồn tại giới hạn của $f(x)$ khi $x$ dần tới $x_0$.</div></div></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd1" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Cho hàm số $f(x)$ có đồ thị như hình bên. Quan sát đồ thị, xác định các giá trị sau</div><div class="center"><div class="tp">$\displaystyle \lim_{ x \to 2^-}{f(x)}$ \qquad $\displaystyle \lim_{ x \to 2^+}{f(x)}$ \qquad $\displaystyle \lim_{ x \to 2}{f(x)}$ \qquad $f(2)$. <br> $\displaystyle \lim_{ x \to 5^-}{f(x)}$ \qquad $\displaystyle \lim_{ x \to 5^+}{f(x)}$ \qquad $\displaystyle \lim_{ x \to 5}{f(x)}$ \qquad $f(5)$.</div></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='174.762242pt' height='135.184618pt' viewBox='-69.011212 -69.011213 174.762242 135.184618'>
+<defs>
+<path id='g1-49' d='M2.502615-5.076961C2.502615-5.292154 2.486675-5.300125 2.271482-5.300125C1.944707-4.98132 1.522291-4.790037 .765131-4.790037V-4.527024C.980324-4.527024 1.41071-4.527024 1.872976-4.742217V-.653549C1.872976-.358655 1.849066-.263014 1.091905-.263014H.812951V0C1.139726-.02391 1.825156-.02391 2.183811-.02391S3.235866-.02391 3.56264 0V-.263014H3.283686C2.526526-.263014 2.502615-.358655 2.502615-.653549V-5.076961Z'/>
+<path id='g1-50' d='M2.247572-1.625903C2.375093-1.745455 2.709838-2.008468 2.83736-2.12005C3.331507-2.574346 3.801743-3.012702 3.801743-3.737983C3.801743-4.686426 3.004732-5.300125 2.008468-5.300125C1.052055-5.300125 .422416-4.574844 .422416-3.865504C.422416-3.474969 .73325-3.419178 .844832-3.419178C1.012204-3.419178 1.259278-3.53873 1.259278-3.841594C1.259278-4.25604 .860772-4.25604 .765131-4.25604C.996264-4.837858 1.530262-5.037111 1.920797-5.037111C2.662017-5.037111 3.044583-4.407472 3.044583-3.737983C3.044583-2.909091 2.462765-2.303362 1.522291-1.338979L.518057-.302864C.422416-.215193 .422416-.199253 .422416 0H3.57061L3.801743-1.42665H3.55467C3.53076-1.267248 3.466999-.868742 3.371357-.71731C3.323537-.653549 2.717808-.653549 2.590286-.653549H1.171606L2.247572-1.625903Z'/>
+<path id='g1-51' d='M2.016438-2.662017C2.646077-2.662017 3.044583-2.199751 3.044583-1.362889C3.044583-.366625 2.478705-.071731 2.056289-.071731C1.617933-.071731 1.020174-.231133 .74122-.653549C1.028144-.653549 1.227397-.836862 1.227397-1.099875C1.227397-1.354919 1.044085-1.538232 .789041-1.538232C.573848-1.538232 .350685-1.40274 .350685-1.083935C.350685-.326775 1.163636 .167372 2.072229 .167372C3.132254 .167372 3.873474-.565878 3.873474-1.362889C3.873474-2.024408 3.347447-2.630137 2.534496-2.805479C3.164134-3.028643 3.634371-3.57061 3.634371-4.208219S2.917061-5.300125 2.088169-5.300125C1.235367-5.300125 .589788-4.837858 .589788-4.23213C.589788-3.937235 .789041-3.809714 .996264-3.809714C1.243337-3.809714 1.40274-3.985056 1.40274-4.216189C1.40274-4.511083 1.147696-4.622665 .972354-4.630635C1.307098-5.068991 1.920797-5.092902 2.064259-5.092902C2.271482-5.092902 2.87721-5.029141 2.87721-4.208219C2.87721-3.650311 2.646077-3.315567 2.534496-3.188045C2.295392-2.940971 2.11208-2.925031 1.625903-2.893151C1.474471-2.885181 1.41071-2.87721 1.41071-2.773599C1.41071-2.662017 1.482441-2.662017 1.617933-2.662017H2.016438Z'/>
+<path id='g1-52' d='M3.140224-5.156663C3.140224-5.316065 3.140224-5.379826 2.972852-5.379826C2.86924-5.379826 2.86127-5.371856 2.781569-5.260274L.239103-1.570112V-1.307098H2.486675V-.645579C2.486675-.350685 2.462765-.263014 1.849066-.263014H1.665753V0C2.343213-.02391 2.359153-.02391 2.81345-.02391S3.283686-.02391 3.961146 0V-.263014H3.777833C3.164134-.263014 3.140224-.350685 3.140224-.645579V-1.307098H3.985056V-1.570112H3.140224V-5.156663ZM2.542466-4.511083V-1.570112H.518057L2.542466-4.511083Z'/>
+<path id='g1-53' d='M1.115816-4.479203C1.219427-4.447323 1.538232-4.367621 1.872976-4.367621C2.86924-4.367621 3.474969-5.068991 3.474969-5.188543C3.474969-5.276214 3.419178-5.300125 3.379328-5.300125C3.363387-5.300125 3.347447-5.300125 3.275716-5.260274C2.964882-5.140722 2.598257-5.045081 2.16787-5.045081C1.697634-5.045081 1.307098-5.164633 1.060025-5.260274C.980324-5.300125 .964384-5.300125 .956413-5.300125C.852802-5.300125 .852802-5.212453 .852802-5.068991V-2.733748C.852802-2.590286 .852802-2.494645 .980324-2.494645C1.044085-2.494645 1.067995-2.526526 1.107846-2.590286C1.203487-2.709838 1.506351-3.116314 2.183811-3.116314C2.630137-3.116314 2.84533-2.749689 2.917061-2.598257C3.052553-2.311333 3.068493-1.944707 3.068493-1.633873C3.068493-1.338979 3.060523-.908593 2.83736-.557908C2.685928-.318804 2.367123-.071731 1.944707-.071731C1.42665-.071731 .916563-.398506 .73325-.916563C.757161-.908593 .804981-.908593 .812951-.908593C1.036115-.908593 1.211457-1.052055 1.211457-1.299128C1.211457-1.594022 .980324-1.697634 .820922-1.697634C.67746-1.697634 .422416-1.617933 .422416-1.275218C.422416-.557908 1.044085 .167372 1.960648 .167372C2.956912 .167372 3.801743-.605729 3.801743-1.594022C3.801743-2.518555 3.132254-3.339477 2.191781-3.339477C1.793275-3.339477 1.41868-3.211955 1.115816-2.940971V-4.479203Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g0-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-28.927867,36.011274)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M-39.83366 0H0H126.85947' fill='none'/>
+<g transform='translate(126.85947,0.0)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-10.41779,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(127.06703,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g0-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0-29.87524V96.98422' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,0.0,96.98422)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-8.22061,98.63972)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g0-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M19.91682 1.4V-1.4' fill='none'/>
+<g transform='translate(17.7918,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M39.83366 1.4V-1.4' fill='none'/>
+<g transform='translate(37.70863,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M59.75049 1.4V-1.4' fill='none'/>
+<g transform='translate(57.62546,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-51'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M79.66733 1.4V-1.4' fill='none'/>
+<g transform='translate(77.5423,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-52'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M99.58417 1.4V-1.4' fill='none'/>
+<g transform='translate(97.45914,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-53'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 19.91682H-1.4' fill='none'/>
+<g transform='translate(-9.3822,17.33905)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 39.83366H-1.4' fill='none'/>
+<g transform='translate(-9.3822,37.25589)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 59.75049H-1.4' fill='none'/>
+<g transform='translate(-9.3822,57.17271)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-51'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 79.66733H-1.4' fill='none'/>
+<g transform='translate(-9.3822,77.08955)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-28.927867,36.011274)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-28.927867' y='36.011274' xlink:href='#g1-52'/>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M40.88365 39.83366C40.88365 40.41356 40.41356 40.88365 39.83366 40.88365C39.25377 40.88365 38.78368 40.41356 38.78368 39.83366C38.78368 39.25377 39.25377 38.78368 39.83366 38.78368C40.41356 38.78368 40.88365 39.25377 40.88365 39.83366ZM39.83366 39.83366'/>
+</g>
+<path d='M-39.83366 9.9584C-39.83366 9.9584-26.09068 31.99164-3.98329 45.80876C18.12408 59.62589 39.83366 59.75049 39.83366 59.75049' fill='none'/>
+<path d='M39.83366 19.91682C39.83366 19.91682 64.75493 35.41217 89.62573 39.83366C114.49655 44.25514 129.45941 35.85034 129.45941 35.85034' fill='none'/>
+<g fill='#000'>
+<path d='M100.63416 19.91682C100.63416 20.49672 100.16406 20.96681 99.58417 20.96681C99.00427 20.96681 98.53418 20.49672 98.53418 19.91682C98.53418 19.33693 99.00427 18.86684 99.58417 18.86684C100.16406 18.86684 100.63416 19.33693 100.63416 19.91682ZM99.58417 19.91682'/>
+</g>
+<g fill='#fff'>
+<path d='M40.88365 59.75049C40.88365 60.33038 40.41356 60.80048 39.83366 60.80048C39.25377 60.80048 38.78368 60.33038 38.78368 59.75049S39.25377 58.7005 39.83366 58.7005C40.41356 58.7005 40.88365 59.1706 40.88365 59.75049ZM40.88365 19.91682C40.88365 20.49672 40.41356 20.96681 39.83366 20.96681C39.25377 20.96681 38.78368 20.49672 38.78368 19.91682C38.78368 19.33693 39.25377 18.86684 39.83366 18.86684C40.41356 18.86684 40.88365 19.33693 40.88365 19.91682ZM100.63416 40.82956C100.63416 41.40945 100.16406 41.87955 99.58417 41.87955C99.00427 41.87955 98.53418 41.40945 98.53418 40.82956C98.53418 40.24966 99.00427 39.77957 99.58417 39.77957C100.16406 39.77957 100.63416 40.24966 100.63416 40.82956ZM99.58417 40.82956'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to 2^-}{f(x)} = 3$ \qquad $\displaystyle \lim_{ x \to 2^+}{f(x)} = 1$ \qquad $\displaystyle \lim_{ x \to 2}{f(x)}$ không tồn tại \qquad $f(2) = 2$. <br> $\displaystyle \lim_{ x \to 5^-}{f(x)} = 2$ \qquad $\displaystyle \lim_{ x \to 5^+}{f(x)} = 2$ \qquad $\displaystyle \lim_{ x \to 5}{f(x)} = 2$ \qquad $f(5) = 1$.</div></div></div></div><div class="lz"><div class="q" id="vd2" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Cho hàm số $g(x) = \dfrac{x^2-9}{x+3}$. Sử dụng định nghĩa, chứng minh rằng $\displaystyle \lim_{ x \to -3}{g(x)} = -6$.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Lấy dãy số $(x_n)$ bất kỳ, $x_n \neq -3$ và $x_n \to -3$. <br> Ta có $\lim{g(x_n)} = \lim{\dfrac{{x_n}^2-9}{x_n+3}} = \lim{\dfrac{(x_n+3)(x_n-3)}{x_n+3}} = \displaystyle \lim{(x_n-3)} = -6$. <br> Vậy $\displaystyle \lim_{ x \to -3}{g(x)} = -6$.</div></div></div></div><div class="lz"><div class="q" id="vd3" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 3</span></div><div class="qtext"><div class="tp">Cho hàm số $h(x) = \begin{cases} x+2 & \text{nếu}\: x \geq 0 \\ x^2 & \text{nếu}\: x &lt; 0 \end{cases}$ <br> Chứng minh rằng hàm số $h(x)$ không có giới hạn khi $x \to 0$.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Lấy dãy số $(x_n)$ với $x_n = \dfrac{1}{n}$.<br> Ta có $x_n \to 0$, $x_n &gt; 0$ và $\lim{h(x_n)} = \lim{(x_n+2)} = \lim{\left(\dfrac{1}{n}+2\right)} = 2$. <br> Lấy dãy số $(y_n)$ với $y_n = -\dfrac{1}{n}$.<br> Ta có $y_n \to 0$, $y_n &lt; 0$ và $\lim{h(y_n)} = \lim{{y_n}^2} = \lim{\left(-\dfrac{1}{n}\right)^2} = \lim{\dfrac{1}{n^2}} = 0$. <br> Suy ra $\lim{h(x_n)} \neq \lim{h(y_n)}$. <br> Vậy hàm số $h(x)$ không có giới hạn khi $x \to 0$.</div></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex4" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Cho hàm số $f(x)$ có đồ thị như hình bên. Quan sát đồ thị, xác định các giá trị sau</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='164.841026pt' height='125.263382pt' viewBox='-69.011212 -69.011208 164.841026 125.263382'>
+<defs>
+<path id='g2-49' d='M2.502615-5.076961C2.502615-5.292154 2.486675-5.300125 2.271482-5.300125C1.944707-4.98132 1.522291-4.790037 .765131-4.790037V-4.527024C.980324-4.527024 1.41071-4.527024 1.872976-4.742217V-.653549C1.872976-.358655 1.849066-.263014 1.091905-.263014H.812951V0C1.139726-.02391 1.825156-.02391 2.183811-.02391S3.235866-.02391 3.56264 0V-.263014H3.283686C2.526526-.263014 2.502615-.358655 2.502615-.653549V-5.076961Z'/>
+<path id='g2-50' d='M2.247572-1.625903C2.375093-1.745455 2.709838-2.008468 2.83736-2.12005C3.331507-2.574346 3.801743-3.012702 3.801743-3.737983C3.801743-4.686426 3.004732-5.300125 2.008468-5.300125C1.052055-5.300125 .422416-4.574844 .422416-3.865504C.422416-3.474969 .73325-3.419178 .844832-3.419178C1.012204-3.419178 1.259278-3.53873 1.259278-3.841594C1.259278-4.25604 .860772-4.25604 .765131-4.25604C.996264-4.837858 1.530262-5.037111 1.920797-5.037111C2.662017-5.037111 3.044583-4.407472 3.044583-3.737983C3.044583-2.909091 2.462765-2.303362 1.522291-1.338979L.518057-.302864C.422416-.215193 .422416-.199253 .422416 0H3.57061L3.801743-1.42665H3.55467C3.53076-1.267248 3.466999-.868742 3.371357-.71731C3.323537-.653549 2.717808-.653549 2.590286-.653549H1.171606L2.247572-1.625903Z'/>
+<path id='g2-51' d='M2.016438-2.662017C2.646077-2.662017 3.044583-2.199751 3.044583-1.362889C3.044583-.366625 2.478705-.071731 2.056289-.071731C1.617933-.071731 1.020174-.231133 .74122-.653549C1.028144-.653549 1.227397-.836862 1.227397-1.099875C1.227397-1.354919 1.044085-1.538232 .789041-1.538232C.573848-1.538232 .350685-1.40274 .350685-1.083935C.350685-.326775 1.163636 .167372 2.072229 .167372C3.132254 .167372 3.873474-.565878 3.873474-1.362889C3.873474-2.024408 3.347447-2.630137 2.534496-2.805479C3.164134-3.028643 3.634371-3.57061 3.634371-4.208219S2.917061-5.300125 2.088169-5.300125C1.235367-5.300125 .589788-4.837858 .589788-4.23213C.589788-3.937235 .789041-3.809714 .996264-3.809714C1.243337-3.809714 1.40274-3.985056 1.40274-4.216189C1.40274-4.511083 1.147696-4.622665 .972354-4.630635C1.307098-5.068991 1.920797-5.092902 2.064259-5.092902C2.271482-5.092902 2.87721-5.029141 2.87721-4.208219C2.87721-3.650311 2.646077-3.315567 2.534496-3.188045C2.295392-2.940971 2.11208-2.925031 1.625903-2.893151C1.474471-2.885181 1.41071-2.87721 1.41071-2.773599C1.41071-2.662017 1.482441-2.662017 1.617933-2.662017H2.016438Z'/>
+<path id='g0-0' d='M5.571108-1.809215C5.69863-1.809215 5.873973-1.809215 5.873973-1.992528S5.69863-2.175841 5.571108-2.175841H1.004234C.876712-2.175841 .70137-2.175841 .70137-1.992528S.876712-1.809215 1.004234-1.809215H5.571108Z'/>
+<path id='g1-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g1-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g1-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(10.756979,6.247629)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M-79.66733 0H0H77.06738' fill='none'/>
+<g transform='translate(77.06738,0.0)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-10.41779,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g1-79'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(77.27495,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g1-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0-49.79207V67.10896' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,0.0,67.10896)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-8.22061,68.76447)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g1-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-59.75049 1.4V-1.4' fill='none'/>
+<g transform='translate(-65.18112,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g0-0'/>
+<use x='17.343485' y='6.247629' xlink:href='#g2-51'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-39.83366 1.4V-1.4' fill='none'/>
+<g transform='translate(-45.2643,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g0-0'/>
+<use x='17.343485' y='6.247629' xlink:href='#g2-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-19.91682 1.4V-1.4' fill='none'/>
+<g transform='translate(-25.34746,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g0-0'/>
+<use x='17.343485' y='6.247629' xlink:href='#g2-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M19.91682 1.4V-1.4' fill='none'/>
+<g transform='translate(17.7918,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M39.83366 1.4V-1.4' fill='none'/>
+<g transform='translate(37.70863,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M59.75049 1.4V-1.4' fill='none'/>
+<g transform='translate(57.62546,-10.28769)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-51'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4-39.83366H-1.4' fill='none'/>
+<g transform='translate(-15.99341,-41.99475)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g0-0'/>
+<use x='17.343485' y='6.247629' xlink:href='#g2-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4-19.91682H-1.4' fill='none'/>
+<g transform='translate(-15.99341,-22.07791)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g0-0'/>
+<use x='17.343485' y='6.247629' xlink:href='#g2-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 19.91682H-1.4' fill='none'/>
+<g transform='translate(-9.3822,17.33905)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-49'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 39.83366H-1.4' fill='none'/>
+<g transform='translate(-9.3822,37.25589)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-50'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.4 59.75049H-1.4' fill='none'/>
+<g transform='translate(-9.3822,57.17271)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(10.756979,6.247629)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='10.756979' y='6.247629' xlink:href='#g2-51'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-19.91682 0C-19.91682 0-2.19055 39.83366 19.91682 39.83366C42.02422 39.83366 59.75049 0 59.75049 0' fill='none'/>
+<path d='M59.75049 0C59.75049 0 75.684-35.85034 75.684-35.85034' fill='none'/>
+<path d='M-75.684-49.79207L-19.91682 59.75049' fill='none'/>
+<g fill='#000'>
+<path d='M-18.86684 59.75049C-18.86684 60.33038-19.33693 60.80048-19.91682 60.80048C-20.49672 60.80048-20.96681 60.33038-20.96681 59.75049S-20.49672 58.7005-19.91682 58.7005C-19.33693 58.7005-18.86684 59.1706-18.86684 59.75049ZM60.45049 0C60.45049 .3866 60.13708 .7 59.75049 .7C59.36389 .7 59.05049 .3866 59.05049 0S59.36389-.7 59.75049-.7C60.13708-.7 60.45049-.3866 60.45049 0ZM59.75049 0'/>
+</g>
+<g fill='#fff'>
+<path d='M-18.86684 0C-18.86684 .5799-19.33693 1.04999-19.91682 1.04999C-20.49672 1.04999-20.96681 .5799-20.96681 0S-20.49672-1.04999-19.91682-1.04999C-19.33693-1.04999-18.86684-.5799-18.86684 0ZM20.61682 39.83366C20.61682 40.22026 20.30342 40.53366 19.91682 40.53366C19.53023 40.53366 19.21683 40.22026 19.21683 39.83366C19.21683 39.44707 19.53023 39.13367 19.91682 39.13367C20.30342 39.13367 20.61682 39.44707 20.61682 39.83366ZM19.91682 39.83366'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><div class="center"><div class="tp"><div class="table-responsive"><table class="tex-table"><tr><td style="text-align:left">$\displaystyle \lim_{ x \to -1^-}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to -1^+}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to -1}{f(x)}$;</td><td style="text-align:left">$f(-1)$.</td></tr><tr><td style="text-align:left">$\displaystyle \lim_{ x \to 1^-}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to 1^+}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to 1}{f(x)}$ ;</td><td style="text-align:left">$f(1)$.</td></tr><tr><td style="text-align:left">$\displaystyle \lim_{ x \to 3^-}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to 3^+}{f(x)}$;</td><td style="text-align:left">$\displaystyle \lim_{ x \to 3}{f(x)}$;</td><td style="text-align:left">$f(3)$.</td></tr></table></div></div></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to -1^-}{f(x)} =3$; \ $\displaystyle \lim_{ x \to -1^+}{f(x)}=0$; \ $\displaystyle \lim_{ x \to -1}{f(x)}$ không tồn tại; \ $f(-1)=3$. <br> $\displaystyle \lim_{ x \to 1^-}{f(x)}=2$; \ $\displaystyle \lim_{ x \to 1^+}{f(x)}=2$; \ $\displaystyle \lim_{ x \to 1}{f(x)}=2$; \ $f(1)$ không tồn tại. <br> $\displaystyle \lim_{ x \to 3^-}{f(x)}=0$; \ $\displaystyle \lim_{ x \to 3^+}{f(x)}=0$; \ $\displaystyle \lim_{ x \to 3}{f(x)}=0$; \ $f(3)=0$.</div></div></div></div><div class="lz"><div class="q ex" id="ex5" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Sử dụng định nghĩa, chứng minh rằng <ol><li>$\displaystyle \lim_{ x \to 1}{(x-2)} = -1$;</li><li>$\displaystyle \lim_{ x \to 3}{x^3} = 27$;</li><li>$\displaystyle \lim_{ x \to -1}{\dfrac{x^2+2x+1}{x+1}} = 0$;</li><li>$\displaystyle \lim_{ x \to 4}{\dfrac{x^2-16}{x-4}} = 8$;</li><li>$\displaystyle \lim_{ x \to 2}{\dfrac{x^2-3x+2}{x-2}} = 1$;</li><li>$\displaystyle \lim_{ x \to 1}{\dfrac{2x^2+3x-5}{x^2-1}} = \dfrac{7}{2}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex6" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Sử dụng định nghĩa, tìm các giới hạn sau <ol><li>$\displaystyle \lim_{ x \to -3}{(x^2-2x)}$;</li><li>$\displaystyle \lim_{ x \to 5}{\dfrac{x+3}{4-x}}$;</li><li>$\displaystyle \lim_{ x \to \frac{1}{2}}{\dfrac{2x^2-5x+2}{6x-3}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $15$; \qquad b) $-8$; \qquad c) $-\dfrac{1}{2}$.</div></div></div></div><div class="lz"><div class="q ex" id="ex7" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Cho hàm số $f(x) = \begin{cases} \sqrt{x}-1 & \text{nếu}\: x \geq 0 \\ 2x & \text{nếu}\: x &lt; 0 \end{cases}$ <br> Chứng minh rằng hàm số $f(x)$ không có giới hạn khi $x \to 0$.</div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex8" data-kind="essay" data-dang="d1" data-sub="sub1_4"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Chứng minh rằng hàm số $g(x) = \sin{x}$ không có giới hạn khi $x \to +\infty$.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Lấy dãy số $(x_n)$ với $x_n = 2n\pi$ $(n \in \mathbb{N^*})$.<br> Ta có $x_n \to +\infty$ và $\lim{g(x_n)} = \lim{\sin{2n\pi}} = \lim{0} = 0$. <br> Lấy dãy số $(y_n)$ với $y_n = \dfrac{\pi}{2}+2n\pi$ $(n \in \mathbb{N^*})$<br> Ta có $y_n \to +\infty$ và $\lim{g(y_n)} = \lim{\sin{\left(\dfrac{\pi}{2}+2n\pi\right)}} = \lim{1} = 1$. <br> Suy ra $\lim{g(x_n)} \neq \lim{g(y_n)}$. Vậy hàm số $g(x)$ không có giới hạn khi $x \to +\infty$.</div></div></div></div><div class="lz"><div class="dang" id="d2"><div class="dh"><span class="dno">Dạng 2</span><span class="dtt">Tính giới hạn hàm số tại một điểm ($\boldsymbol{x \to x_0}$)</span></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd9" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to {0}}{\dfrac{x^2}{x+2}}$;</li><li>$\displaystyle \lim_{ x \to -1}{\dfrac{x^2+7x+6}{2x^2+3x+1}}$;</li><li>$\lim\limits_{x\to -1}\dfrac{x^3+4x^2-2x-5}{x^2-1}$;</li><li>$\displaystyle \lim_{ x \to 2}{\dfrac{\sqrt{x+7}-3}{2-x}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>$\displaystyle \lim_{ x \to 0} \dfrac{x^2}{x+2} = \dfrac{0^2}{0+2} = 0$.</li><li>$\begin{aligned}[t] \displaystyle \lim_{ x \to -1} \dfrac{x^2+7x+6}{2x^2+3x+1} = \displaystyle \lim_{ x \to -1} \dfrac{(x+1)(x+6)}{2(x+1)\left(x+\frac{1}{2}\right)} = \displaystyle \lim_{ x \to -1} \dfrac{x+6}{2x+1} & = \dfrac{-1+6}{2\cdot (-1)+1}\\ &= -5. \end{aligned}$</li><li>$\begin{aligned}[t] \lim\limits_{x\to -1} \dfrac{x^3+4x^2-2x-5}{x^2-1} &= \lim\limits_{x\to -1} \dfrac{(x+1)(x^2+3x-5)}{(x+1)(x-1)} = \lim\limits_{x\to -1} \dfrac{x^2+3x-5}{x-1} \\ &= \dfrac{(-1)^2+3\cdot (-1)-5}{-1-1} = \dfrac{7}{2}. \end{aligned}$</li><li>$\begin{aligned}[t] \displaystyle \lim_{ x \to 2} \dfrac{\sqrt{x+7}-3}{2-x} &= \displaystyle \lim_{ x \to 2} \dfrac{(\sqrt{x+7}-3)(\sqrt{x+7}+3)}{(2-x)(\sqrt{x+7}+3)} = \displaystyle \lim_{ x \to 2} \dfrac{x-2}{(2-x)(\sqrt{x+7}+3)} \\ &= \displaystyle \lim_{ x \to 2} \dfrac{-1}{\sqrt{x+7}+3} = \dfrac{-1}{\sqrt{2+7}+3} = -\dfrac{1}{6}. \end{aligned}$</li></ol></div></div></div></div><div class="lz"><div class="q" id="vd10" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 0}{\dfrac{1}{|x|}}$;</li><li>$\displaystyle \lim_{ x \to 2}{\dfrac{-x}{(x-2)^2}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $\displaystyle \lim_{ x \to 0}{1} = 1 &gt; 0$ và $\displaystyle \lim_{ x \to 0}{|x|} = 0$, \ $|x| &gt; 0$ với mọi $x \neq 0$. <br> Vậy $\displaystyle \lim_{ x \to 0}{\dfrac{1}{|x|}} = +\infty$.</li><li>Ta có $\displaystyle \lim_{ x \to 2}{(-x)} = -2 &lt; 0$ và $\displaystyle \lim_{ x \to 2}{(x-2)^2} = 0$ , \ $(x-2)^2 &gt; 0$ với mọi $x \neq 2$.<br> Vậy $\displaystyle \lim_{ x \to 2}{\dfrac{-x}{(x-2)^2}} = -\infty$.</li></ol></div></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex11" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 1}{(2x+1)}$;</li><li>$\displaystyle \lim_{ x \to 5}{(x^2+4x-5)}$;</li><li>$\displaystyle \lim_{ x \to -2}{\dfrac{3x-4}{1+x}}$;</li><li>$\displaystyle \lim_{ x \to 0}{\dfrac{x^2-4}{x^3-3x+2}}$;</li><li>$\displaystyle \lim_{ x \to 2}{\dfrac{x+1}{\sqrt{x^2-1}}}$;</li><li>$\displaystyle \lim_{ x \to -9}{\dfrac{\sqrt{x^2+9x+8}}{2x+1}}$;</li><li>$\displaystyle \lim_{ x \to 3}{\dfrac{1-x}{(x-3)^2}}$;</li><li>$\displaystyle \lim_{ x \to -1}{\dfrac{2x^3+19}{(x+1)^4}}$;</li><li>$\displaystyle \lim_{ x \to 0}{\dfrac{\sqrt{x^2-2x+9}}{x^8}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $3$; \qquad b) $40$; \qquad c) $10$; \qquad d) $-2$; \qquad e) $\sqrt{3}$; \qquad f) $\dfrac{2\sqrt{2}}{-17}$; \qquad g) $-\infty$; \qquad h) $+\infty$; \qquad i) $+\infty$.</div></div></div></div><div class="lz"><div class="q ex" id="ex12" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 1}{\dfrac{x-1}{x^2-1}}$;</li><li>$\displaystyle \lim_{ x \to -2}{\dfrac{x^2+4x+4}{x+2}}$;</li><li>$\displaystyle \lim_{ x \to 3}{\dfrac{-x^2+5x-6}{x-3}}$;</li><li>$\displaystyle \lim_{ x \to -4}{\dfrac{x^2+2x-8}{x^2+4x}}$;</li><li>$\displaystyle \lim_{ x \to -1}{\dfrac{3x^2-4x-7}{x^2+6x+5}}$;</li><li>$\displaystyle \lim_{ x \to 2}\ {\dfrac{x^3-8}{-2x^2+5x-2}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $\dfrac{1}{2}$; \qquad b) $0$; \qquad c) $-1$; \qquad d) $\dfrac{3}{2}$; \qquad e) $-\dfrac{5}{2}$; \qquad f) $-4$.</div></div></div></div><div class="lz"><div class="q ex" id="ex13" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\lim\limits_{x \to 3}\dfrac{x^2+2x-15}{x-3}$;</li><li>$\lim\limits_{x \to -2}\dfrac{4-x^2}{x+2}$;</li><li>$\lim\limits_{x \to -1}\dfrac{4x^2-x-5}{7x^2+5x-2}$;</li><li>$\lim\limits_{x \to 2}\dfrac{2x^3-5x^2+x+2}{x^2-4}$;</li><li>$\lim\limits_{x \to 1}\dfrac{x^3-x^2-x+1}{x^2-3x+2}$;</li><li>$\lim\limits_{x \to 1}\dfrac{x^4-1}{x^3-2x^2+1}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $8$; \qquad b) $4$; \qquad c) $1$; \qquad d) $\dfrac{5}{4}$; \qquad e) $0$; \qquad f) $-4$.</div></div></div></div><div class="lz"><div class="q ex" id="ex14" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 3}{\dfrac{x-3}{\sqrt{x}-\sqrt{3}}}$;</li><li>$\displaystyle \lim_{ x \to 0}{\dfrac{\sqrt{x+36}-6}{x(x+4)}}$;</li><li>$\displaystyle \lim_{ x \to -3}{\dfrac{x^2+3x}{\sqrt{x+7}-2}}$;</li><li>$\displaystyle \lim_{ x \to 1}{\dfrac{3-\sqrt{x+8}}{x^2-4x+3}}$;</li><li>$\displaystyle \lim_{ x \to 3}{\dfrac{x^2-5x+6}{\sqrt{x+6}-x}}$;</li><li>$\displaystyle \lim_{ x \to 4}{\dfrac{\sqrt{5x+5}-\sqrt{7x-3}}{x-4}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $2\sqrt{3}$; \qquad b) $\dfrac{1}{48}$; \qquad c) $-12$; \qquad d) $\dfrac{1}{12}$; \qquad e) $-\dfrac{6}{5}$;\qquad f) $-\dfrac{1}{5}$.</div></div></div></div><div class="lz"><div class="q ex" id="ex15" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\lim\limits_{x \to 0}\dfrac{\sqrt{1+2x} - 1}{2x}$;</li><li>$\lim\limits_{x \to 2} \dfrac{x - \sqrt{3x-2}}{x^2 - 4}$;</li><li>$\lim\limits_{x \to 0}\dfrac{\sqrt{1+x^2} - 1}{2x^3 - 3x^2}$;</li><li>$\lim\limits_{x \to 1}\dfrac{\sqrt{2x+7} - x - 2}{x^3 - 4x + 3}$;</li><li>$\lim\limits_{x \to 0}\dfrac{1 - \sqrt[3]{x+1}}{3x}$;</li><li>$\lim\limits_{x \to -1}\dfrac{x^2 - 8x - 9}{\sqrt{4-3x^2} - 2x - 3}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $\dfrac{1}{2}$; \qquad b) $\dfrac{1}{16}$; \qquad c) $-\dfrac{1}{6}$; \qquad d) $\dfrac{2}{3}$; \qquad e) $-\dfrac{1}{9}$;\qquad f) $-10$.</div></div></div></div><div class="lz"><div class="q ex" id="ex16" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 0}\ {\left(\dfrac{1}{x}- \dfrac{1}{x^2+x}\right)}$;</li><li>$\displaystyle \lim_{ x \to 0}\ {\left(\dfrac{1}{x\sqrt{1+x}}- \dfrac{1}{x}\right)}$;</li><li>$\displaystyle \lim_{ x \to 0}\ {\dfrac{1}{x}\left(1-\dfrac{2}{2+x}\right)}$;</li><li>$\displaystyle \lim_{ x \to 5}\ {\dfrac{1}{x-5}\left(\dfrac{6x}{x^2+5}-1\right)}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $1$; \qquad b) $-\dfrac{1}{2}$; \qquad c) $\dfrac{1}{2}$; \qquad d) $-\dfrac{2}{15}$.</div></div></div></div><div class="lz"><div class="q ex" id="ex17" data-kind="essay" data-dang="d2" data-sub="sub1_4"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to 0}\ {\dfrac{(3+x)^2-9}{x}}$;</li><li>$\displaystyle \lim_{ x \to 0}\ {\dfrac{(2+x)^3-8}{6x}}$;</li><li>$\displaystyle \lim_{ x \to 1}\ {\dfrac{\sqrt[3]{2x-1}-\sqrt[3]{x}}{\sqrt{x}-1}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $6$; \qquad b) $2$; \qquad c) $\dfrac{2}{3}$.</div></div></div></div><div class="lz"><div class="dang" id="d3"><div class="dh"><span class="dno">Dạng 3</span><span class="dtt">Tính giới hạn hàm số tại vô cực ($\boldsymbol{x \to \pm\infty}$)</span></div><div class="db"><div class="txt"><div class="tp">Vận dụng các phương pháp đã biết trong bài giới hạn dãy số. <ol><li>$\displaystyle \lim_{ x \to -\infty}{x^k} = -\infty$, $k$ là số lẻ;</li><li>$\displaystyle \lim_{ x \to -\infty}{x^k} = +\infty$, $k$ là số chẵn;</li><li>$\sqrt{x^2} = x$ khi $x \to +\infty$;</li><li>$\sqrt{x^2} = -x$ khi $x \to -\infty$.</li></ol></div></div></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd18" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\lim\limits_{x\to +\infty}\left(x^3+4x-3\right)$;</li><li>$\lim\limits_{x\to -\infty}\left(2x^3-x^2+x+2\right)$;</li><li>$\lim\limits_{x\to +\infty}\left(-x^4-x^2+4x+1\right)$;</li><li>$\lim\limits_{x\to -\infty}\left(-x^4-x^2+4x+1\right)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>$\lim\limits_{x\to +\infty}\left(x^3+4x-3\right)=\lim\limits_{x\to +\infty}x^3\left(1+\dfrac{4}{x^2}-\dfrac{3}{x^3}\right)$.<br> Vì $\lim\limits_{x\to +\infty}x^3=+\infty$ và $\lim\limits_{x\to +\infty} \left(1+\dfrac{4}{x^2}-\dfrac{3}{x^3}\right)=1&gt;0$ nên <br> $\lim\limits_{x\to +\infty}\left(x^3+4x-3\right)=+\infty$.</li><li>$\lim\limits_{x\to -\infty}\left(2x^3-x^2+x+2\right) =\lim\limits_{x\to -\infty}x^3\left(2-\dfrac{1}{x}+\dfrac{1}{x^2}+\dfrac{2}{x^3}\right)$. <br> Vì $\lim\limits_{x\to -\infty}x^3=-\infty$ và $\lim\limits_{x\to -\infty} \left(2-\dfrac{1}{x}+\dfrac{1}{x^2}+\dfrac{2}{x^3}\right)=2&gt;0$ nên <br> $\lim\limits_{x\to -\infty}\left(2x^3-x^2+x+2\right)=-\infty$.</li><li>$\lim\limits_{x\to +\infty}\left(-x^4-x^2+4x+1\right)=\lim\limits_{x\to +\infty}x^4\left(-1-\dfrac{1}{x^2}+\dfrac{4}{x^3}+\dfrac{1}{x^4}\right) $. <br> Vì $\lim\limits_{x\to +\infty}x^4=+\infty$ và $\lim\limits_{x\to +\infty} \left(-1-\dfrac{1}{x^2}+\dfrac{4}{x^3}+\dfrac{1}{x^4}\right)=-1&lt;0$ nên <br> $\lim\limits_{x\to +\infty}\left(-x^4-x^2+4x+1\right)=-\infty$.</li><li>$\lim\limits_{x\to -\infty}\left(-x^4-x^2+4x+1\right)=\lim\limits_{x\to -\infty}x^4\left(-1-\dfrac{1}{x^2}+\dfrac{4}{x^3}+\dfrac{1}{x^4}\right) $. <br> Vì $\lim\limits_{x\to -\infty}x^4=+\infty$ và $\lim\limits_{x\to -\infty} \left(-1-\dfrac{1}{x^2}+\dfrac{4}{x^3}+\dfrac{1}{x^4}\right)=-1&lt;0$ nên <br> $\lim\limits_{x\to -\infty}\left(-x^4-x^2+4x+1\right)=-\infty$.</li></ol></div></div></div></div><div class="lz"><div class="q" id="vd19" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{-4x^2+5x+1}{2x^2-x+10}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{\sqrt{9x^2+4}-x}{x+3}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{-4x^2+5x+1}{2x^2-x+10}} = \displaystyle \lim_{ x \to +\infty}{\dfrac{-4+\dfrac{5}{x}+\dfrac{1}{x^2}}{2-\dfrac{1}{x}+\dfrac{10}{x^2}}} = \dfrac{-4}{2} = -2$.</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{\sqrt{9x^2+4}-x}{x+3}} = \displaystyle \lim_{ x \to -\infty}{\dfrac{|x|\sqrt{9+\dfrac{4}{x^2}}-x}{x+3}} = \displaystyle \lim_{ x \to -\infty}{\dfrac{-x\sqrt{9+\dfrac{4}{x^2}}-x}{x+3}} \\ =\displaystyle \lim_{ x \to -\infty}{\dfrac{-\sqrt{9+\dfrac{4}{x^2}}-1}{1+\dfrac{3}{x}}} = -4$.</li></ol></div></div></div></div><div class="lz"><div class="q" id="vd20" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 3</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to -\infty}{\left(\sqrt{x^2-6x}+x\right)}$;</li><li>$\lim\limits_{x\to +\infty}\left(2x-5-\sqrt{4x^2+x+1}\right)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>$\displaystyle \lim_{ x \to -\infty}{\left(\sqrt{x^2-6x}+x\right)} = \displaystyle \lim_{ x \to -\infty}\dfrac{{\left(\sqrt{x^2-6x}+x\right)\left(\sqrt{x^2-6x}-x\right)}}{\sqrt{x^2-6x}-x} \\ = \displaystyle \lim_{ x \to -\infty}\dfrac{-6x}{\sqrt{x^2-6x}-x} = \displaystyle \lim_{ x \to -\infty}\dfrac{-6x}{|x|\sqrt{1-\dfrac{6}{x}}-x} = \displaystyle \lim_{ x \to -\infty}\dfrac{-6x}{-x\sqrt{1-\dfrac{6}{x}}-x} \\ = \displaystyle \lim_{ x \to -\infty}\dfrac{-6}{-\sqrt{1-\dfrac{6}{x}}-1} = 3$.</li><li>$\lim\limits_{x\to +\infty}\left(2x-5-\sqrt{4x^2+x+1}\right) = \lim\limits_{x\to +\infty}\dfrac{(2x-5)^2-(4x^2+x+1)}{2x-5+\sqrt{4x^2+x+1}} \\ =\dfrac{-21x+24}{2x-5+x\sqrt{4+\dfrac{1}{x}+\dfrac{1}{x^2}}} =\dfrac{-21+\dfrac{24}{x}}{2-\dfrac{5}{x}+\sqrt{4+\dfrac{1}{x}+\dfrac{1}{x^2}}}=-\dfrac{21}{4}$.</li></ol></div></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex21" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to -\infty}{(x^3-x+6)}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{(x^4-2x^2+3)}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{(-x^4+3x^2+9)}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{\sqrt{x^2-3x+1}}$;</li><li>$\lim\limits_{x\to +\infty} (-6x^4+2x^3-x+5)$;</li><li>$\lim\limits_{x\to +\infty}\left(\sqrt{4x^2-3}+2x\right)$;</li><li>$\lim\limits_{x\to -\infty}\left(\sqrt{4x^2-3}-2x\right)$;</li><li>$\lim\limits_{x\to -\infty}\left(x+\sqrt[3]{x^3-1}\right)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $-\infty$; \qquad b) $+\infty$; \qquad c) $-\infty$; \qquad d) $+\infty$; \qquad e) $-\infty$; \qquad f) $+\infty$; \qquad g) $+\infty$; \qquad h) $-\infty$.</div></div></div></div><div class="lz"><div class="q ex" id="ex22" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{x+6}{2x+1}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{x^2+2x-3}{-x^2+5x}}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{2x+8}{x^2-x-1}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{1+4x+3x^3}{x^3-8x^2+2}}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{x^3+2x^2-4}{-2x^2+6x^3+1}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{x^4+x^2+1}{x^2+3x-4x^5}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{2x-\sqrt{x^2+5}}{4-3x}}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{\dfrac{\sqrt{9x^2-4x}+4x}{6x+1}}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\dfrac{\sqrt{x^2-x}-\sqrt{4x^2}}{x+5}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $\dfrac{1}{2}$; \qquad b) $-1$; \qquad c) $0$; \qquad d) $3$; \qquad e) $\dfrac{1}{6}$; \qquad f) $0$; \qquad g) $-1$; \qquad h) $\dfrac{7}{6}$; \qquad i) $1$.</div></div></div></div><div class="lz"><div class="q ex" id="ex23" data-kind="essay" data-dang="d3" data-sub="sub1_4"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to +\infty}{\left(\sqrt{x^2+3}-x\right)}$;</li><li>$\displaystyle \lim_{ x \to +\infty}{\left(2x - \sqrt{4x^2-x}\right)}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\left(\sqrt{x^2+3x-5}+x-1\right)}$;</li><li>$\displaystyle \lim_{ x \to -\infty}{\left(\sqrt{8x^2+4x+1}+2\sqrt{2}x\right)}$;</li><li>$\lim\limits_{x\to +\infty}\left(\sqrt{x+\sqrt{x}}-\sqrt{x}\right)$;</li><li>$\lim\limits_{x\to +\infty}x\left(\sqrt{x^2+1}-x\right)$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $0$; \qquad b) $\dfrac{1}{4}$; \qquad c) $-\dfrac{5}{2}$; \qquad d) $-\dfrac{1}{\sqrt{2}}$; \qquad e) $\dfrac{1}{2}$; \qquad f) $\dfrac{1}{2}$.</div></div></div></div><div class="lz"><div class="dang" id="d4"><div class="dh"><span class="dno">Dạng 4</span><span class="dtt">Tính giới hạn một phía</span></div><div class="db"><div class="txt"><div class="tp">Vận dụng các phương pháp như tính giới hạn tại một điểm và định lý sau $$\lim\limits_{x\to x_0} f(x)=L\Leftrightarrow \lim\limits_{x\to x_0^-}f(x)=\lim\limits_{x\to x_0^+}f(x)=L.$$ <b>Lưu ý:</b> $x \to x_0^+$ thì $x &gt; x_0$ và $x \to x_0^-$ thì $x &lt; x_0$.</div></div></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd24" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\displaystyle \lim_{ x \to {5}^-}{\dfrac{4x-1}{x-5}}$;</li><li>$\lim\limits_{x\to 3^+}\dfrac{-x^2+5}{3-x}$;</li><li>$\lim\limits_{x\to -2^+}\dfrac{|x^2-4|}{x+2}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $\displaystyle \lim_{ x \to 5^-}{(4x-1)} = 19 &gt; 0$ và $\displaystyle \lim_{ x \to 5^-}{(x-5)} = 0$,\ $x-5&lt;0, \forall x &lt; 5$.<br> Vậy $\displaystyle \lim_{ x \to {5}^-}{\dfrac{4x-1}{x-5}} = -\infty$.</li><li>Ta có $\lim\limits_{x\to 3^+}(-x^2+5)=-4&lt;0$ và $\lim\limits_{x\to 3^+}(3-x)=0$,\ $3-x&lt;0,\forall x&gt;3$.<br> Vậy $\lim\limits_{x\to 3^+}\dfrac{-x^2+5}{3-x}=+\infty$.</li><li>Vì $x\to -2^+$ nên $x&gt;-2$, suy ra $x+2&gt;0$. Do đó $$\lim\limits_{x\to -2^+}\dfrac{|x^2-4|}{x+2} = \lim\limits_{x\to -2^+}\dfrac{(x+2)|x-2|}{x+2} =\lim\limits_{x\to -2^+}(|x-2|)=4.$$</li></ol></div></div></div></div><div class="lz"><div class="q" id="vd25" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Cho hàm số $g(x)=\left\{\begin{aligned}&amp;\dfrac{\sqrt{x+7}-3}{x-2}&amp;\textrm{ nếu }&amp;x&gt;2\\&amp;\dfrac{x-1}{6}&amp;\textrm{ nếu }&amp;x\leq 2.\end{aligned}\right.$ <br> Tính $\lim\limits_{x\to 2^+}g(x)$;\ $\lim\limits_{x\to 2^-}g(x)$;\ $\lim\limits_{x\to 2}g(x)$ (nếu có).</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Ta có</div><div class="center"><div class="tp"><div class="table-responsive"><table class="tex-table"><tr><td style="text-align:left">$\lim\limits_{x\to 2^+}g(x)=\lim\limits_{x\to 2^+}\dfrac{\sqrt{x+7}-3}{x-2}=\lim\limits_{x\to 2^+}\dfrac{1}{\sqrt{x+7}+3}=\dfrac{1}{6}$.</td></tr><tr><td style="text-align:left">$\lim\limits_{x\to 2^-}g(x)=\lim\limits_{x\to 2^-}\dfrac{x-1}{6}=\dfrac{1}{6}$.</td></tr></table></div></div></div><div class="tp">Suy ra $\lim\limits_{x\to 2^-}g(x) = \lim\limits_{x\to 2^+}g(x) = \dfrac{1}{6} $.<br> Vậy $\lim\limits_{x\to 2}g(x)=\dfrac{1}{6}$.</div></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex26" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Tính <ol><li>$\lim \limits_{x \rightarrow 1^{+}} \dfrac{x-2}{x-1}$;</li><li>$\lim\limits_{x\to 2^-}\dfrac{3x+1}{2-x}$;</li><li>$\lim \limits_{x \rightarrow 4^{-}} \dfrac{x^{2}-x+1}{4-x}$;</li><li>$\lim \limits_{x \rightarrow 0^{-}} \dfrac{x^{2}+x-11}{x}$;</li><li>$\lim\limits_{x\to -1^+} \dfrac{\sqrt{4+4x}-3x^2}{x+1}$;</li><li>$\lim\limits_{x\to 2^+}\dfrac{2x^2-5x+2}{(x-2)^2}$;</li><li>$\lim \limits_{x \rightarrow 1^{+}} \dfrac{3x}{x^2-1}$;</li><li>$\lim \limits_{x \rightarrow 2^{-}} \dfrac{-x+1}{x^2-4}$;</li><li>$\lim \limits_{x \rightarrow -5^{-}} \dfrac{x^2-3}{(1-x)(x+5)}$;</li><li>$\displaystyle \lim_{ x \to 5^+}{\dfrac{2x-10}{|x-5|}}$;</li><li>$\displaystyle \lim_{ x \to 5^-}{\dfrac{2x-10}{|x-5|}}$;</li><li>$\lim\limits_{x\to -3^+}\dfrac{\sqrt{x+7}-2}{|x^2-9|}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $-\infty$; \qquad b) $+\infty$; \qquad c) $+\infty$; \qquad d) $+\infty$; \qquad e) $-\infty$; \qquad f) $+\infty$; \qquad g) $+\infty$; \qquad h) $+\infty$; \qquad i) $-\infty$; \qquad j) $2$; \qquad k) $-2$; \qquad l) $\dfrac{1}{24}$.</div></div></div></div><div class="lz"><div class="q ex" id="ex27" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Cho hàm số $f(x)=\left\{\begin{aligned}&amp;5-x^2&amp;\textrm{ nếu }&amp;x\geq2\\&amp;1&amp;\textrm{ nếu }&amp;x&lt;2\end{aligned}\right.$. Tính các giới hạn $\displaystyle \lim_{ x \to {2}^+}{f(x)}$,\ $\displaystyle \lim_{ x \to {2}^-}{f(x)}$,\ $\displaystyle \lim_{ x \to {2}}{f(x)}$ (nếu có).</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to {2}^+}{f(x)} = \displaystyle \lim_{ x \to {2}^-}{f(x)} = \displaystyle \lim_{ x \to {2}}{f(x)} = 1$.</div></div></div></div><div class="lz"><div class="q ex" id="ex28" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Cho hàm số $h(x) = \begin{cases} \sqrt{x+1} & \text{nếu}\: x \geq -1 \\ 3x+4 & \text{nếu}\: x &lt; -1 \end{cases}$. Tính $\displaystyle \lim_{ x \to {-1}}{h(x)}$ (nếu có).</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to {-1}^+}{h(x)} = 0$,\ $\displaystyle \lim_{ x \to {-1}^-}{h(x)} = 1$,\ $\displaystyle \lim_{ x \to {-1}}{h(x)}$ không tồn tại.</div></div></div></div><div class="lz"><div class="q ex" id="ex29" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Cho hàm số $k(x)=\left\{\begin{aligned}&amp;\dfrac{x^2-3x+2}{x-1}&amp;\textrm{ nếu }&amp;x&lt;1\\&amp;x&amp;\textrm{ nếu }&amp;x\ge 1\end{aligned}\right.$. \ Tính $\displaystyle \lim_{ x \to {1}}{k(x)}$ (nếu có).</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to {1}^+}{k(x)} = 1$,\ $\displaystyle \lim_{ x \to {1}^-}{k(x)} = -1$,\ $\displaystyle \lim_{ x \to {1}}{k(x)}$ không tồn tại.</div></div></div></div><div class="lz"><div class="q ex" id="ex30" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Chứng minh rằng $\displaystyle \lim_{ x \to 0}{\dfrac{|x|}{x}}$ không tồn tại.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Ta có $\displaystyle \lim_{ x \to 0^+}{\dfrac{|x|}{x}} = \displaystyle \lim_{ x \to 0^+}{\dfrac{x}{x}} = 1$ và $\displaystyle \lim_{ x \to 0^-}{\dfrac{|x|}{x}} = \displaystyle \lim_{ x \to 0^-}{\dfrac{-x}{x}} = -1$. <br> Do đó $\displaystyle \lim_{ x \to 0}{\dfrac{|x|}{x}}$ không tồn tại.</div></div></div></div><div class="lz"><div class="q ex" id="ex31" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Cho hàm số $f(x)=\left\{\begin{aligned}&amp;\dfrac{2-\sqrt{x+3}}{x^2-1}&amp;\textrm{ nếu }&amp;x&gt;1\\&amp;m-2x&amp;\textrm{ nếu }&amp;x\le 1\end{aligned}\right.$. Tìm $m$ để $f(x)$ có giới hạn tại $x=1$.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $m=\dfrac{15}{8}$.</div></div></div></div><div class="lz"><div class="q ex" id="ex32" data-kind="essay" data-dang="d4" data-sub="sub1_4"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Tính $\displaystyle \lim_{ x \to 1^+}{\dfrac{\sqrt{x}+\sqrt{x-1}-1}{\sqrt{x^2-1}}}$.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> $\displaystyle \lim_{ x \to 1^+}{\dfrac{\sqrt{x}+\sqrt{x-1}-1}{\sqrt{x^2-1}}} = \displaystyle \lim_{ x \to 1^+}{\left(\dfrac{\sqrt{x}-1}{\sqrt{x^2-1}} + \dfrac{\sqrt{x-1}}{\sqrt{x^2-1}}\right)} \\ = \displaystyle \lim_{ x \to 1^+}{\left[\dfrac{x-1}{\sqrt{(x-1)(x+1)}(\sqrt{x}+1)} + \dfrac{1}{\sqrt{x+1}}\right]} = \displaystyle \lim_{ x \to 1^+}{\left[\dfrac{\sqrt{x-1}}{\sqrt{x+1}(\sqrt{x}+1)} + \dfrac{1}{\sqrt{x+1}}\right]} \\ = \dfrac{1}{\sqrt{2}}$.</div></div></div></div><div class="lz"><div class="dang" id="d5"><div class="dh"><span class="dno">Dạng 5</span><span class="dtt">Một số bài toán thực tiễn gắn với giới hạn hàm số</span></div></div></div><div class="lz"><div class="sub-banner">Ví dụ minh họa</div></div><div class="lz"><div class="q" id="vd33" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 1</span></div><div class="qtext"><div class="tp">Một công ty sản xuất xe máy cho biết trung bình một nhân viên của họ có thể lắp ráp được $S(a) = \dfrac{40a}{a+90}$ $(a \geq 0)$ bộ phận mỗi ngày sau a ngày đào tạo. Tính $\displaystyle \lim_{ a \to +\infty}{S(a)}$ và cho biết ý nghĩa của kết quả.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Ta có $\displaystyle \lim_{ a \to +\infty}{S(a)} = \displaystyle \lim_{ a \to +\infty}{\dfrac{40a}{a+90}} = \displaystyle \lim_{ a \to +\infty}{\dfrac{40}{1+\tfrac{90}{a}}} = 40$. <br> Kết quả trên cho biết trung bình một nhân viên có thể lắp ráp tối đa 40 bộ phận mỗi ngày. Để đạt được con số tối đa đó thì số ngày đào tạo nhân viên rất lớn.</div></div></div></div><div class="lz"><div class="q" id="vd34" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 2</span></div><div class="qtext"><div class="tp">Trong một cuộc thi các môn thể thao trên tuyết, ban tổ chức muốn thiết kế một đường trượt dành cho nội dung thi đổ dốc. Vận động viên sẽ xuất phát từ vị trí $(0;20)$</div><div class="center"><div class="tp"><div class="fig-error">Hình vẽ TikZ #16 (không biên dịch được SVG — kiểm tra gói TeX Live/MacTeX + dvisvgm)</div></div></div><div class="tp">cao $20$ mét so với mặt đất (trục $Ox$). Đường trượt phải thỏa mãn yêu cầu là càng ra xa thì càng gần mặt đất để tiết kiệm lượng tuyết nhân tạo. Một nhà thiết kế đề nghị sử dụng đường cong là đồ thị của hàm số $f(x)=\dfrac{200}{x+10}$ $(x \geq 0)$. Hãy kiểm tra xem hàm số $f(x)$ có thỏa mãn các điều kiện dưới đây không <ol><li>Có đồ thị đi qua điểm $(0;20)$;</li><li>Giảm trên $[0;+\infty)$;</li><li>Càng ra xa ($x$ càng lớn), đồ thị của hàm số càng gần trục $Ox$ với khoảng cách nhỏ tùy ý.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Ta có $x=0 \Rightarrow f(0) = \dfrac{200}{0+10} = 20$. Do đó đồ thị đi qua điểm $(0;20)$.</li><li>Với mọi $x_1, x_2 \in [0;+\infty); x_1 &lt; x_2$, ta có <br> $x_1 + 10 &lt; x_2 + 10 \Rightarrow \dfrac{200}{x_1+10} &gt; \dfrac{200}{x_2+10} \Rightarrow f(x_1) &gt; f(x_2)$. <br> Do đó hàm số $f(x)$ giảm trên $[0;+\infty)$.</li><li>$\displaystyle \lim_{ x \to +\infty}{f(x)} = \displaystyle \lim_{ x \to +\infty}{\dfrac{200}{x+10}} = \displaystyle \lim_{ x \to +\infty}{\dfrac{\dfrac{200}{x}}{1+\dfrac{10}{x}}} = 0$, chứng tỏ càng ra xa đồ thị của hàm số càng gần trục Ox với khoảng cách nhỏ tùy ý.</li></ol></div></div></div></div><div class="lz"><div class="q" id="vd35" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Ví dụ 3</span></div><div class="qtext"><div class="tp">Cho hình bên, đường tròn ($C_1$) cố định có phương trình <br> $(x-1)^2+y^2 = 1$ và đường tròn ($C_2$) có tâm $O$ (gốc tọa độ), bán kính $r$ ($r \leq 2$). Cho điểm $A(0;r)$, $B$ là giao</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='234.289504pt' height='145.105813pt' viewBox='-69.011212 -69.011209 234.289504 145.105813'>
+<defs>
+<path id='g1-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g1-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g0-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-9.085452,16.168844)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(-10.41779,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-10.0989,53.5214)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(28.46242,42.5677)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(146.05612,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-59.75049 0H166.69313' fill='none'/>
+<g transform='translate(166.69313,0.0)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(166.9007,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0-59.75049V77.06738' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,0.0,77.06738)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-8.22061,78.72289)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M49.7921 0C49.7921 27.49977 27.49977 49.7921 0 49.7921S-49.7921 27.49977-49.7921 0S-27.49977-49.7921 0-49.7921S49.7921-27.49977 49.7921 0ZM0 0' fill='none'/>
+<path d='M79.66733 0C79.66733 21.9998 61.83347 39.83366 39.83366 39.83366C17.83386 39.83366 0 21.9998 0 0S17.83386-39.83366 39.83366-39.83366C61.83347-39.83366 79.66733-21.9998 79.66733 0ZM39.83366 0' fill='none'/>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0 49.78925L144.98694-.0501' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<path d='M83.65063-9.9584' fill='none'/>
+<g transform='translate(-44.94603,40.69359)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-67'/>
+<use x='-3.049949' y='17.275792' xlink:href='#g1-50'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(78.53827,-12.13618)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-9.085452,16.168844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-9.085452' y='16.168844' xlink:href='#g0-67'/>
+<use x='-3.049949' y='17.275792' xlink:href='#g1-49'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><div class="tp">điểm của hai đường tròn $(C_1)$ và $(C_2)$, điểm $B$ có tung độ dương, $C$ là giao điểm của đường thẳng $AB$ với trục $Ox$. <ol><li>Tìm tọa độ điểm $C$ theo $r$;</li><li>Cho biết vị trí của điểm $C$ khi $r \to 0^+$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> <ol><li>Đường tròn ($C_2$) có phương trình $x^2 + y^2 = r^2$. <br> Tọa độ điểm $B$ là nghiệm của hệ phuơng trình \begin{align*} \left\{\begin{aligned}&amp; (x-1)^2 + y^2 = 1 \\ &amp; x^2 + y^2 = r^2\end{aligned}\right.\Rightarrow \left\{\begin{aligned}&amp; x = \dfrac{r^2}{2} \\ &amp; x^2 + y^2 = r^2\end{aligned}\right. &\Rightarrow& \left\{\begin{aligned}&amp;x = \dfrac{r^2}{2} \\ &amp;y = \dfrac{r}{2}\sqrt{4-r^2} (\text{vì } y&gt;0)\end{aligned}\right.\\ &\Rightarrow& B \left(\dfrac{r^2}{2}; \dfrac{r}{2}\sqrt{4-r^2}\right) \end{align*} Phương trình đường thẳng $AB$ là \begin{align*} AB\colon \dfrac{x-x_A}{x_A-x_B} = \dfrac{y-y_A}{y_A-y_B} &\Rightarrow& AB\colon \dfrac{x-0}{0-\dfrac{r^2}{2}} = \dfrac{y-r}{r-\dfrac{r}{2}\sqrt{4-r^2}} \\ &\Leftrightarrow& AB\colon \dfrac{x}{r} + \dfrac{y}{2-\sqrt{4-r^2}} - \dfrac{r}{2-\sqrt{4-r^2}} = 0 \end{align*} Tọa độ điểm $C$ là nghiệm của hệ phương trình<br> $$\begin{cases} \dfrac{x}{r} + \dfrac{y}{2-\sqrt{4-r^2}} - \dfrac{r}{2-\sqrt{4-r^2}} = 0\\ y = 0 \end{cases}\Leftrightarrow \begin{cases} x = \dfrac{r^2}{2-\sqrt{4-r^2}} \\ y = 0 \end{cases}$$ Vậy $C\left(\dfrac{r^2}{2-\sqrt{4-r^2}};0\right)$.</li><li>Ta có $\displaystyle \lim_{ r \to 0^+}{\dfrac{r^2}{2-\sqrt{4-r^2}}} = \displaystyle \lim_{ r \to 0^+}{\dfrac{r^2(2+\sqrt{4-r^2})}{r^2}} = \displaystyle \lim_{ r \to 0^+}{(2+\sqrt{4-r^2})} = 4$. Do đó điểm $C$ trên trục $Ox$ sẽ dần về điểm có tọa độ $(4;0)$ khi $r \to 0^+$.</li></ol></div></div></div></div><div class="lz"><div class="sub-banner">Bài tập vận dụng</div></div><div class="lz"><div class="q ex" id="ex36" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Một công ty sản xuất máy tính cho biết trung bình một nhân viên của họ có thể lắp ráp được $M(t) = \dfrac{30t+6}{t}$ $(t \geq 0)$ bộ phận mỗi ngày sau $t$ ngày đào tạo. Tính $\displaystyle \lim_{ t \to +\infty}{M(t)}$ và cho biết ý nghĩa của kết quả.</div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> Ta có $\displaystyle \lim_{ t \to +\infty}{M(t)} = \displaystyle \lim_{ t \to +\infty}\ {\dfrac{30t+6}{t}} = 30$. <br> Kết quả trên cho biết trung bình một nhân viên có thể lắp ráp tối đa 30 bộ phận mỗi ngày. Để đạt được con số tối đa đó thì số ngày đào tạo nhân viên rất lớn.</div></div></div></div><div class="lz"><div class="q ex" id="ex37" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Chi phí (đơn vị: triệu đồng) để sản xuất $x$ sản phẩm của một công ty được xác định bởi hàm số $C(x) = 1000+2x$. <ol><li>Tính chi phí trung bình $\overline{C}(x)$ để sản xuất một sản phẩm.</li><li>Tính $\displaystyle \lim_{ x \to +\infty}{\overline{C}(x)}$ và cho biết ý nghĩa của kết quả.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $\overline{C}(x) = \dfrac{C(x)}{x} = \dfrac{1000+2x}{x}$; \qquad b) $\displaystyle \lim_{ x \to +\infty}{\overline{C}(x)} =2$.<br> Kết quả trên cho biết, khi công ty sản xuất càng nhiều sản phẩm thì chi phí trung bình tối đa cho một sản phẩm là 2 triệu đồng.</div></div></div></div><div class="lz"><div class="q ex" id="ex38" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Một cái hồ đang chứa $500$ $m^3$ nước mặn với nồng độ muối $10$ kg/$m^3$. Để giảm độ mặn người ta bơm nước ngọt vào hồ với tốc độ $3$ $m^3$/phút. <ol><li>Viết biểu thức $M(a)$ biểu thị nồng độ muối trong hồ sau a phút từ khi bắt đầu bơm.</li><li>Tính $\displaystyle \lim_{ a \to +\infty}{{M}(a)}$ và cho biết ý nghĩa của kết quả.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) Lượng muối trong hồ là $10.500 = 5000$ $(kg)$. Sau a phút, lượng nước trong hồ là $500+3a$ $(m^3)$. Do đó $M(a) = \dfrac{5000}{5000+3a}$ $(kg/m^3)$.<br> b) $\displaystyle \lim_{ a \to +\infty}{{M}(a)} = 0$. Kết quả này cho biết khi thời gian bơm nước ngọt càng lớn thì nồng độ muối trong hồ càng dần về $0$, tới một lúc nào đó nước trong hồ gần như là nước ngọt.</div></div></div></div><div class="lz"><div class="q ex" id="ex39" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Một bể có chứa $10000$ lít nước ngọt. Người ta bơm nước biển có nồng độ muối là $40$ gam/lít vào bể với tốc độ $15$ lít/phút. <ol><li>Tính nồng độ muối của nước trong bể sau $b$ phút kể từ khi bắt đầu bơm.</li><li>Nồng độ muối trong bể như thế nào khi $b \to +\infty$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) Sau $b$ phút, lượng muối trong bể là $40\cdot15b = 600b$ (gam), lượng nước trong bể là $10000+15b$ (lít).<br> Do đó nồng độ muối trong bể sau $b$ phút là \ $\dfrac{600b}{10000+15b}$ (gam/lít).<br> b) Ta có $\displaystyle \lim_{ b \to +\infty}{\dfrac{600b}{10000+15b}} = 40$. Nồng độ muối trong bể dần tới $40$ gam/lít khi $b \to +\infty$.</div></div></div></div><div class="lz"><div class="q ex" id="ex40" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Một thấu kính có tiêu cự là $f$. Gọi $d$ và $d'$ lần lượt là khoảng cách từ một vật thật $AB$ và từ ảnh $A'B'$ của nó tới quang tâm O của thấu kính như hình dưới đây. Công thức thấu kính là $\dfrac{1}{d}+\dfrac{1}{d'} = \dfrac{1}{f}$.</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='336.96531pt' height='93.942695pt' viewBox='-69.011212 -69.011209 336.96531 93.942695'>
+<defs>
+<path id='g0-48' d='M1.876961-2.809465C1.918804-2.899128 1.93076-2.964882 1.93076-3.000747C1.93076-3.186052 1.763387-3.341469 1.566127-3.341469C1.327024-3.341469 1.255293-3.132254 1.231382-3.048568L.394521-.490162C.382565-.454296 .364633-.406476 .364633-.382565C.364633-.280946 .603736-.233126 .609714-.233126C.663512-.233126 .687422-.286924 .711333-.334745L1.876961-2.809465Z'/>
+<path id='g1-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g1-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g1-70' d='M2.518555-2.582316H3.347447C4.000996-2.582316 4.032877-2.454795 4.032877-2.223661C4.032877-2.16787 4.032877-2.088169 3.977086-1.880946C3.969116-1.849066 3.961146-1.785305 3.961146-1.761395C3.961146-1.753425 3.961146-1.649813 4.080697-1.649813C4.176339-1.649813 4.200249-1.729514 4.224159-1.833126L4.646575-3.53873C4.654545-3.55467 4.678456-3.658281 4.678456-3.666252C4.678456-3.698132 4.654545-3.777833 4.550934-3.777833C4.455293-3.777833 4.439352-3.706102 4.415442-3.610461C4.25604-2.988792 4.072727-2.84533 3.363387-2.84533H2.590286L3.092403-4.853798C3.164134-5.140722 3.172105-5.156663 3.498879-5.156663H4.670486C5.618929-5.156663 5.889913-4.95741 5.889913-4.27198C5.889913-4.104608 5.850062-3.897385 5.850062-3.745953C5.850062-3.650311 5.905853-3.610461 5.969614-3.610461C6.081196-3.610461 6.089166-3.682192 6.105106-3.817684L6.248568-5.172603C6.256538-5.212453 6.256538-5.268244 6.256538-5.308095C6.256538-5.419676 6.160897-5.419676 6.017435-5.419676H1.928767C1.785305-5.419676 1.681694-5.419676 1.681694-5.276214C1.681694-5.156663 1.777335-5.156663 1.912827-5.156663C1.968618-5.156663 2.080199-5.156663 2.215691-5.140722C2.383064-5.124782 2.406974-5.108842 2.406974-5.029141C2.406974-4.98929 2.399004-4.95741 2.375093-4.869738L1.315068-.629639C1.243337-.326775 1.227397-.263014 .637609-.263014C.486177-.263014 .390535-.263014 .390535-.111582C.390535-.079701 .414446 0 .518057 0C.68543 0 .876712-.02391 1.052055-.02391H2.15193C2.303362-.01594 2.590286 0 2.741719 0C2.797509 0 2.909091 0 2.909091-.151432C2.909091-.263014 2.81345-.263014 2.646077-.263014S2.414944-.263014 2.231631-.278954C2.016438-.302864 1.992528-.326775 1.992528-.422416C1.992528-.430386 1.992528-.478207 2.024408-.597758L2.518555-2.582316Z'/>
+<path id='g1-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g1-100' d='M4.28792-5.292154C4.29589-5.308095 4.319801-5.411706 4.319801-5.419676C4.319801-5.459527 4.28792-5.531258 4.192279-5.531258C4.160399-5.531258 3.913325-5.507347 3.730012-5.491407L3.283686-5.459527C3.108344-5.443587 3.028643-5.435616 3.028643-5.292154C3.028643-5.180573 3.140224-5.180573 3.235866-5.180573C3.618431-5.180573 3.618431-5.132752 3.618431-5.061021C3.618431-5.0132 3.55467-4.750187 3.514819-4.590785L3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.669489 3.156164-.757161 3.180075-.860772L4.28792-5.292154ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g1-102' d='M3.052553-3.172105H3.793773C3.953176-3.172105 4.048817-3.172105 4.048817-3.323537C4.048817-3.435118 3.945205-3.435118 3.809714-3.435118H3.100374C3.227895-4.152428 3.307597-4.606725 3.387298-4.96538C3.419178-5.100872 3.443088-5.188543 3.56264-5.284184C3.666252-5.371856 3.730012-5.387796 3.817684-5.387796C3.937235-5.387796 4.064757-5.363885 4.168369-5.300125C4.128518-5.284184 4.080697-5.260274 4.040847-5.236364C3.905355-5.164633 3.809714-5.021171 3.809714-4.861768C3.809714-4.678456 3.953176-4.566874 4.128518-4.566874C4.359651-4.566874 4.574844-4.766127 4.574844-5.045081C4.574844-5.419676 4.192279-5.610959 3.809714-5.610959C3.53873-5.610959 3.036613-5.483437 2.781569-4.750187C2.709838-4.566874 2.709838-4.550934 2.494645-3.435118H1.896887C1.737484-3.435118 1.641843-3.435118 1.641843-3.283686C1.641843-3.172105 1.745455-3.172105 1.880946-3.172105H2.446824L1.872976-.079701C1.721544 .72528 1.601993 1.40274 1.179577 1.40274C1.155666 1.40274 .988294 1.40274 .836862 1.307098C1.203487 1.219427 1.203487 .884682 1.203487 .876712C1.203487 .6934 1.060025 .581818 .884682 .581818C.669489 .581818 .438356 .765131 .438356 1.067995C.438356 1.40274 .781071 1.625903 1.179577 1.625903C1.665753 1.625903 2.000498 1.115816 2.10411 .916563C2.391034 .390535 2.574346-.605729 2.590286-.68543L3.052553-3.172105Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(114.682489,-26.291878)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g fill='#f00' stroke='#f00'>
+<path d='M-170.71819 0H153.64638' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M0-51.21545V42.67953' fill='none'/>
+</g>
+<path d='M-170.71262 17.07123H0L119.49883-17.07123' fill='none'/>
+<path d='M-170.71262 17.07123L0 0L119.49883-17.07123' fill='none'/>
+<g fill='#f00' stroke='#f00'>
+<path d='M-170.71262 0H-147.1057' fill='none'/>
+<g transform='translate(-147.1057,0.0)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#00f' stroke='#00f'>
+<path d='M-170.71262 17.07123H-87.35626' fill='none'/>
+<g transform='translate(-87.35626,17.07123)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#00f' stroke='#00f'>
+<path d='M-170.71262 17.07123L-95.88188 9.58815' fill='none'/>
+<g transform='matrix(0.995,-0.09947,0.09947,0.995,-95.88188,9.58817)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#00f' stroke='#00f'>
+<path d='M-170.71262 0V15.07126' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,-170.71262,15.07126)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#00f' stroke='#00f'>
+<path d='M0 0L83.37796-12.34004' fill='none'/>
+<g transform='matrix(0.98918,-0.1464,0.1464,0.98918,83.37796,-12.34003)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#00f' stroke='#00f'>
+<path d='M0 17.07123L32.21422 8.21225' fill='none'/>
+<g transform='matrix(0.96416,-0.26514,0.26514,0.96416,32.21422,8.21227)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#f00' stroke='#f00'>
+<path d='M119.49883 0V-15.07126' fill='none'/>
+<g transform='matrix(0.0,-1.0,1.0,0.0,119.49883,-15.07126)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-85.3563 0V34.1425H85.3563V0' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-170.71262 0V-51.21378H119.49883V-17.07123' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-168.71265-51.21378H-1.99997' fill='none'/>
+<g transform='matrix(-1.0,0.0,0.0,-1.0,-168.71265,-51.21378)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-1.99997,-51.21378)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M1.99997-51.21378H117.49886' fill='none'/>
+<g transform='matrix(-1.0,0.0,0.0,-1.0,1.99997,-51.21378)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(117.49886,-51.21378)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-83.35632 34.1425H-1.99997' fill='none'/>
+<g transform='matrix(-1.0,0.0,0.0,-1.0,-83.35632,34.1425)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-1.99997,34.1425)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M1.99997 34.1425H83.35632' fill='none'/>
+<g transform='matrix(-1.0,0.0,0.0,-1.0,1.99997,34.1425)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(83.35632,34.1425)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+</g>
+<g fill='#000'>
+<path d='M120.09883 0C120.09883 .33138 119.8302 .6 119.49883 .6C119.16745 .6 118.89882 .33138 118.89882 0S119.16745-.6 119.49883-.6C119.8302-.6 120.09883-.33138 120.09883 0ZM119.49883 0'/>
+<g transform='translate(114.96823,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-65'/>
+<use x='121.025464' y='-29.104664' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<path d='M-42.67813 15.36401' fill='none'/>
+<g transform='translate(-45.16078,20.45172)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-102'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M42.67813 15.36401' fill='none'/>
+<g transform='translate(40.19548,20.45172)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-102'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-85.3563-49.50655' fill='none'/>
+<g transform='translate(-87.54312,-45.9744)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-100'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M85.3563-49.50655' fill='none'/>
+<g transform='translate(81.82225,-45.9744)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-100'/>
+<use x='119.039807' y='-29.104664' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M120.09883-17.07123C120.09883-16.73985 119.8302-16.47122 119.49883-16.47122C119.16745-16.47122 118.89882-16.73985 118.89882-17.07123C118.89882-17.4026 119.16745-17.67123 119.49883-17.67123C119.8302-17.67123 120.09883-17.4026 120.09883-17.07123ZM119.49883-17.07123'/>
+<g transform='translate(123.03098,-20.14957)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-66'/>
+<use x='121.462697' y='-29.104664' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M85.9563 0C85.9563 .33138 85.68767 .6 85.3563 .6C85.02492 .6 84.75629 .33138 84.75629 0S85.02492-.6 85.3563-.6C85.68767-.6 85.9563-.33138 85.9563 0ZM85.3563 0'/>
+<g transform='translate(88.88844,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-70'/>
+<use x='121.217781' y='-29.104664' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M-84.75629 0C-84.75629 .33138-85.02492 .6-85.3563 .6C-85.68767 .6-85.9563 .33138-85.9563 0S-85.68767-.6-85.3563-.6C-85.02492-.6-84.75629-.33138-84.75629 0ZM-85.3563 0'/>
+<g transform='translate(-88.63618,-8.9988)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-70'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M-170.11261 0C-170.11261 .33138-170.38124 .6-170.71262 .6C-171.04399 .6-171.31262 .33138-171.31262 0S-171.04399-.6-170.71262-.6C-170.38124-.6-170.11261-.33138-170.11261 0ZM-170.71262 0'/>
+<g transform='translate(-180.61153,-2.73332)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-65'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M-170.11261 17.07123C-170.11261 17.4026-170.38124 17.67123-170.71262 17.67123C-171.04399 17.67123-171.31262 17.4026-171.31262 17.07123C-171.31262 16.73985-171.04399 16.47122-170.71262 16.47122C-170.38124 16.47122-170.11261 16.73985-170.11261 17.07123ZM-170.71262 17.07123'/>
+<g transform='translate(-181.0504,14.3379)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-66'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g fill='#000'>
+<path d='M.6 0C.6 .33138 .33138 .6 0 .6S-.6 .33138-.6 0S-.33138-.6 0-.6S.6-.33138 .6 0ZM0 0'/>
+<g transform='translate(-10.21779,-8.9988)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(114.682489,-26.291878)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='114.682489' y='-26.291878' xlink:href='#g1-79'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>Tìm biểu thức xác định $d'=\varphi (d)$.</li><li>Tìm $\displaystyle \lim_{ d \to f^+}\ {\varphi(d)}$, $\displaystyle \lim_{ d \to f^-}\ {\varphi(d)}$, $\displaystyle \lim_{ d \to +\infty}\ {\varphi(d)}$. Cho biết ý nghĩa của các kết quả tìm được.</li></ol></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $d' = \varphi (d) = \dfrac{df}{d-f}$. <br> b) $\displaystyle \lim_{ d \to f^+}{\varphi(d)} = \displaystyle \lim_{ d \to f^+}{\dfrac{df}{d-f}} = +\infty$, kết quả này cho biết nếu vật thật $AB$ tiến dần về tiêu điểm $F$ sao cho $d$ luôn lớn hơn $f$ thì ảnh $A'B'$ dần về dương vô cực. <br> $\displaystyle \lim_{ d \to f^-}{\varphi(d)} = \displaystyle \lim_{ d \to f^-}{\dfrac{df}{d-f}} = -\infty$, kết quả này cho biết nếu vật thật $AB$ tiến dần về tiêu điểm $F$ sao cho $d$ luôn nhỏ hơn $f$ thì ảnh $A'B'$ dần về âm vô cực. $\displaystyle \lim_{ d \to +\infty}{\varphi(d)} = \displaystyle \lim_{ d \to +\infty}{\dfrac{df}{d-f}} = f$, kết quả này cho biết nếu vật thật $AB$ ở xa vô cực so với thấu kính thì ảnh $A'B'$ ở trên tiêu diện ảnh (mặt phẳng qua $F'$ và vuông góc với thấu kính).</div></div></div></div><div class="lz"><div class="q ex" id="ex41" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Cho hình bên, đường tròn $(C_1)$ cố định có phương trình <br> $(x+2)^2+y^2 = 4$ và đường tròn $(C_2)$ có tâm $O$ (gốc tọa độ), bán kính $r\ (r \leq 4)$. Cho điểm $P(0;r)$, $Q$ là giao điểm của hai đường tròn $(C_1)$ và $(C_2)$, điểm $Q$ có tung độ dương, $S$ là giao điểm của đường thẳng $PQ$ với trục $Ox$.</div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='227.206147pt' height='125.265136pt' viewBox='-69.011212 -69.011214 227.206147 125.265136'>
+<defs>
+<path id='g1-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g1-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-80' d='M2.510585-2.486675H3.961146C5.108842-2.486675 6.304359-3.283686 6.304359-4.224159C6.304359-4.901619 5.66675-5.443587 4.638605-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.809215-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639C1.259278-.334745 1.243337-.263014 .67746-.263014C.494147-.263014 .406476-.263014 .406476-.111582C.406476-.079701 .430386 0 .533998 0C.68543 0 .876712-.01594 1.028144-.02391H1.538232C2.303362-.02391 2.510585 0 2.566376 0C2.614197 0 2.725778 0 2.725778-.151432C2.725778-.263014 2.622167-.263014 2.486675-.263014C2.462765-.263014 2.319303-.263014 2.183811-.278954C2.016438-.294894 2.000498-.318804 2.000498-.390535C2.000498-.430386 2.016438-.478207 2.024408-.518057L2.510585-2.486675ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.375592C5.029141-5.180573 5.531258-4.98929 5.531258-4.399502C5.531258-4.29589 5.491407-3.58655 5.045081-3.148194C4.925529-3.028643 4.542964-2.725778 3.761893-2.725778H2.550436L3.092403-4.885679Z'/>
+<path id='g0-81' d='M3.737983-.055791C4.98132-.502117 6.224658-1.865006 6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C2.82142 .167372 3.092403 .143462 3.411208 .055791C3.411208 .151432 3.395268 .454296 3.395268 .518057C3.395268 .844832 3.395268 1.546202 4.120548 1.546202C5.068991 1.546202 5.507347 .143462 5.507347 0C5.507347-.055791 5.459527-.111582 5.395766-.111582C5.316065-.111582 5.292154-.03188 5.284184-.00797C5.116812 .518057 4.654545 .74122 4.319801 .74122C4.040847 .74122 3.849564 .637609 3.737983-.055791ZM2.096139-.183313C1.466501-.430386 1.155666-1.004234 1.155666-1.777335C1.155666-2.319303 1.338979-3.355417 1.984558-4.23213C2.502615-4.925529 3.275716-5.363885 3.977086-5.363885C4.813948-5.363885 5.483437-4.774097 5.483437-3.650311C5.483437-3.227895 5.324035-1.275218 3.690162-.350685C3.594521-.804981 3.435118-1.203487 2.917061-1.203487C2.462765-1.203487 2.056289-.797011 2.056289-.390535C2.056289-.318804 2.072229-.247073 2.096139-.183313ZM3.419178-.231133C3.251806-.159402 2.964882-.079701 2.662017-.079701C2.566376-.079701 2.279452-.079701 2.279452-.390535C2.279452-.669489 2.574346-.980324 2.925031-.980324S3.411208-.765131 3.419178-.231133Z'/>
+<path id='g0-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+<path id='g0-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g0-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(67.451601,4.831309)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<g transform='translate(-10.41779,-9.19879)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-10.30167,46.41028)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-80'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-30.65692,38.57658)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-81'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-130.84282,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-136.57455 0H82.75914' fill='none'/>
+<g transform='translate(82.75914,0.0)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(82.9667,3.73215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0-51.21545V65.68733' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,0.0,65.68733)'>
+<path d='M2.59995 0L-1.55997 2.07996L0 0L-1.55997-2.07996' stroke='none'/>
+</g>
+<g transform='translate(-8.22061,67.34283)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M42.67955 0C42.67955 23.57156 23.57156 42.67955 0 42.67955S-42.67955 23.57156-42.67955 0S-23.57156-42.67955 0-42.67955S42.67955-23.57156 42.67955 0ZM0 0' fill='none'/>
+<path d='M.00002 0C.00002 18.85725-15.28638 34.14365-34.14363 34.14365C-53.00089 34.14365-68.28728 18.85725-68.28728 0S-53.00089-34.14365-34.14363-34.14365C-15.28638-34.14365 .00002-18.85725 .00002 0ZM-34.14363 0' fill='none'/>
+<g stroke-width='0.2'>
+<g fill='#000' stroke='#000'>
+<g stroke-dasharray='none' stroke-dashoffset='0.0'>
+<g stroke-linecap='round'>
+<g stroke-width='0.8'>
+<path d='M0 42.67813L-124.27928-.043' fill='none'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<path d='M-75.11589-8.5359' fill='none'/>
+<g transform='translate(29.03127,35.57256)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-67'/>
+<use x='73.487103' y='5.938257' xlink:href='#g1-50'/>
+</g>
+</g>
+</g>
+</g>
+<g transform='translate(-80.22826,-10.71368)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(67.451601,4.831309)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='67.451601' y='4.831309' xlink:href='#g0-67'/>
+<use x='73.487103' y='5.938257' xlink:href='#g1-49'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div><ol><li>Tìm tọa độ điểm $S$ theo $r$;</li><li>Cho biết vị trí của điểm $S$ khi $r \to 0^+$.</li></ol></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) $S\left(\dfrac{-r^2}{4-\sqrt{16-r^2}};0 \right)$. <br> b) Ta có $\displaystyle \lim_{ r \to 0^+}{\dfrac{-r^2}{4-\sqrt{16-r^2}}} = \displaystyle \lim_{ r \to 0^+}{-(4+\sqrt{16-r^2})} = -8$. Do đó điểm $S$ trên trục Ox sẽ dần về điểm có tọa độ $(-8;0)$ khi $r \to 0^+$.</div></div></div></div><div class="lz"><div class="q ex" id="ex42" data-kind="essay" data-dang="d5" data-sub="sub1_4"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Một đoàn tàu chuyển động thẳng khởi hành từ một nhà ga. Quãng đường $s$ (mét) đi được của đoàn tàu là một hàm số của thời gian $t$ (phút) cho bởi công thức $s(t) = t^3-4t^2+7t$. <ol><li>Tính vận tốc trung bình trong khoảng thời gian từ $t=4$ đến $t=7$;</li><li>Tính vận tốc tức thời tại thời điểm $t_0=4$, biết rằng vận tốc tức thời tại thời điểm $t_0$ được tính bởi giới hạn $\displaystyle \lim_{ t \to t_0}{\dfrac{s(t)-s(t_0)}{t-t_0}}$.</li></ol></div></div><div class="qtools"><button type="button" class="sol-btn">Xem lời giải</button></div><div class="solution-box tex2jax_ignore"><div class="tp"><b>Lời giải.</b> a) Vận tốc trung bình trong khoảng thời gian từ $t=4$ đến $t=7$ là</div><div class="center"><div class="tp">$\dfrac{s(7)-s(4)}{7-4} = \dfrac{196-28}{3} = 56$ (mét/phút).</div></div><div class="tp">b) Ta có \ \ $\displaystyle \lim_{ t \to 4}{\dfrac{s(t)-s(4)}{t-4}} = \displaystyle \lim_{ t \to 4}{\dfrac{t^3-4t^2+7t-28}{t-4}} = \displaystyle \lim_{ t \to 4}{\dfrac{(t-4)(t^2+7)}{t-4}} \\ = \displaystyle \lim_{ t \to 4}{(t^2+7)} = 23$. Vậy vận tốc tức thời tại thời điểm $t_0=4$ là $23$ mét/phút.</div></div></div></div>
+    </main>
+    <div class="foot">Liên hệ TOÁN ANH KIÊN - 0987473509</div>
+    <div class="fab">
+        <div class="credit"><span class="cr-i">🖋 <b>TOÁN ANH KIÊN</b></span><span class="cr-i">📟 0987473509</span></div>
+        <button type="button" id="toTop" title="Lên đầu trang" hidden>⬆</button>
+    </div>
+
+    <script>
+        const MEDIA_SCOPE = '.lz';
+        const MEDIA_SVG_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' svg').join(', ');
+        const MEDIA_ALL_SEL = MEDIA_SCOPE.split(',').map(s => s.trim()).flatMap(s => [s + ' svg', s + ' img']).join(', ');
+
+        function svgNum(v) {
+            if (v == null) return NaN;
+            const m = String(v).trim().match(/^([0-9]*\.?[0-9]+)(px)?$/i);
+            return m ? parseFloat(m[1]) : NaN;
+        }
+
+        let __svgSeq = 0;
+        function uniquifySvgIds(svg) {
+            if (svg.dataset.idsDone) return;
+            svg.dataset.idsDone = '1';
+            const withId = svg.querySelectorAll('[id]');
+            if (!withId.length) return;
+            const prefix = 'svg' + (++__svgSeq) + '_';
+            const map = {};
+            withId.forEach(n => { map[n.id] = prefix + n.id; });
+            const ids = Object.keys(map);
+            const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const urlRe = /url\(\s*(['"]?)#([^)'"\s]+)\1\s*\)/g;
+            const fixUrls = str => str.replace(urlRe, (m, q, id) => map[id] ? `url(${q}#${map[id]}${q})` : m);
+
+            svg.querySelectorAll('*').forEach(n => {
+                if (n.tagName.toLowerCase() === 'style') {
+                    let css = fixUrls(n.textContent);
+                    css = css.replace(new RegExp('#(' + ids.map(esc).join('|') + ')(?![\\w-])', 'g'), '#' + prefix + '$1');
+                    n.textContent = css;
+                    return;
+                }
+                Array.from(n.attributes).forEach(a => {
+                    if (a.name === 'id' || a.value.indexOf('#') < 0) return;
+                    if ((a.name === 'href' || a.name === 'xlink:href') && a.value.charAt(0) === '#') {
+                        const id = a.value.slice(1);
+                        if (map[id]) n.setAttribute(a.name, '#' + map[id]);
+                    } else {
+                        const nv = fixUrls(a.value);
+                        if (nv !== a.value) n.setAttribute(a.name, nv);
+                    }
+                });
+            });
+            withId.forEach(n => { n.id = map[n.id]; });
+        }
+
+        function normalizeSvgs() {
+            document.querySelectorAll(MEDIA_SVG_SEL).forEach(svg => {
+                if (svg.closest('mjx-container')) return;
+                uniquifySvgIds(svg);
+                if (svg.dataset.normalized) return;
+                const w = svgNum(svg.getAttribute('width'));
+                const h = svgNum(svg.getAttribute('height'));
+
+                if (!svg.hasAttribute('viewBox')) {
+                    if (w > 0 && h > 0) {
+                        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                    } else {
+                        try {
+                            const b = svg.getBBox();
+                            if (b.width && b.height)
+                                svg.setAttribute('viewBox', `${b.x - 2} ${b.y - 2} ${b.width + 4} ${b.height + 4}`);
+                        } catch (e) { return; }
+                    }
+                }
+                if (svg.hasAttribute('viewBox')) {
+                    if (w > 0) { svg.style.width = '100%'; svg.style.maxWidth = w + 'px'; }
+                    svg.removeAttribute('height');
+                    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                    svg.dataset.normalized = '1';
+                }
+            });
+        }
+
+        const __zoomRefresh = new Set();
+        let __zoomResizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(__zoomResizeTimer);
+            __zoomResizeTimer = setTimeout(() => __zoomRefresh.forEach(fn => fn()), 150);
+        });
+
+        function setupImageZoom() {
+            document.querySelectorAll(MEDIA_ALL_SEL).forEach(el => {
+                if (el.closest('.zoom-container') || el.closest('mjx-container') || el.classList.contains('no-zoom')) return;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'zoom-container';
+                const viewport = document.createElement('div');
+                viewport.className = 'zoom-viewport';
+                el.parentNode.insertBefore(wrapper, el);
+                viewport.appendChild(el);
+                wrapper.appendChild(viewport);
+                el.classList.add('zoom-media');
+
+                let scale = 1;
+                const STEP = 0.25, MIN = 1, MAX = 4;
+
+                const toolbar = document.createElement('div');
+                toolbar.className = 'zoom-toolbar';
+                const mk = (txt, title) => {
+                    const b = document.createElement('button');
+                    b.type = 'button'; b.className = 'zoom-btn'; b.innerHTML = txt; b.title = title;
+                    b.setAttribute('aria-label', title);
+                    return b;
+                };
+                const btnIn = mk('➕', 'Phóng to'), btnOut = mk('➖', 'Thu nhỏ'), btnReset = mk('↺', 'Mặc định');
+
+                function apply(newScale) {
+                    const cx = viewport.scrollWidth ? (viewport.scrollLeft + viewport.clientWidth / 2) / viewport.scrollWidth : 0.5;
+                    const cy = viewport.scrollHeight ? (viewport.scrollTop + viewport.clientHeight / 2) / viewport.scrollHeight : 0.5;
+
+                    scale = Math.min(MAX, Math.max(MIN, Math.round(newScale * 100) / 100));
+
+                    el.classList.remove('zoomed');
+                    el.style.removeProperty('--zw');
+                    const base = el.getBoundingClientRect().width;
+                    if (scale > 1 && base > 0) {
+                        el.style.setProperty('--zw', (base * scale) + 'px');
+                        el.classList.add('zoomed');
+                        viewport.scrollLeft = cx * viewport.scrollWidth - viewport.clientWidth / 2;
+                        viewport.scrollTop = cy * viewport.scrollHeight - viewport.clientHeight / 2;
+                    }
+                    viewport.classList.toggle('can-pan', el.classList.contains('zoomed'));
+                    btnIn.disabled = scale >= MAX;
+                    btnOut.disabled = scale <= MIN;
+                }
+
+                btnIn.onclick = () => apply(scale + STEP);
+                btnOut.onclick = () => apply(scale - STEP);
+                btnReset.onclick = () => apply(1);
+                __zoomRefresh.add(() => { if (scale > 1) apply(scale); });
+
+                viewport.addEventListener('wheel', e => {
+                    if (!e.ctrlKey) return;
+                    e.preventDefault();
+                    apply(scale + (e.deltaY < 0 ? STEP : -STEP));
+                }, { passive: false });
+                viewport.addEventListener('dblclick', () => apply(scale > 1 ? 1 : 2));
+
+                let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
+                viewport.addEventListener('pointerdown', e => {
+                    if (e.pointerType !== 'mouse' || !el.classList.contains('zoomed')) return;
+                    dragging = true; sx = e.clientX; sy = e.clientY; sl = viewport.scrollLeft; st = viewport.scrollTop;
+                    viewport.setPointerCapture(e.pointerId);
+                    viewport.classList.add('dragging');
+                });
+                viewport.addEventListener('pointermove', e => {
+                    if (!dragging) return;
+                    viewport.scrollLeft = sl - (e.clientX - sx);
+                    viewport.scrollTop = st - (e.clientY - sy);
+                });
+                const stop = () => { dragging = false; viewport.classList.remove('dragging'); };
+                viewport.addEventListener('pointerup', stop);
+                viewport.addEventListener('pointercancel', stop);
+
+                toolbar.append(btnIn, btnOut, btnReset);
+                wrapper.appendChild(toolbar);
+                apply(1);
+            });
+        }
+
+        const MEDIA_TABLE_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' table').join(', ');
+        function wrapTables() {
+            document.querySelectorAll(MEDIA_TABLE_SEL).forEach(t => {
+                if (t.closest('mjx-container, .table-scroll, .table-responsive, #tblOverlay')) return;
+                if (!t.parentNode) return;
+                const w = document.createElement('div');
+                w.className = 'table-scroll';
+                t.parentNode.insertBefore(w, t);
+                w.appendChild(t);
+            });
+        }
+
+        const __tblRefresh = [];
+        window.addEventListener('resize', () => __tblRefresh.forEach(fn => fn()));
+        function tblState(box, sc) {
+            const over = sc.scrollWidth > sc.clientWidth + 2;
+            box.classList.toggle('has-scroll', over);
+            box.classList.toggle('at-end', !over || sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2);
+        }
+        function enhanceTables() {
+            document.querySelectorAll('.table-responsive, .table-scroll').forEach(sc => {
+                if (sc.dataset.tblDone || sc.closest('#tblOverlay')) return;
+                const table = sc.querySelector('table');
+                if (!table || !sc.parentNode) return;
+                sc.dataset.tblDone = '1';
+                const box = document.createElement('div'); box.className = 'tbl-box';
+                const hint = document.createElement('div'); hint.className = 'tbl-hint';
+                const msg = document.createElement('span'); msg.textContent = '\u2194 Vuốt ngang để xem thêm';
+                const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'tbl-open'; btn.textContent = '\u26F6 Xem toàn màn hình';
+                btn.addEventListener('click', e => { e.stopPropagation(); openTableOverlay(table); });
+                hint.append(msg, btn);
+                const wrap = document.createElement('div'); wrap.className = 'tbl-wrap';
+                const fade = document.createElement('div'); fade.className = 'tbl-fade';
+                sc.parentNode.insertBefore(box, sc);
+                box.append(hint, wrap);
+                wrap.append(sc, fade);
+                const first = table.rows[0];
+                if (first && first.cells.length >= 4 && first.cells[0].colSpan === 1 && first.cells[0].rowSpan === 1) table.classList.add('sticky-first');
+                const upd = () => tblState(box, sc);
+                sc.addEventListener('scroll', upd, { passive: true });
+                if (window.ResizeObserver) new ResizeObserver(upd).observe(table);
+                __tblRefresh.push(upd);
+                upd();
+            });
+        }
+        let tblOv = null, tblScale = 1;
+        function closeTableOverlay() {
+            if (!tblOv) return;
+            tblOv.classList.remove('open');
+            document.documentElement.style.overflow = '';
+        }
+        function openTableOverlay(table) {
+            if (!tblOv) {
+                tblOv = document.createElement('div'); tblOv.id = 'tblOverlay';
+                tblOv.innerHTML = '<div class="tbl-ov-bar"><span class="ttl">Kéo để xem; A+ / A\u2212 đổi cỡ chữ</span>'
+                    + '<button type="button" class="zoom-btn" data-a="-">A\u2212</button><button type="button" class="zoom-btn" data-a="+">A+</button>'
+                    + '<button type="button" class="zoom-btn" data-a="x">\u2715 Đóng</button></div><div class="tbl-ov-body"></div>';
+                document.body.appendChild(tblOv);
+                tblOv.addEventListener('click', e => {
+                    const b = e.target.closest('button[data-a]');
+                    if (!b) return;
+                    if (b.dataset.a === 'x') { closeTableOverlay(); return; }
+                    tblScale = Math.min(2.6, Math.max(0.6, tblScale + (b.dataset.a === '+' ? 0.2 : -0.2)));
+                    tblOv.style.setProperty('--tbl-s', tblScale);
+                });
+                window.addEventListener('keydown', e => {
+                    if (!tblOv.classList.contains('open')) return;
+                    e.stopImmediatePropagation();
+                    if (e.key === 'Escape') closeTableOverlay();
+                }, true);
+            }
+            const body = tblOv.querySelector('.tbl-ov-body');
+            body.innerHTML = '';
+            const c = table.cloneNode(true);
+            c.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+            c.classList.remove('sticky-first');
+            body.appendChild(c);
+            tblScale = 1;
+            tblOv.style.setProperty('--tbl-s', 1);
+            tblOv.classList.add('open');
+            document.documentElement.style.overflow = 'hidden';
+            body.scrollTo(0, 0);
+        }
+
+        function initMedia() { wrapTables(); enhanceTables(); normalizeSvgs(); setupImageZoom(); }
+
+        window.addEventListener('load', () => setTimeout(initMedia, 300));
+
+        const $ = (s, r) => (r || document).querySelector(s);
+        const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+        let queue = [], busy = false, pendingJump = null;
+        function keepJump() { if (pendingJump) pendingJump.scrollIntoView({ block: 'start' }); }
+        function pump() {
+            if (busy) return;
+            const batch = [];
+            while (queue.length && batch.length < 3) {
+                const e = queue.shift();
+                if (!e.dataset.ts) { e.dataset.ts = '1'; batch.push(e); }
+            }
+            if (!batch.length) return;
+            busy = true;
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise(batch))
+                    .then(() => { initMedia(); keepJump(); })
+                    .catch(err => console.warn(err))
+                    .then(() => { busy = false; setTimeout(pump, 0); });
+            };
+            go();
+        }
+        function want(els, front) {
+            els = els.filter(e => !e.dataset.ts);
+            queue = front ? els.concat(queue) : queue.concat(els);
+            pump();
+        }
+        function typesetNow(el) {
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise([el]))
+                    .then(() => { initMedia(); })
+                    .catch(err => console.warn(err));
+            };
+            go();
+        }
+
+        const lzs = $$('.lz');
+        const title = $('#ttl');
+        want([title], true);
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(es => {
+                const vis = es.filter(e => e.isIntersecting).map(e => e.target);
+                if (vis.length) want(vis, true);
+            }, { rootMargin: '1500px 0px' });
+            lzs.forEach(e => io.observe(e));
+        }
+        want(lzs, false);
+
+        function openSol(q, force) {
+            const s = $('.solution-box', q), b = $('.sol-btn', q);
+            if (!s) return;
+            const open = s.style.display === 'block';
+            const target = force === undefined ? !open : force;
+            if (target === open) return;
+            s.style.display = target ? 'block' : 'none';
+            if (b) b.textContent = target ? 'Ẩn lời giải' : 'Xem lời giải';
+            if (target) {
+                markSeen(q);
+                if (!s.dataset.ts) {
+                    s.dataset.ts = '1';
+                    s.classList.remove('tex2jax_ignore');
+                    typesetNow(s);
+                } else initMedia();
+            }
+        }
+        let allOpen = false;
+        $('#btnAll').addEventListener('click', () => {
+            if (!allOpen) {
+                const risky = tracked.filter(q => q.dataset.ans && !(P[q.id] && P[q.id].st) && $('.solution-box', q));
+                if (risky.length && !confirm('Còn ' + risky.length + ' câu chưa làm xong. Xem lời giải bây giờ thì các câu đó sẽ được ghi nhận là "đã xem lời giải trước" và không tính đúng. Tiếp tục?')) return;
+            }
+            allOpen = !allOpen;
+            $$('.q').forEach(q => openSol(q, allOpen));
+            $('#btnAll').textContent = allOpen ? '🙈 Ẩn tất cả lời giải' : '👁 Hiện tất cả lời giải';
+        });
+
+        function norm(s) { return s.replace(/\u2212/g, '-').replace(/,/g, '.').replace(/\s+/g, ''); }
+        function sameAns(a, b) {
+            a = norm(a); b = norm(b);
+            if (a === '' || b === '') return false;
+            if (a === b) return true;
+            const x = Number(a), y = Number(b);
+            return isFinite(x) && isFinite(y) && Math.abs(x - y) < 1e-9;
+        }
+
+        const GOOD = ['c1', 'c2', 'cr', 'ok'];
+        const FB = {
+            c1: ['correct', '✔ Chính xác — đúng ngay lần đầu'],
+            c2: ['correct', '✔ Đúng (sau khi thử lại)'],
+            cr: ['correct', '✔ Đúng (khi làm lại)'],
+            w: ['wrong', '✘ Chưa đúng'],
+            p: ['partial', ''],
+            sv: ['partial', '👁 Em đã xem lời giải trước nên câu này không tính đúng']
+        };
+        const BADGE = { c1: '🥇 Đúng ngay lần đầu', c2: 'Đúng ở lần 2', cr: 'Đúng khi làm lại', w: 'Sai', p: 'Đúng một phần',
+                        sv: 'Đã xem lời giải trước', ok: '✔ Làm được', near: '~ Gần đúng', no: '✘ Chưa làm được' };
+        const BCLS = { c1: 'correct', c2: 'correct', cr: 'correct', ok: 'correct', w: 'wrong', no: 'wrong', p: 'partial', near: 'partial', sv: 'partial' };
+        const KIND_NAME = { mc: 'Trắc nghiệm', tf: 'Đúng/Sai', short: 'Trả lời ngắn', essay: 'Tự luận' };
+
+        function mk(tag, cls, html) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (html) e.innerHTML = html;
+            if (tag === 'button') e.type = 'button';
+            return e;
+        }
+        function kindOf(q) {
+            if (q.dataset.ans) return q.dataset.kind;
+            return $('.solution-box', q) ? 'essay' : '';
+        }
+        const qs = $$('.q');
+        const tracked = qs.filter(q => kindOf(q));
+
+        function hash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+        const LS_KEY = 'tex2html.lesson.' + hash(document.title + '|' + tracked.map(q =>
+            q.id + ':' + kindOf(q) + ':' + (q.dataset.ans || '') + $$('.tfrow', q).map(w => w.dataset.ans.charAt(0)).join('')).join('|'));
+        let P = {}, lsOK = true;
+        function load() {
+            let raw = null;
+            try { raw = localStorage.getItem(LS_KEY); } catch (e) { lsOK = false; return; }
+            try { const o = JSON.parse(raw || 'null'); if (o && o.q) P = o.q; } catch (e) { P = {}; }
+            const ids = new Set(tracked.map(q => q.id));
+            Object.keys(P).forEach(k => { if (!ids.has(k)) delete P[k]; });
+        }
+        function save() {
+            try {
+                if (Object.keys(P).length) localStorage.setItem(LS_KEY, JSON.stringify({ v: 1, t: Date.now(), q: P }));
+                else localStorage.removeItem(LS_KEY);
+            } catch (e) { lsOK = false; }
+            const w = $('#lsWarn'); if (w) w.hidden = lsOK;
+        }
+        function W(q) { return P[q.id] || (P[q.id] = { n: 0, st: '' }); }
+
+        function enhance(q) {
+            const kind = kindOf(q), tools = $('.qtools', q), eh = $('.eh', q);
+            if (eh) eh.appendChild(mk('span', 'stt'));
+            if (kind === 'tf') { const c = mk('button', 'tf-chk', 'Kiểm tra'); c.disabled = true; $('.opts', q).appendChild(c); }
+            if (kind === 'essay') {
+                const rd = mk('button', 'redo-btn', '↺ Làm lại'); rd.hidden = true; tools.appendChild(rd);
+                const rate = mk('div', 'rate', '<span class="rq">Sau khi xem lời giải, em tự đánh giá nhé:</span>' +
+                    '<button type="button" class="rb ok" data-r="ok">✔ Em làm được</button>' +
+                    '<button type="button" class="rb near" data-r="near">~ Gần đúng</button>' +
+                    '<button type="button" class="rb no" data-r="no">✘ Chưa</button>');
+                rate.hidden = true; q.appendChild(rate);
+            }
+            tools.appendChild(mk('button', 'rv-btn', '🔖 Ôn lại'));
+        }
+
+        function paint(q) {
+            const kind = kindOf(q), r = P[q.id] || {}, st = r.st || '', n = r.n || 0;
+            q.classList.remove('s-correct', 's-wrong', 's-partial');
+            if (st) q.classList.add('s-' + BCLS[st]);
+            const badge = $('.stt', q); if (badge) badge.textContent = BADGE[st] || '';
+            const rv = $('.rv-btn', q);
+            if (rv) { rv.classList.toggle('on', !!r.rv); rv.textContent = r.rv ? '🔖 Đã đánh dấu ôn lại' : '🔖 Ôn lại'; }
+            const redo = $('.redo-btn', q); if (redo) redo.hidden = !st;
+            if (kind === 'essay') {
+                $('.rate', q).hidden = !(r.sn || st);
+                $$('.rb', q).forEach(b => b.classList.toggle('on', b.dataset.r === st));
+                return;
+            }
+            const ans = q.dataset.ans, total = $$('.tfrow', q).length;
+            if (kind === 'mc') {
+                $$('.opt', q).forEach(o => {
+                    const bad = (r.bad || []).indexOf(o.dataset.k) >= 0;
+                    o.classList.toggle('wrong', bad);
+                    o.classList.toggle('correct', o.dataset.k === ans && (!!st || !!r.v));
+                    o.classList.toggle('locked', !!st || bad);
+                });
+            } else if (kind === 'tf') {
+                const tf = r.tf || {}, rows = $$('.tfrow', q);
+                rows.forEach(row => {
+                    const sel = tf[row.dataset.k], a = row.dataset.ans;
+                    row.classList.remove('r-ok', 'r-bad');
+                    if (st) row.classList.add(sel === a ? 'r-ok' : 'r-bad');
+                    $$('.tfb button', row).forEach(b => {
+                        const v = b.dataset.v;
+                        b.disabled = !!st;
+                        b.classList.toggle('sel', !st && sel === v);
+                        b.classList.toggle('correct', !!st && v === a);
+                        b.classList.toggle('wrong', !!st && sel === v && v !== a);
+                    });
+                });
+                const chk = $('.tf-chk', q);
+                chk.hidden = !!st;
+                chk.disabled = !rows.every(row => tf[row.dataset.k]);
+                chk.textContent = n >= 1 ? 'Kiểm tra lại' : 'Kiểm tra';
+            } else if (kind === 'short') {
+                const inp = $('.sans', q), chk = $('.chk', q), ta = $('.true-ans', q);
+                const right = sameAns(r.txt || '', ans);
+                inp.value = r.txt || '';
+                inp.readOnly = !!st;
+                inp.classList.remove('correct', 'wrong');
+                if (st) inp.classList.add(right ? 'correct' : 'wrong'); else if (n >= 1) inp.classList.add('wrong');
+                chk.disabled = !!st;
+                chk.textContent = n >= 1 && !st ? 'Kiểm tra lại' : 'Kiểm tra';
+                ta.hidden = !(st && !right);
+                ta.textContent = 'Đáp án đúng: ' + ans;
+            }
+            const fb = $('.fb', q);
+            let cls = '', txt = '';
+            if (st) {
+                cls = FB[st][0]; txt = FB[st][1];
+                if (st === 'p') txt = '½ Đúng ' + r.k + '/' + total + ' ý';
+            } else if (r.v) {
+                cls = 'partial'; txt = 'Em đã xem lời giải — câu này sẽ không được tính đúng.';
+            } else if (n >= 1) {
+                cls = 'wrong';
+                txt = kind === 'tf' ? 'Mới đúng ' + r.k + '/' + total + ' ý — em xem lại rồi chọn lại một lần nữa nhé.'
+                                    : 'Chưa đúng — em thử lại một lần nữa nhé.';
+            }
+            fb.textContent = txt;
+            fb.className = 'fb' + (cls ? ' f-' + cls : '');
+        }
+
+        function markSeen(q) {
+            const kind = kindOf(q);
+            if (!kind) return;
+            const r = W(q);
+            if (kind === 'essay') r.sn = 1;
+            else if (!r.st && !r.v) { r.v = 1; if (!r.rd) r.sv = 1; r.rv = 1; }
+            else return;
+            save(); paint(q); refresh();
+        }
+
+        function goodSt(r) { return r.rd ? 'cr' : (r.n === 1 ? 'c1' : 'c2'); }
+        function finishQ(q, st) {
+            const r = W(q);
+            r.st = st;
+            if (!r.first) r.first = st;
+            r.rv = GOOD.indexOf(st) >= 0 ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function answerMC(q, val) {
+            const r = W(q);
+            if (r.st || (r.bad || []).indexOf(val) >= 0) return;
+            const ok = val === q.dataset.ans;
+            r.n = (r.n || 0) + 1;
+            r.bad = r.bad || [];
+            if (!ok) r.bad.push(val);
+            if (r.v) { r.pick = val; finishQ(q, 'sv'); return; }
+            if (ok) { r.pick = val; finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { r.pick = val; finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+        }
+        function pickTF(q, row, val) {
+            const r = W(q);
+            if (r.st) return;
+            r.tf = r.tf || {};
+            r.tf[row.dataset.k] = val;
+            save(); paint(q);
+        }
+        function checkTF(q) {
+            const r = W(q), rows = $$('.tfrow', q);
+            if (r.st || !r.tf || !rows.every(w => r.tf[w.dataset.k])) return;
+            r.n = (r.n || 0) + 1;
+            r.k = rows.filter(w => r.tf[w.dataset.k] === w.dataset.ans).length;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (r.k === rows.length) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, r.k === 0 ? 'w' : 'p'); return; }
+            save(); paint(q); refresh();
+        }
+        function checkShort(q) {
+            const r = W(q);
+            if (r.st) return;
+            const inp = $('.sans', q);
+            if (norm(inp.value) === '') { inp.focus(); return; }
+            r.txt = inp.value.trim();
+            r.n = (r.n || 0) + 1;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (sameAns(r.txt, q.dataset.ans)) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+            inp.focus(); inp.select();
+        }
+        function rateQ(q, v) {
+            const r = W(q);
+            r.sn = 1;
+            r.st = v;
+            if (!r.first) r.first = v;
+            r.rv = v === 'ok' ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function toggleRv(q) { const r = W(q); r.rv = r.rv ? 0 : 1; save(); paint(q); refresh(); }
+        function redoQ(q) {
+            const o = P[q.id] || {};
+            P[q.id] = { n: 0, st: '', first: o.first || '', sv: o.sv || 0, rd: (o.rd || 0) + 1, rv: o.rv || 0 };
+            openSol(q, false);
+            save(); paint(q); refresh();
+        }
+
+        function tally(list) {
+            const s = { n: list.length, done: 0, good: 0, first: 0, retry: 0, sv: 0, redo: 0, rev: 0, todo: 0, ok: 0, near: 0, no: 0 };
+            list.forEach(q => {
+                const r = P[q.id] || {}, st = r.st || '';
+                if (r.rv) s.rev++;
+                if (r.sv) s.sv++;
+                if (!st) { s.todo++; return; }
+                s.done++;
+                if (GOOD.indexOf(st) >= 0) s.good++; else s.redo++;
+                if (r.first === 'c1') s.first++; else if (st === 'c2' || st === 'cr') s.retry++;
+                if (st === 'ok' || st === 'near' || st === 'no') s[st]++;
+            });
+            return s;
+        }
+        function wrongList(list) { return list.filter(q => { const r = P[q.id]; return r && r.st && GOOD.indexOf(r.st) < 0; }); }
+
+        let flt = 'all';
+        const redoSet = new Set();
+        const FLT = {
+            all: () => true,
+            todo: q => !(P[q.id] && P[q.id].st),
+            rev: q => !!(P[q.id] && P[q.id].rv),
+            redo: q => redoSet.has(q.id)
+        };
+        function applyFilter() {
+            const on = flt !== 'all', f = FLT[flt] || FLT.all;
+            qs.forEach(q => { q.hidden = on && !(kindOf(q) && f(q)); });
+            $$('.lz').forEach(z => { z.hidden = on && !$$('.q', z).some(q => !q.hidden); });
+            const shown = qs.filter(q => !q.hidden).length;
+            $('#fltNote').hidden = !on;
+            $('#fltTxt').textContent = shown ? 'Đang lọc: ' + shown + ' câu' : 'Không có câu nào thuộc mục này.';
+            want($$('.lz').filter(z => !z.hidden), true);
+        }
+        function setFilter(v) {
+            if (v === 'redo' && !$('#fltSel option[value="redo"]')) { const o = mk('option'); o.value = 'redo'; $('#fltSel').appendChild(o); }
+            flt = v; $('#fltSel').value = v;
+            refresh();
+            applyFilter();
+        }
+        function jumpTo(el) {
+            pendingJump = el;
+            el.scrollIntoView({ block: 'start' });
+            want($$('.lz').filter(x => x.contains(el) || el.contains(x)), true);
+            setTimeout(() => { pendingJump = null; }, 2500);
+        }
+        function redoWrong(list) {
+            const l = wrongList(list);
+            if (!l.length) return;
+            l.forEach(q => { redoQ(q); redoSet.add(q.id); });
+            setFilter('redo');
+            window.scrollTo(0, 0);
+            jumpTo(l[0]);
+        }
+        function resetAll() {
+            if (!confirm('Xóa toàn bộ tiến độ của bài giảng này trên trình duyệt?')) return;
+            P = {}; redoSet.clear();
+            tracked.forEach(q => { openSol(q, false); paint(q); });
+            allOpen = false; $('#btnAll').textContent = '👁 Hiện tất cả lời giải';
+            save();
+            setFilter('all');
+        }
+
+        function buildGroups() {
+            const out = [];
+            const groupedIds = new Set();
+            $$('.dang').forEach(d => {
+                const l = tracked.filter(q => d.contains(q) || q.dataset.dang === d.id), db = d.querySelector(':scope > .db');
+                if (!l.length || !db) return;
+                l.forEach(q => groupedIds.add(q.id));
+                const no = $('.dno', d), tt = $('.dtt', d), label = no ? no.textContent : 'Dạng';
+                const g = { i: out.length, id: d.id, label: label, qs: l, sum: mk('div', 'dsum'),
+                            nameHtml: label + (tt && tt.innerHTML.trim() ? ': ' + tt.innerHTML : '') };
+                db.appendChild(g.sum);
+                out.push(g);
+            });
+            $$('h3.hd2').forEach(h => {
+                const l = tracked.filter(q => !groupedIds.has(q.id) && q.dataset.sub === h.id);
+                if (!l.length) return;
+                l.forEach(q => groupedIds.add(q.id));
+                out.push({ i: out.length, id: h.id, label: h.textContent, nameHtml: h.innerHTML, qs: l, sum: null });
+            });
+            const loose = tracked.filter(q => !groupedIds.has(q.id));
+            [['Ví dụ ngoài các dạng', loose.filter(q => !q.classList.contains('ex'))],
+             ['Bài tập luyện tập', loose.filter(q => q.classList.contains('ex'))]].forEach(p => {
+                if (p[1].length) out.push({ i: out.length, id: '', label: p[0], nameHtml: p[0], qs: p[1], sum: null });
+            });
+            return out;
+        }
+        const CARDS = [['done', 'Đã làm'], ['good', 'Đúng'], ['first', 'Đúng ngay lần đầu'], ['retry', 'Đúng sau thử lại'],
+                       ['sv', 'Xem lời giải trước'], ['redo', 'Cần làm lại'], ['todo', 'Chưa làm']];
+        function buildSummary() {
+            const sec = mk('section', 'sumsec');
+            sec.id = 'summary';
+            sec.innerHTML = '<h2 class="hd hd1">📊 Tổng kết</h2><p class="sline" id="sline"></p>' +
+                '<div class="sgrid">' + CARDS.map(c => '<div class="scard"><b data-s="' + c[0] + '">0</b><span>' + c[1] + '</span></div>').join('') + '</div>' +
+                '<h3 class="hd hd2">Theo dạng</h3>' +
+                '<div class="swrap"><table class="stab"><thead><tr><th>Dạng</th><th>Đã làm</th><th>Đúng</th><th>Cần ôn</th></tr></thead><tbody></tbody></table></div>' +
+                '<h3 class="hd hd2">Theo loại câu</h3><ul class="skind" id="skind"></ul>' +
+                '<div class="sbtns"><button type="button" class="dbtn" data-act="redo-all" id="sbRedo">🔁 Làm lại câu sai</button>' +
+                '<button type="button" class="dbtn" data-act="show-rev" id="sbRev">🔖 Xem câu cần ôn</button>' +
+                '<button type="button" class="dbtn" data-act="reset">🗑 Xóa tiến độ</button></div>' +
+                '<p class="snote">Tiến độ được lưu ngay trên trình duyệt này; mở lại bài giảng sẽ làm tiếp được. ' +
+                'Tự luận tính là đúng khi em tự đánh giá ✔. Câu xem lời giải trước khi làm xong không tính đúng.</p>';
+            const tb = $('tbody', sec);
+            groups.forEach(g => {
+                const tr = mk('tr', '', '<td>' + (g.id ? '<a href="#' + g.id + '" data-go="' + g.id + '">' + g.nameHtml + '</a>' : g.nameHtml) + '</td><td></td><td></td><td></td>');
+                tb.appendChild(tr); g.row = tr;
+            });
+            $('#content').appendChild(sec);
+            $('#toc').insertAdjacentHTML('beforeend', '<a class="l1" href="#summary">📊 Tổng kết</a>');
+            return sec;
+        }
+        function updateGroup(g) {
+            const s = tally(g.qs);
+            if (g.sum) {
+                g.sum.innerHTML = '<b>' + g.label + '</b><span>đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good + (s.rev ? ' · cần ôn ' + s.rev : '') + '</span>' +
+                    (s.redo ? '<button type="button" class="dbtn" data-act="redo-g" data-g="' + g.i + '">🔁 Làm lại câu sai (' + s.redo + ')</button>' : '');
+            }
+            const c = g.row.cells;
+            c[1].textContent = s.done + '/' + s.n; c[2].textContent = s.good; c[3].textContent = s.rev;
+        }
+        function refresh() {
+            const s = tally(tracked);
+            $('#ptxt').textContent = 'Đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good;
+            $('#pfill').style.width = (s.n ? Math.round(100 * s.done / s.n) : 0) + '%';
+            const lab = { todo: 'Chưa làm (' + s.todo + ')', rev: 'Cần ôn lại (' + s.rev + ')', redo: 'Đang làm lại (' + redoSet.size + ')' };
+            Object.keys(lab).forEach(k => { const o = $('#fltSel option[value="' + k + '"]'); if (o) o.textContent = lab[k]; });
+            groups.forEach(updateGroup);
+            $$('[data-s]', sumEl).forEach(b => { b.textContent = b.dataset.s === 'done' ? s.done + '/' + s.n : s[b.dataset.s]; });
+            $('#sline').textContent = s.done === s.n
+                ? '🎉 Em đã làm hết ' + s.n + ' câu, đúng ' + s.good + '.' + (s.redo ? ' Còn ' + s.redo + ' câu cần làm lại.' : ' Giỏi lắm!')
+                : 'Em đã làm ' + s.done + '/' + s.n + ' câu, đúng ' + s.good + '. Còn ' + s.todo + ' câu chưa làm.';
+            $('#skind').innerHTML = Object.keys(KIND_NAME).map(k => {
+                const l = tracked.filter(q => kindOf(q) === k);
+                if (!l.length) return '';
+                const t = tally(l);
+                return '<li><b>' + KIND_NAME[k] + ':</b> đã làm ' + t.done + '/' + t.n +
+                    (k === 'essay' ? ' · ✔ ' + t.ok + ' · ~ ' + t.near + ' · ✘ ' + t.no : ' · đúng ' + t.good + ' (ngay lần đầu ' + t.first + ')') + '</li>';
+            }).join('');
+            const br = $('#sbRedo'); br.textContent = '🔁 Làm lại câu sai (' + s.redo + ')'; br.disabled = !s.redo;
+            $('#sbRev').textContent = '🔖 Xem câu cần ôn (' + s.rev + ')';
+        }
+
+        load();
+        tracked.forEach(enhance);
+        $('#content').insertAdjacentHTML('afterbegin', '<div class="fltnote" id="fltNote" hidden><span id="fltTxt"></span>' +
+            '<button type="button" class="dbtn" data-act="flt-all">Hiện tất cả</button></div>');
+        const groups = tracked.length ? buildGroups() : [];
+        const sumEl = tracked.length ? buildSummary() : null;
+        if (tracked.length) {
+            tracked.forEach(paint);
+            $('#prow').hidden = false;
+            $('#btnSum').hidden = false;
+            refresh();
+            want([sumEl], false);
+        }
+        if (!lsOK) $('#lsWarn').hidden = false;
+        $('#btnSum').addEventListener('click', () => { if (sumEl) jumpTo(sumEl); });
+        $('#fltSel').addEventListener('change', e => { flt = e.target.value; applyFilter(); window.scrollTo(0, 0); });
+
+        function doAct(a) {
+            const act = a.dataset.act;
+            if (act === 'redo-g') redoWrong(groups[+a.dataset.g].qs);
+            else if (act === 'redo-all') redoWrong(tracked);
+            else if (act === 'show-rev') { setFilter('rev'); const f = tracked.find(q => !q.hidden); if (f) jumpTo(f); else window.scrollTo(0, 0); }
+            else if (act === 'flt-all') setFilter('all');
+            else if (act === 'reset') resetAll();
+        }
+
+        document.addEventListener('click', e => {
+            const t = e.target;
+            const go = t.closest('[data-go]');
+            if (go) {
+                e.preventDefault();
+                const el = document.getElementById(go.dataset.go);
+                if (el) { if (flt !== 'all') setFilter('all'); jumpTo(el); }
+                return;
+            }
+            const act = t.closest('[data-act]');
+            if (act) { doAct(act); return; }
+            const sb = t.closest('.sol-btn');
+            if (sb) { openSol(sb.closest('.q')); return; }
+            const q = t.closest('.q');
+            if (!q || !kindOf(q)) return;
+            if (t.closest('.redo-btn')) { redoQ(q); return; }
+            if (t.closest('.rv-btn')) { toggleRv(q); return; }
+            const rb = t.closest('.rb');
+            if (rb) { rateQ(q, rb.dataset.r); return; }
+            if (!q.dataset.ans) return;
+            const opt = t.closest('.opt');
+            if (opt && q.dataset.kind === 'mc' && !opt.classList.contains('static')) { answerMC(q, opt.dataset.k); return; }
+            const tb = t.closest('.tfb button');
+            if (tb) { pickTF(q, tb.closest('.tfrow'), tb.dataset.v); return; }
+            if (t.closest('.tf-chk')) { checkTF(q); return; }
+            if (t.closest('.chk')) checkShort(q);
+        });
+        document.addEventListener('keydown', e => {
+            const t = e.target;
+            if ((e.key === 'Enter' || e.key === ' ') && t.classList && t.classList.contains('opt') && !t.classList.contains('static')) {
+                e.preventDefault();
+                const q = t.closest('.q[data-ans]');
+                if (q) answerMC(q, t.dataset.k);
+            } else if (e.key === 'Enter' && t.classList && t.classList.contains('sans')) {
+                checkShort(t.closest('.q'));
+            }
+        });
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (t.classList && t.classList.contains('sans')) {
+                const q = t.closest('.q'), r = q && P[q.id];
+                if (!(r && r.st)) t.classList.remove('wrong');
+            }
+        });
+
+        const drawer = $('#drawer'), veil = $('#veil');
+        let tocDone = false;
+        function toc(open) {
+            drawer.classList.toggle('open', open);
+            veil.classList.toggle('open', open);
+            if (open && !tocDone) { tocDone = true; typesetNow($('#toc')); }
+        }
+        $('#btnToc').addEventListener('click', () => toc(true));
+        $('#btnTocClose').addEventListener('click', () => toc(false));
+        veil.addEventListener('click', () => toc(false));
+        $('#toc').addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            e.preventDefault();
+            const el = document.getElementById(a.getAttribute('href').slice(1));
+            toc(false);
+            if (el) jumpTo(el);
+        });
+        ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { pendingJump = null; }, { passive: true }));
+
+        const up = $('#toTop');
+        window.addEventListener('scroll', () => { up.hidden = window.scrollY < 600; }, { passive: true });
+        up.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+<script>
+(function () {
+    var PW = "0987473509";
+    var unlocked = false, pending = null, box = null, inp = null, err = null;
+    var RE_ALL = /(tất cả|toàn bộ)/i, RE_SOL = /(lời giải|đáp án)/i;
+
+    function isGate(b) {
+        if (b.closest('.sol-btn, .sol-all, .show-all-sol, #showAllSol, [data-act="sol-all"]')) return true;
+        var t = (b.textContent || '');
+        return RE_ALL.test(t) && RE_SOL.test(t);
+    }
+    function build() {
+        if (box) return;
+        box = document.createElement('div');
+        box.className = 'lz-lock';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.innerHTML = '<div class="lz-lock-box"><h4>🔒 Mở khóa lời giải</h4>' +
+            '<p>Nhập mật khẩu của giáo viên để xem lời giải.</p>' +
+            '<input type="password" autocomplete="off" placeholder="Mật khẩu…">' +
+            '<div class="lz-lock-err"></div>' +
+            '<div class="lz-lock-btns"><button type="button" class="cancel">Hủy</button><button type="button" class="ok">Mở khóa</button></div></div>';
+        document.body.appendChild(box);
+        inp = box.querySelector('input');
+        err = box.querySelector('.lz-lock-err');
+        box.querySelector('.ok').onclick = submit;
+        box.querySelector('.cancel').onclick = close;
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+        inp.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); submit(); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); }
+        });
+    }
+    function open(btn) {
+        build();
+        pending = btn;
+        inp.value = ''; inp.classList.remove('bad'); err.textContent = '';
+        box.classList.add('open');
+        setTimeout(function () { inp.focus(); }, 30);
+    }
+    function close() { if (box) box.classList.remove('open'); pending = null; }
+    function submit() {
+        if (inp.value.trim() === PW) {
+            unlocked = true;
+            var b = pending;
+            close();
+            if (b && document.contains(b)) b.click();
+        } else {
+            err.textContent = 'Mật khẩu không đúng!';
+            inp.classList.remove('bad'); void inp.offsetWidth; inp.classList.add('bad');
+            inp.select();
+        }
+    }
+    document.addEventListener('click', function (e) {
+        if (unlocked || !e.target || !e.target.closest) return;
+        var b = e.target.closest('button, a, [role="button"], input[type="button"]');
+        if (!b || !isGate(b)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        open(b);
+    }, true);
+})();
+</script>
+</body>
+</html>
